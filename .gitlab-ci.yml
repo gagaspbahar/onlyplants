@@ -10,10 +10,14 @@ stages:
 
 pylint:
   stage: Linting
+  tags:
+    - ci-shared
   script:
-  - pylint -d C0301 src/*.py
+    - pylint -d C0301 src/*.py
 
 pytest:
   stage: Test
+  tags:
+    - ci-shared
   script:
   - cd test/;pytest -v

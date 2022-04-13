@@ -11,13 +11,13 @@ stages:
 pylint:
   stage: Linting
   tags:
-    - ci-shared
+    - pdss-dev
   script:
     - pylint -d C0301 src/*.py
 
 pytest:
   stage: Test
   tags:
-    - ci-shared
+    - pdss-dev
   script:
   - cd test/;pytest -v

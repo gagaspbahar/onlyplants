@@ -11,13 +11,13 @@ stages:
 pylint:
   stage: Linting
   tags:
-    - pdss-dev
+    - gagas
   script:
     - pylint -d C0301 src/*.py
 
 pytest:
   stage: Test
   tags:
-    - pdss-dev
+    - gagas
   script:
   - cd test/;pytest -v

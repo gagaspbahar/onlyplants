@@ -10,7 +10,7 @@ stages:
 
 pylint:
   stage: Linting
-  allow-failure: true
+  allow_failure: true
   tags:
     - gagas
   script:

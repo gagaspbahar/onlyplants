@@ -259,17 +259,17 @@ QPushButton:hover {
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="navbar">
     <property name="geometry">
      <rect>
-      <x>-1</x>
+      <x>10</x>
       <y>0</y>
       <width>1211</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QFrame#frame{
+     <string notr="true">QFrame#navbar{
 	background-color: rgb(234, 216, 202);
    
     border-style: outset;
@@ -282,7 +282,7 @@ QPushButton:hover {
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QFrame" name="frame_2">
+    <widget class="QFrame" name="frame_5">
      <property name="geometry">
       <rect>
        <x>-10</x>
@@ -292,7 +292,7 @@ QPushButton:hover {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QFrame#frame_2{
+      <string notr="true">QFrame{
 	background-color: rgb(136, 179, 160);
    
     border-style: outset;
@@ -306,7 +306,7 @@ QPushButton:hover {
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="Logo">
+    <widget class="QLabel" name="Logo_4">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -332,7 +332,7 @@ color : rgb(0, 0, 0) </string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="QPushButton_4">
+    <widget class="QPushButton" name="berandaButton_3">
      <property name="geometry">
       <rect>
        <x>350</x>
@@ -368,7 +368,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="QPushButton_5">
+    <widget class="QPushButton" name="tanamanButton_3">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -404,7 +404,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="QPushButton_6">
+    <widget class="QPushButton" name="aboutButton_3">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -440,7 +440,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="search_3">
      <property name="geometry">
       <rect>
        <x>930</x>
@@ -459,7 +459,7 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="account_3">
      <property name="geometry">
       <rect>
        <x>980</x>
@@ -478,7 +478,7 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="notification_3">
      <property name="geometry">
       <rect>
        <x>1030</x>
@@ -497,7 +497,7 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="keranjang_3">
      <property name="geometry">
       <rect>
        <x>1080</x>

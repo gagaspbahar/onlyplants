@@ -31,7 +31,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>0</x>
      <y>0</y>
      <width>1200</width>
      <height>800</height>
@@ -399,17 +399,33 @@ QPushButton:pressed {
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>-1</x>
+      <x>120</x>
+      <y>110</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Form Registrasi</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="navbar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
       <y>0</y>
       <width>1211</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QFrame#frame{
+     <string notr="true">QFrame#navbar{
 	background-color: rgb(234, 216, 202);
    
     border-style: outset;
@@ -472,7 +488,7 @@ color : rgb(0, 0, 0) </string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="QPushButton_4">
+    <widget class="QPushButton" name="berandaButton">
      <property name="geometry">
       <rect>
        <x>350</x>
@@ -508,7 +524,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="QPushButton_5">
+    <widget class="QPushButton" name="tanamanButton">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -544,7 +560,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="QPushButton_6">
+    <widget class="QPushButton" name="aboutButton">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -580,7 +596,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="search">
      <property name="geometry">
       <rect>
        <x>930</x>
@@ -599,26 +615,7 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>1080</x>
-       <y>30</y>
-       <width>31</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../img/Shopping Cart.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="account">
      <property name="geometry">
       <rect>
        <x>980</x>
@@ -637,7 +634,7 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="notification">
      <property name="geometry">
       <rect>
        <x>1030</x>
@@ -656,22 +653,25 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>110</y>
-      <width>151</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Form Registrasi</string>
-    </property>
+    <widget class="QLabel" name="keranjang">
+     <property name="geometry">
+      <rect>
+       <x>1080</x>
+       <y>30</y>
+       <width>31</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Shopping Cart.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

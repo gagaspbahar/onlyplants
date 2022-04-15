@@ -45,7 +45,7 @@ class Ui_Dialog(object):
         self.Logo.setStyleSheet("font: 87 26pt \"Sansita\";\n"
 "color : rgb(0, 0, 0) ")
         self.Logo.setText("")
-        self.Logo.setPixmap(QtGui.QPixmap("../../../../../../../../Downloads/1E284E92-8854-46D1-BC93-31B6BD0FC54D-removebg-preview 1.png"))
+        self.Logo.setPixmap(QtGui.QPixmap("././img/logo.png"))
         self.Logo.setScaledContents(False)
         self.Logo.setAlignment(QtCore.Qt.AlignCenter)
         self.Logo.setObjectName("Logo")
@@ -123,7 +123,7 @@ class Ui_Dialog(object):
         self.label_3.setStyleSheet("font: 87 40pt \"Sansita\";\n"
 "color : rgb(0, 0, 0) ")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("../../../../../../../../Downloads/Nanashi_Mumei_-_Portrait_02.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("././img/mumei.png"))
         self.label_3.setScaledContents(False)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setWordWrap(False)
@@ -140,7 +140,7 @@ class Ui_Dialog(object):
         self.label_4.setStyleSheet("font: 87 40pt \"Sansita\";\n"
 "color : rgb(0, 0, 0) ")
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("../../../../../../../../Downloads/transparent-vines-png-8.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("././img/vertVines.png"))
         self.label_4.setScaledContents(False)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setWordWrap(False)

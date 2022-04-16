@@ -9,7 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from login import Ui_Login
+from register import Ui_Register
+import register
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -23,7 +25,7 @@ class Ui_Dialog(object):
         self.bgwidget.setMaximumSize(QtCore.QSize(1200, 800))
         self.bgwidget.setAutoFillBackground(False)
         self.bgwidget.setStyleSheet("QWidget#bgwidget{\n"
-"background-color: rgb(234, 216, 202);}")
+                                    "background-color: rgb(234, 216, 202);}")
         self.bgwidget.setObjectName("bgwidget")
         self.WelcomeTo = QtWidgets.QLabel(self.bgwidget)
         self.WelcomeTo.setGeometry(QtCore.QRect(440, 200, 321, 101))
@@ -35,7 +37,7 @@ class Ui_Dialog(object):
         font.setWeight(10)
         self.WelcomeTo.setFont(font)
         self.WelcomeTo.setStyleSheet("font: 87 40pt \"Sansita\";\n"
-"color : rgb(0, 0, 0) ")
+                                     "color : rgb(0, 0, 0) ")
         self.WelcomeTo.setScaledContents(False)
         self.WelcomeTo.setAlignment(QtCore.Qt.AlignCenter)
         self.WelcomeTo.setWordWrap(False)
@@ -43,7 +45,7 @@ class Ui_Dialog(object):
         self.Logo = QtWidgets.QLabel(self.bgwidget)
         self.Logo.setGeometry(QtCore.QRect(440, 300, 371, 111))
         self.Logo.setStyleSheet("font: 87 26pt \"Sansita\";\n"
-"color : rgb(0, 0, 0) ")
+                                "color : rgb(0, 0, 0) ")
         self.Logo.setText("")
         self.Logo.setPixmap(QtGui.QPixmap("././img/logo.png"))
         self.Logo.setScaledContents(False)
@@ -56,28 +58,30 @@ class Ui_Dialog(object):
         font.setPointSize(11)
         self.registerButton.setFont(font)
         self.registerButton.setStyleSheet("QPushButton {\n"
-"    \n"
-"    border: 2px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    background-color : rgb(136, 179, 160);\n"
-"    padding: 5px;\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"     background-color : rgb(85, 170, 127);\n"
-"    }\n"
-"\n"
-"QPushButton:pressed {\n"
-"    border-style: inset;\n"
-"    background: qradialgradient(\n"
-"        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
-"        );\n"
-"    }")
+                                        "    \n"
+                                        "    border: 2px solid #555;\n"
+                                        "    border-radius: 15px;\n"
+                                        "    border-style: outset;\n"
+                                        "    background-color : rgb(136, 179, 160);\n"
+                                        "    padding: 5px;\n"
+                                        "    }\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    color : white;\n"
+                                        "     background-color : rgb(85, 170, 127);\n"
+                                        "    }\n"
+                                        "\n"
+                                        "QPushButton:pressed {\n"
+                                        "    border-style: inset;\n"
+                                        "    background: qradialgradient(\n"
+                                        "        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+                                        "        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
+                                        "        );\n"
+                                        "    }")
         self.registerButton.setCheckable(False)
         self.registerButton.setObjectName("registerButton")
+        #when clicked open register window
+        self.registerButton.clicked.connect(self.create_new_window)
         self.loginButton = QtWidgets.QPushButton(self.bgwidget)
         self.loginButton.setGeometry(QtCore.QRect(630, 420, 131, 41))
         font = QtGui.QFont()
@@ -89,28 +93,30 @@ class Ui_Dialog(object):
         self.loginButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.loginButton.setMouseTracking(False)
         self.loginButton.setStyleSheet("QPushButton {\n"
-"    \n"
-"    border: 2px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    background-color : rgb(136, 179, 160);\n"
-"    padding: 5px;\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"     background-color : rgb(85, 170, 127)\n"
-"    }\n"
-"\n"
-"QPushButton:pressed {\n"
-"    border-style: inset;\n"
-"    background: qradialgradient(\n"
-"        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
-"        );\n"
-"    }")
+                                    "    \n"
+                                    "    border: 2px solid #555;\n"
+                                    "    border-radius: 15px;\n"
+                                    "    border-style: outset;\n"
+                                    "    background-color : rgb(136, 179, 160);\n"
+                                    "    padding: 5px;\n"
+                                    "    }\n"
+                                    "\n"
+                                    "QPushButton:hover {\n"
+                                    "    color : white;\n"
+                                    "     background-color : rgb(85, 170, 127)\n"
+                                    "    }\n"
+                                    "\n"
+                                    "QPushButton:pressed {\n"
+                                    "    border-style: inset;\n"
+                                    "    background: qradialgradient(\n"
+                                    "        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+                                    "        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
+                                    "        );\n"
+                                    "    }")
         self.loginButton.setCheckable(False)
         self.loginButton.setObjectName("loginButton")
+        # when login button is clicked open login window
+        self.loginButton.clicked.connect(self.create_new_window)
         self.label_3 = QtWidgets.QLabel(self.bgwidget)
         self.label_3.setGeometry(QtCore.QRect(750, 180, 531, 721))
         font = QtGui.QFont()
@@ -121,7 +127,7 @@ class Ui_Dialog(object):
         font.setWeight(10)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("font: 87 40pt \"Sansita\";\n"
-"color : rgb(0, 0, 0) ")
+                                "color : rgb(0, 0, 0) ")
         self.label_3.setText("")
         self.label_3.setPixmap(QtGui.QPixmap("././img/mumei.png"))
         self.label_3.setScaledContents(False)
@@ -138,7 +144,7 @@ class Ui_Dialog(object):
         font.setWeight(10)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("font: 87 40pt \"Sansita\";\n"
-"color : rgb(0, 0, 0) ")
+                                "color : rgb(0, 0, 0) ")
         self.label_4.setText("")
         self.label_4.setPixmap(QtGui.QPixmap("././img/vertVines.png"))
         self.label_4.setScaledContents(False)
@@ -148,6 +154,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+    
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

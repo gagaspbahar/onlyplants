@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1222</width>
+    <height>822</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="bgwidget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1200</width>
+     <height>800</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1200</width>
+     <height>800</height>
+    </size>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#bgwidget{
+background-color: white;}</string>
+   </property>
+   <widget class="QFrame" name="navbar">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>0</y>
+      <width>1211</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#navbar{
+	background-color: rgb(234, 216, 202);
+   
+    border-style: outset;
+    padding: 5px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>-30</y>
+       <width>1211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame#frame_2{
+	background-color: rgb(136, 179, 160);
+   
+    border-style: outset;
+    padding: 5px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Logo">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>281</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 26pt &quot;Sansita&quot;;
+color : rgb(0, 0, 0) </string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../../../Downloads/1E284E92-8854-46D1-BC93-31B6BD0FC54D-removebg-preview 1.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="berandaButton">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string>Beranda</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tanamanButton">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color :  rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string>Tanaman</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="aboutButton">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>40</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string>Tentang Kami</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="search">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>40</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Search.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="account">
+     <property name="geometry">
+      <rect>
+       <x>980</x>
+       <y>35</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/User.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="notification">
+     <property name="geometry">
+      <rect>
+       <x>1030</x>
+       <y>40</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Doorbell.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="keranjang">
+     <property name="geometry">
+      <rect>
+       <x>1080</x>
+       <y>30</y>
+       <width>31</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Shopping Cart.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_7">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>160</y>
+      <width>1021</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Frame 4 */
+
+position: absolute;
+width: 1291px;
+height: 673px;
+left: 74px;
+top: 269px;
+
+background: #88B3A0;
+border-radius: 8px;
+
+
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>714</x>
+       <y>30</y>
+       <width>241</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Order ID : XXXXXXX */
+
+position: absolute;
+width: 151px;
+height: 24px;
+left: 1104px;
+top: 16px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #000000;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Order Id: </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>241</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Order ID : XXXXXXX */
+
+position: absolute;
+width: 151px;
+height: 24px;
+left: 1104px;
+top: 16px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Nama Item</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>60</y>
+       <width>921</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1000</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Line 1 */
+
+position: absolute;
+width: 1240px;
+height: 0px;
+left: 25px;
+top: 20px;
+background-color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>490</y>
+       <width>921</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1000</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Line 1 */
+
+position: absolute;
+width: 1240px;
+height: 0px;
+left: 25px;
+top: 20px;
+background-color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>500</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Order ID : XXXXXXX */
+
+position: absolute;
+width: 151px;
+height: 24px;
+left: 1104px;
+top: 16px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Total Harga: Rp 3.000.000,-</string>
+     </property>
+    </widget>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>80</y>
+       <width>901</width>
+       <height>401</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>901</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>925</width>
+        <height>300</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 24px;
+
+color: #000000;</string>
+      </property>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>901</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMinimumSize</enum>
+        </property>
+        <property name="leftMargin">
+         <number>8</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item row="0" column="2">
+         <widget class="QLabel" name="hargaItem">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>300</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Harga:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="trash">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>trash</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="numberItem">
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>noItem</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="namaItem_2">
+            <property name="text">
+             <string>NamaItem</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="namaItem">
+            <property name="text">
+             <string>Jumlah</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="tanggalAwal">
+            <property name="text">
+             <string>Tanggal Awal Sewa</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="tanggalPengembalian">
+            <property name="text">
+             <string>Tanggal Pengembalian</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>90</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Pesanan Anda */
+
+position: absolute;
+width: 170px;
+height: 36px;
+left: 74px;
+top: 174px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 36px;
+/* identical to box height */
+
+color: #000000;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Pesanan Anda</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="konfirmasiPengajuan">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>720</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Frame 4 */
+QPushButton {
+position: absolute;
+width: 351px;
+height: 45px;
+left: 1014px;
+top: 976px;
+
+background: #769D8A;
+border-radius: 8px;
+
+
+/* Konfirmasi Pengajuan Penyewaan */
+
+position: absolute;
+width: 273px;
+height: 24px;
+left: 39px;
+top: 11px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #FFFFFF;
+}
+
+QPushButton:hover {
+	color : black;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>KonfirmasiPengajuanSewa</string>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>130</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Rectangle 3 */
+
+position: absolute;
+width: 342px;
+height: 25px;
+left: 80px;
+top: 227px;
+
+background: #B1B6AF;
+border-radius: 8px;
+
+
+/* Daftar Keranjang Pemesanan */
+
+position: absolute;
+width: 236px;
+height: 24px;
+left: 144px;
+top: 228px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 24px;
+/* identical to box height */
+
+color: #000000;</string>
+    </property>
+    <property name="text">
+     <string>Daftar Keranjang Pemesanan</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>frame_7</zorder>
+   <zorder>navbar</zorder>
+   <zorder>label</zorder>
+   <zorder>konfirmasiPengajuan</zorder>
+   <zorder>label_5</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

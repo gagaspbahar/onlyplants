@@ -81,7 +81,6 @@ class Ui_Dialog(object):
         self.registerButton.setCheckable(False)
         self.registerButton.setObjectName("registerButton")
         #when clicked open register window
-        self.registerButton.clicked.connect(self.create_new_window)
         self.loginButton = QtWidgets.QPushButton(self.bgwidget)
         self.loginButton.setGeometry(QtCore.QRect(630, 420, 131, 41))
         font = QtGui.QFont()
@@ -116,7 +115,6 @@ class Ui_Dialog(object):
         self.loginButton.setCheckable(False)
         self.loginButton.setObjectName("loginButton")
         # when login button is clicked open login window
-        self.loginButton.clicked.connect(self.create_new_window)
         self.label_3 = QtWidgets.QLabel(self.bgwidget)
         self.label_3.setGeometry(QtCore.QRect(750, 180, 531, 721))
         font = QtGui.QFont()

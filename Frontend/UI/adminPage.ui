@@ -317,10 +317,10 @@ QPushButton:hover {
    <widget class="QPushButton" name="addTanamanButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>230</y>
-      <width>681</width>
-      <height>41</height>
+      <x>140</x>
+      <y>310</y>
+      <width>371</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="font">
@@ -359,13 +359,13 @@ QPushButton:pressed {
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="QPushButton_4">
+   <widget class="QPushButton" name="addTanamanButton_2">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>450</y>
-      <width>681</width>
-      <height>41</height>
+      <x>700</x>
+      <y>310</y>
+      <width>371</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="font">

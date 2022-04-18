@@ -127,120 +127,142 @@ class Ui_Login(object):
         self.daftarButton.setCheckable(False)
         self.daftarButton.setObjectName("daftarButton")
         self.navbar = QtWidgets.QFrame(self.bgwidget)
-        self.navbar.setGeometry(QtCore.QRect(-10, 0, 1211, 91))
+        self.navbar = QtWidgets.QFrame(self.bgwidget)
+        self.navbar.setGeometry(QtCore.QRect(0, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
-"    background-color: rgb(234, 216, 202);\n"
-"   \n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"}")
+                                  "    background-color: rgb(234, 216, 202);\n"
+                                  "   \n"
+                                  "    border-style: outset;\n"
+                                  "    padding: 5px;\n"
+                                  "}")
         self.navbar.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.navbar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.navbar.setObjectName("navbar")
-        self.frame_5 = QtWidgets.QFrame(self.navbar)
-        self.frame_5.setGeometry(QtCore.QRect(10, -30, 1451, 51))
-        self.frame_5.setStyleSheet("QFrame{\n"
-"    background-color: rgb(136, 179, 160);\n"
-"   \n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"}")
-        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_5.setObjectName("frame_5")
-        self.Logo_4 = QtWidgets.QLabel(self.navbar)
-        self.Logo_4.setGeometry(QtCore.QRect(0, 0, 281, 121))
-        self.Logo_4.setStyleSheet("font: 87 26pt \"Sansita\";\n"
-"color : rgb(0, 0, 0) ")
-        self.Logo_4.setText("")
-        self.Logo_4.setPixmap(QtGui.QPixmap("././img/logo.png"))
-        self.Logo_4.setScaledContents(True)
-        self.Logo_4.setAlignment(QtCore.Qt.AlignCenter)
-        self.Logo_4.setObjectName("Logo_4")
-        self.berandaButton_3 = QtWidgets.QPushButton(self.navbar)
-        self.berandaButton_3.setGeometry(QtCore.QRect(350, 40, 91, 31))
+        self.frame_2 = QtWidgets.QFrame(self.navbar)
+        self.frame_2.setGeometry(QtCore.QRect(-10, -30, 1211, 51))
+        self.frame_2.setStyleSheet("QFrame#frame_2{\n"
+                                   "    background-color: rgb(136, 179, 160);\n"
+                                   "   \n"
+                                   "    border-style: outset;\n"
+                                   "    padding: 5px;\n"
+                                   "}")
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.Logo = QtWidgets.QLabel(self.navbar)
+        self.Logo.setGeometry(QtCore.QRect(0, 0, 281, 121))
+        self.Logo.setStyleSheet("font: 87 26pt \"Sansita\";\n"
+                                "color : rgb(0, 0, 0) ")
+        self.Logo.setText("")
+        self.Logo.setPixmap(QtGui.QPixmap("././img/logo.png"))
+        self.Logo.setScaledContents(True)
+        self.Logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.Logo.setObjectName("Logo")
+        self.berandaButton = QtWidgets.QPushButton(self.navbar)
+        self.berandaButton.setGeometry(QtCore.QRect(350, 40, 91, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
-        self.berandaButton_3.setFont(font)
-        self.berandaButton_3.setStyleSheet("QPushButton {\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color : rgb(53, 78, 59);\n"
-"    background-color :  rgb(234, 216, 202);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    }")
-        self.berandaButton_3.setCheckable(False)
-        self.berandaButton_3.setObjectName("berandaButton_3")
-        self.tanamanButton_3 = QtWidgets.QPushButton(self.navbar)
-        self.tanamanButton_3.setGeometry(QtCore.QRect(520, 40, 91, 31))
+        self.berandaButton.setFont(font)
+        self.berandaButton.setAutoFillBackground(False)
+        self.berandaButton.setStyleSheet("QPushButton {\n"
+                                         "    border: 0px solid #555;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    border-style: outset;\n"
+                                         "    padding: 5px;\n"
+                                         "    color : rgb(53, 78, 59);\n"
+                                         "    background-color :  rgb(234, 216, 202);\n"
+                                         "    }\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "    color : white;\n"
+                                         "    }")
+        self.berandaButton.setCheckable(False)
+        self.berandaButton.setObjectName("berandaButton")
+        self.tanamanButton = QtWidgets.QPushButton(self.navbar)
+        self.tanamanButton.setGeometry(QtCore.QRect(520, 40, 91, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
-        self.tanamanButton_3.setFont(font)
-        self.tanamanButton_3.setStyleSheet("QPushButton {\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color :  rgb(53, 78, 59);\n"
-"    background-color :  rgb(234, 216, 202);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    }")
-        self.tanamanButton_3.setCheckable(False)
-        self.tanamanButton_3.setObjectName("tanamanButton_3")
-        self.aboutButton_3 = QtWidgets.QPushButton(self.navbar)
-        self.aboutButton_3.setGeometry(QtCore.QRect(670, 40, 131, 31))
+        self.tanamanButton.setFont(font)
+        self.tanamanButton.setStyleSheet("QPushButton {\n"
+                                         "    border: 0px solid #555;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    border-style: outset;\n"
+                                         "    padding: 5px;\n"
+                                         "    color :  rgb(53, 78, 59);\n"
+                                         "    background-color :  rgb(234, 216, 202);\n"
+                                         "    }\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "    color : white;\n"
+                                         "    }")
+        self.tanamanButton.setCheckable(False)
+        self.tanamanButton.setObjectName("tanamanButton")
+        self.aboutButton = QtWidgets.QPushButton(self.navbar)
+        self.aboutButton.setGeometry(QtCore.QRect(670, 40, 131, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
-        self.aboutButton_3.setFont(font)
-        self.aboutButton_3.setStyleSheet("QPushButton {\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color : rgb(53, 78, 59);\n"
-"    background-color :  rgb(234, 216, 202);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    }")
-        self.aboutButton_3.setCheckable(False)
-        self.aboutButton_3.setObjectName("aboutButton_3")
-        self.search_3 = QtWidgets.QLabel(self.navbar)
-        self.search_3.setGeometry(QtCore.QRect(930, 40, 31, 31))
-        self.search_3.setText("")
-        self.search_3.setPixmap(QtGui.QPixmap("././img/Search.png"))
-        self.search_3.setScaledContents(True)
-        self.search_3.setObjectName("search_3")
-        self.account_3 = QtWidgets.QLabel(self.navbar)
-        self.account_3.setGeometry(QtCore.QRect(980, 35, 31, 41))
-        self.account_3.setText("")
-        self.account_3.setPixmap(QtGui.QPixmap("././img/User.png"))
-        self.account_3.setScaledContents(True)
-        self.account_3.setObjectName("account_3")
-        self.notification_3 = QtWidgets.QLabel(self.navbar)
-        self.notification_3.setGeometry(QtCore.QRect(1030, 40, 31, 31))
-        self.notification_3.setText("")
-        self.notification_3.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
-        self.notification_3.setScaledContents(True)
-        self.notification_3.setObjectName("notification_3")
-        self.keranjang_3 = QtWidgets.QLabel(self.navbar)
-        self.keranjang_3.setGeometry(QtCore.QRect(1080, 30, 31, 51))
-        self.keranjang_3.setText("")
-        self.keranjang_3.setPixmap(QtGui.QPixmap("././img/Shopping Cart.png"))
-        self.keranjang_3.setScaledContents(True)
-        self.keranjang_3.setObjectName("keranjang_3")
+        self.aboutButton.setFont(font)
+        self.aboutButton.setStyleSheet("QPushButton {\n"
+                                       "    border: 0px solid #555;\n"
+                                       "    border-radius: 15px;\n"
+                                       "    border-style: outset;\n"
+                                       "    padding: 5px;\n"
+                                       "    color : rgb(53, 78, 59);\n"
+                                       "    background-color :  rgb(234, 216, 202);\n"
+                                       "    }\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    color : white;\n"
+                                       "    }")
+        self.aboutButton.setCheckable(False)
+        self.aboutButton.setObjectName("aboutButton")
+        self.searchButton = QtWidgets.QPushButton(self.navbar)
+        self.searchButton.setGeometry(QtCore.QRect(930, 40, 31, 31))
+        self.searchButton.setMouseTracking(False)
+        self.searchButton.setAutoFillBackground(False)
+        self.searchButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("././img/Search.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.searchButton.setIcon(icon)
+        self.searchButton.setIconSize(QtCore.QSize(31, 31))
+        self.searchButton.setAutoDefault(True)
+        self.searchButton.setDefault(False)
+        self.searchButton.setFlat(True)
+        self.searchButton.setObjectName("searchButton")
+        self.userButton = QtWidgets.QPushButton(self.navbar)
+        self.userButton.setGeometry(QtCore.QRect(980, 35, 31, 41))
+        self.userButton.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("././img/User.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.userButton.setIcon(icon1)
+        self.userButton.setIconSize(QtCore.QSize(31, 41))
+        self.userButton.setFlat(True)
+        self.userButton.setObjectName("userButton")
+        self.cartButton = QtWidgets.QPushButton(self.navbar)
+        self.cartButton.setGeometry(QtCore.QRect(1080, 30, 31, 51))
+        self.cartButton.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.cartButton.setIcon(icon2)
+        self.cartButton.setIconSize(QtCore.QSize(31, 51))
+        self.cartButton.setAutoExclusive(False)
+        self.cartButton.setAutoDefault(True)
+        self.cartButton.setFlat(True)
+        self.cartButton.setObjectName("cartButton")
+        self.notification = QtWidgets.QLabel(self.navbar)
+        self.notification.setGeometry(QtCore.QRect(1030, 40, 31, 31))
+        self.notification.setText("")
+        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
+        self.notification.setScaledContents(True)
+        self.notification.setObjectName("notification")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -253,9 +275,9 @@ class Ui_Login(object):
         self.label_3.setText(_translate("Dialog", "Username"))
         self.label_5.setText(_translate("Dialog", "Belum memiliki akun ?"))
         self.daftarButton.setText(_translate("Dialog", "Daftar"))
-        self.berandaButton_3.setText(_translate("Dialog", "Beranda"))
-        self.tanamanButton_3.setText(_translate("Dialog", "Tanaman"))
-        self.aboutButton_3.setText(_translate("Dialog", "Tentang Kami"))
+        self.berandaButton.setText(_translate("Dialog", "Beranda"))
+        self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
+        self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
 
 
 if __name__ == "__main__":

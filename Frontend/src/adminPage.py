@@ -32,29 +32,29 @@ class UI_adminPage(object):
         self.navbar = QtWidgets.QFrame(self.bgwidget)
         self.navbar.setGeometry(QtCore.QRect(0, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
-"    background-color: rgb(234, 216, 202);\n"
-"   \n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"}")
+                                  "    background-color: rgb(234, 216, 202);\n"
+                                  "   \n"
+                                  "    border-style: outset;\n"
+                                  "    padding: 5px;\n"
+                                  "}")
         self.navbar.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.navbar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.navbar.setObjectName("navbar")
         self.frame_2 = QtWidgets.QFrame(self.navbar)
         self.frame_2.setGeometry(QtCore.QRect(-10, -30, 1211, 51))
         self.frame_2.setStyleSheet("QFrame#frame_2{\n"
-"    background-color: rgb(136, 179, 160);\n"
-"   \n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"}")
+                                   "    background-color: rgb(136, 179, 160);\n"
+                                   "   \n"
+                                   "    border-style: outset;\n"
+                                   "    padding: 5px;\n"
+                                   "}")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.Logo = QtWidgets.QLabel(self.navbar)
         self.Logo.setGeometry(QtCore.QRect(0, 0, 281, 121))
         self.Logo.setStyleSheet("font: 87 26pt \"Sansita\";\n"
-"color : rgb(0, 0, 0) ")
+                                "color : rgb(0, 0, 0) ")
         self.Logo.setText("")
         self.Logo.setPixmap(QtGui.QPixmap("././img/logo.png"))
         self.Logo.setScaledContents(True)
@@ -66,18 +66,19 @@ class UI_adminPage(object):
         font.setFamily("Sansita")
         font.setPointSize(15)
         self.berandaButton.setFont(font)
+        self.berandaButton.setAutoFillBackground(False)
         self.berandaButton.setStyleSheet("QPushButton {\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color : rgb(53, 78, 59);\n"
-"    background-color :  rgb(234, 216, 202);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    }")
+                                         "    border: 0px solid #555;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    border-style: outset;\n"
+                                         "    padding: 5px;\n"
+                                         "    color : rgb(53, 78, 59);\n"
+                                         "    background-color :  rgb(234, 216, 202);\n"
+                                         "    }\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "    color : white;\n"
+                                         "    }")
         self.berandaButton.setCheckable(False)
         self.berandaButton.setObjectName("berandaButton")
         self.tanamanButton = QtWidgets.QPushButton(self.navbar)
@@ -87,17 +88,17 @@ class UI_adminPage(object):
         font.setPointSize(15)
         self.tanamanButton.setFont(font)
         self.tanamanButton.setStyleSheet("QPushButton {\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color :  rgb(53, 78, 59);\n"
-"    background-color :  rgb(234, 216, 202);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    }")
+                                         "    border: 0px solid #555;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    border-style: outset;\n"
+                                         "    padding: 5px;\n"
+                                         "    color :  rgb(53, 78, 59);\n"
+                                         "    background-color :  rgb(234, 216, 202);\n"
+                                         "    }\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "    color : white;\n"
+                                         "    }")
         self.tanamanButton.setCheckable(False)
         self.tanamanButton.setObjectName("tanamanButton")
         self.aboutButton = QtWidgets.QPushButton(self.navbar)
@@ -107,43 +108,63 @@ class UI_adminPage(object):
         font.setPointSize(15)
         self.aboutButton.setFont(font)
         self.aboutButton.setStyleSheet("QPushButton {\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color : rgb(53, 78, 59);\n"
-"    background-color :  rgb(234, 216, 202);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    }")
+                                       "    border: 0px solid #555;\n"
+                                       "    border-radius: 15px;\n"
+                                       "    border-style: outset;\n"
+                                       "    padding: 5px;\n"
+                                       "    color : rgb(53, 78, 59);\n"
+                                       "    background-color :  rgb(234, 216, 202);\n"
+                                       "    }\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    color : white;\n"
+                                       "    }")
         self.aboutButton.setCheckable(False)
         self.aboutButton.setObjectName("aboutButton")
-        self.search = QtWidgets.QLabel(self.navbar)
-        self.search.setGeometry(QtCore.QRect(930, 40, 31, 31))
-        self.search.setText("")
-        self.search.setPixmap(QtGui.QPixmap("././img/Search.png"))
-        self.search.setScaledContents(True)
-        self.search.setObjectName("search")
-        self.account = QtWidgets.QLabel(self.navbar)
-        self.account.setGeometry(QtCore.QRect(980, 35, 31, 41))
-        self.account.setText("")
-        self.account.setPixmap(QtGui.QPixmap("././img/User.png"))
-        self.account.setScaledContents(True)
-        self.account.setObjectName("account")
+        self.searchButton = QtWidgets.QPushButton(self.navbar)
+        self.searchButton.setGeometry(QtCore.QRect(930, 40, 31, 31))
+        self.searchButton.setMouseTracking(False)
+        self.searchButton.setAutoFillBackground(False)
+        self.searchButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("././img/Search.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.searchButton.setIcon(icon)
+        self.searchButton.setIconSize(QtCore.QSize(31, 31))
+        self.searchButton.setAutoDefault(True)
+        self.searchButton.setDefault(False)
+        self.searchButton.setFlat(True)
+        self.searchButton.setObjectName("searchButton")
+        self.userButton = QtWidgets.QPushButton(self.navbar)
+        self.userButton.setGeometry(QtCore.QRect(980, 35, 31, 41))
+        self.userButton.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("././img/User.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.userButton.setIcon(icon1)
+        self.userButton.setIconSize(QtCore.QSize(31, 41))
+        self.userButton.setFlat(True)
+        self.userButton.setObjectName("userButton")
+        self.cartButton = QtWidgets.QPushButton(self.navbar)
+        self.cartButton.setGeometry(QtCore.QRect(1080, 30, 31, 51))
+        self.cartButton.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.cartButton.setIcon(icon2)
+        self.cartButton.setIconSize(QtCore.QSize(31, 51))
+        self.cartButton.setAutoExclusive(False)
+        self.cartButton.setAutoDefault(True)
+        self.cartButton.setFlat(True)
+        self.cartButton.setObjectName("cartButton")
         self.notification = QtWidgets.QLabel(self.navbar)
         self.notification.setGeometry(QtCore.QRect(1030, 40, 31, 31))
         self.notification.setText("")
         self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
         self.notification.setScaledContents(True)
         self.notification.setObjectName("notification")
-        self.keranjang = QtWidgets.QLabel(self.navbar)
-        self.keranjang.setGeometry(QtCore.QRect(1080, 30, 31, 51))
-        self.keranjang.setText("")
-        self.keranjang.setPixmap(QtGui.QPixmap("././img/Shopping Cart.png"))
-        self.keranjang.setScaledContents(True)
-        self.keranjang.setObjectName("keranjang")
 
         # Button add tanaman
         self.addTanaman = QtWidgets.QPushButton(self.bgwidget)

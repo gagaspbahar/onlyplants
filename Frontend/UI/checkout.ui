@@ -48,7 +48,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1187</width>
+        <width>1189</width>
         <height>798</height>
        </rect>
       </property>
@@ -198,82 +198,6 @@ QPushButton:hover {
            <bool>false</bool>
           </property>
          </widget>
-         <widget class="QLabel" name="search">
-          <property name="geometry">
-           <rect>
-            <x>930</x>
-            <y>40</y>
-            <width>31</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>../../img/Search.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="account">
-          <property name="geometry">
-           <rect>
-            <x>980</x>
-            <y>35</y>
-            <width>31</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>../../img/User.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="notification">
-          <property name="geometry">
-           <rect>
-            <x>1030</x>
-            <y>40</y>
-            <width>31</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>../../img/Doorbell.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="keranjang">
-          <property name="geometry">
-           <rect>
-            <x>1080</x>
-            <y>30</y>
-            <width>31</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>../../img/Shopping Cart.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
          <widget class="QFrame" name="frame_2">
           <property name="geometry">
            <rect>
@@ -296,6 +220,122 @@ QPushButton:hover {
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="searchButton_3">
+          <property name="geometry">
+           <rect>
+            <x>930</x>
+            <y>40</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../img/Search.png</normaloff>../../img/Search.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>31</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="userButton_3">
+          <property name="geometry">
+           <rect>
+            <x>980</x>
+            <y>35</y>
+            <width>31</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../img/User.png</normaloff>../../img/User.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>31</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="notification_4">
+          <property name="geometry">
+           <rect>
+            <x>1030</x>
+            <y>40</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>../../img/Doorbell.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="cartButton_3">
+          <property name="geometry">
+           <rect>
+            <x>1080</x>
+            <y>30</y>
+            <width>31</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>../../img/Shopping Cart.png</normaloff>
+            <normalon>../../img/Shopping Cart.png</normalon>../../img/Shopping Cart.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>31</width>
+            <height>51</height>
+           </size>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
           </property>
          </widget>
         </widget>

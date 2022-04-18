@@ -49,7 +49,7 @@
         <x>0</x>
         <y>0</y>
         <width>1181</width>
-        <height>1009</height>
+        <height>920</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -68,211 +68,6 @@
        <property name="verticalSpacing">
         <number>0</number>
        </property>
-       <item row="2" column="1">
-        <widget class="QWidget" name="widget" native="true">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>75</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background: #88B3A0;
-border-top-left-radius: 8px ;
-border-top-right-radius: 8px ;</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QWidget" name="namaKeranjang" native="true">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>40</height>
-             </size>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_6">
-             <item>
-              <widget class="QLabel" name="namaItem">
-               <property name="styleSheet">
-                <string notr="true">/* Order ID : XXXXXXX */
-
-position: absolute;
-width: 151px;
-height: 24px;
-left: 1104px;
-top: 16px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height */
-
-color: #FFFFFF;
-
-</string>
-               </property>
-               <property name="text">
-                <string>Nama Item</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="orderId">
-               <property name="maximumSize">
-                <size>
-                 <width>1000</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="baseSize">
-                <size>
-                 <width>10000</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/* Order ID : XXXXXXX */
-
-position: absolute;
-width: 151px;
-height: 24px;
-left: 1104px;
-top: 16px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height */
-
-color: #000000;
-
-</string>
-               </property>
-               <property name="text">
-                <string>Order Id: </string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="Line" name="line">
-            <property name="minimumSize">
-             <size>
-              <width>1068</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>1068</width>
-              <height>5</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">/* Line 1 */
-
-position: absolute;
-width: 1240px;
-height: 0px;
-left: 25px;
-top: 20px;
-background-color: rgb(255, 255, 255);
-</string>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QWidget" name="widget_9" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
-        <widget class="QLabel" name="label_10">
-         <property name="minimumSize">
-          <size>
-           <width>275</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>276</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">/* Rectangle 3 */
-
-position: absolute;
-width: 342px;
-height: 25px;
-left: 80px;
-top: 227px;
-
-background: #B1B6AF;
-border-radius: 8px;
-
-
-/* Daftar Keranjang Pemesanan */
-
-position: absolute;
-width: 236px;
-height: 24px;
-left: 144px;
-top: 228px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 24px;
-/* identical to box height */
-
-color: #000000;</string>
-         </property>
-         <property name="text">
-          <string>Pesanan yang Sedang Berlangsung</string>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="2">
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
@@ -281,106 +76,6 @@ color: #000000;</string>
          <property name="sizeHint" stdset="0">
           <size>
            <width>35</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="9" column="1">
-        <widget class="QFrame" name="Orders">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>91</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>91</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(234, 216, 202);
-border-radius: 8px</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="label_12">
-            <property name="styleSheet">
-             <string notr="true">position: absolute;
-width: 236px;
-height: 24px;
-left: 144px;
-top: 228px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 24px;
-/* identical to box height */
-
-color: #000000;</string>
-            </property>
-            <property name="text">
-             <string>Order ID: XXXXX</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_11">
-            <property name="styleSheet">
-             <string notr="true">position: absolute;
-width: 236px;
-height: 24px;
-left: 144px;
-top: 228px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: Bold;
-font-size: 17px;
-line-height: 24px;
-/* identical to box height */
-
-color: #000000;</string>
-            </property>
-            <property name="text">
-             <string>Menunggu Konfirmasi Admin</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>36</width>
            <height>20</height>
           </size>
          </property>
@@ -475,172 +170,25 @@ color: #FFFFFF;
          </layout>
         </widget>
        </item>
-       <item row="6" column="1">
-        <widget class="QPushButton" name="konfirmasiPengajuan">
+       <item row="8" column="1">
+        <widget class="QLabel" name="label_10">
          <property name="minimumSize">
           <size>
-           <width>344</width>
+           <width>275</width>
            <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>344</width>
+           <width>276</width>
            <height>30</height>
-          </size>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::RightToLeft</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">/* Frame 4 */
-QPushButton {
-position: absolute;
-width: 351px;
-height: 45px;
-left: 1014px;
-top: 976px;
-
-background: #769D8A;
-border-radius: 8px;
-
-
-/* Konfirmasi Pengajuan Penyewaan */
-
-position: absolute;
-width: 273px;
-height: 24px;
-left: 39px;
-top: 11px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height */
-
-color: #FFFFFF;
-}
-
-QPushButton:hover {
-	color : black;
-}
-
-</string>
-         </property>
-         <property name="text">
-          <string>KonfirmasiPengajuanSewa</string>
-         </property>
-         <property name="default">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QScrollArea" name="scrollArea_2">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>500</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background: #88B3A0;
-border-radius: 8px;</string>
-         </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents_2">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>1090</width>
-            <height>500</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6"/>
-         </widget>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QFrame" name="frame">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>100</height>
           </size>
          </property>
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>5</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">/* Pesanan Anda */
-
-position: absolute;
-width: 170px;
-height: 36px;
-left: 74px;
-top: 174px;
-
-font-family: 'Sansita';
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-line-height: 36px;
-/* identical to box height */
-
-color: #000000;
-
-</string>
-            </property>
-            <property name="text">
-             <string>Pesanan Anda</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_5">
-            <property name="minimumSize">
-             <size>
-              <width>275</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>276</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">/* Rectangle 3 */
+         <property name="styleSheet">
+          <string notr="true">/* Rectangle 3 */
 
 position: absolute;
 width: 342px;
@@ -668,34 +216,15 @@ line-height: 24px;
 /* identical to box height */
 
 color: #000000;</string>
-            </property>
-            <property name="text">
-             <string>Daftar Keranjang Pemesanan</string>
-            </property>
-            <property name="scaledContents">
-             <bool>false</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="8" column="1">
-        <widget class="QWidget" name="widget_10" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>20</height>
-          </size>
          </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
+         <property name="text">
+          <string>Pesanan yang Sedang Berlangsung</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -859,13 +388,13 @@ QPushButton:hover {
            <enum>QFrame::Raised</enum>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_17">
+         <widget class="QPushButton" name="search">
           <property name="geometry">
            <rect>
             <x>930</x>
             <y>40</y>
-            <width>31</width>
-            <height>31</height>
+            <width>40</width>
+            <height>40</height>
            </rect>
           </property>
           <property name="mouseTracking">
@@ -891,13 +420,13 @@ QPushButton:hover {
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_18">
+         <widget class="QPushButton" name="account">
           <property name="geometry">
            <rect>
             <x>980</x>
             <y>35</y>
-            <width>31</width>
-            <height>41</height>
+            <width>40</width>
+            <height>40</height>
            </rect>
           </property>
           <property name="text">
@@ -917,13 +446,13 @@ QPushButton:hover {
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_19">
+         <widget class="QPushButton" name="notification">
           <property name="geometry">
            <rect>
             <x>1031</x>
             <y>40</y>
-            <width>31</width>
-            <height>31</height>
+            <width>40</width>
+            <height>40</height>
            </rect>
           </property>
           <property name="text">
@@ -946,13 +475,13 @@ QPushButton:hover {
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_20">
+         <widget class="QPushButton" name="keranjang">
           <property name="geometry">
            <rect>
             <x>1080</x>
             <y>40</y>
-            <width>31</width>
-            <height>31</height>
+            <width>40</width>
+            <height>40</height>
            </rect>
           </property>
           <property name="text">
@@ -978,6 +507,393 @@ QPushButton:hover {
            <bool>true</bool>
           </property>
          </widget>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QWidget" name="widget_9" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>36</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="7" column="1">
+        <widget class="QPushButton" name="konfirmasiPengajuan">
+         <property name="minimumSize">
+          <size>
+           <width>344</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>344</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Frame 4 */
+QPushButton {
+position: absolute;
+width: 351px;
+height: 45px;
+left: 1014px;
+top: 976px;
+
+background: #769D8A;
+border-radius: 8px;
+
+
+/* Konfirmasi Pengajuan Penyewaan */
+
+position: absolute;
+width: 273px;
+height: 24px;
+left: 39px;
+top: 11px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #FFFFFF;
+}
+
+QPushButton:hover {
+	color : black;
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>KonfirmasiPengajuanSewa</string>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QFrame" name="frame">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* Pesanan Anda */
+
+position: absolute;
+width: 170px;
+height: 36px;
+left: 74px;
+top: 174px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 36px;
+/* identical to box height */
+
+color: #000000;
+
+</string>
+            </property>
+            <property name="text">
+             <string>Pesanan Anda</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="minimumSize">
+             <size>
+              <width>275</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>276</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* Rectangle 3 */
+
+position: absolute;
+width: 342px;
+height: 25px;
+left: 80px;
+top: 227px;
+
+background: #B1B6AF;
+border-radius: 8px;
+
+
+/* Daftar Keranjang Pemesanan */
+
+position: absolute;
+width: 236px;
+height: 24px;
+left: 144px;
+top: 228px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 24px;
+/* identical to box height */
+
+color: #000000;</string>
+            </property>
+            <property name="text">
+             <string>Daftar Keranjang Pemesanan</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <layout class="QVBoxLayout" name="slotPesananBerlangsung"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QWidget" name="widget" native="true">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>75</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: #88B3A0;
+border-top-left-radius: 8px ;
+border-top-right-radius: 8px ;</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QWidget" name="namaKeranjang" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QLabel" name="namaItem">
+               <property name="styleSheet">
+                <string notr="true">/* Order ID : XXXXXXX */
+
+position: absolute;
+width: 151px;
+height: 24px;
+left: 1104px;
+top: 16px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+</string>
+               </property>
+               <property name="text">
+                <string>Nama Item</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="orderId">
+               <property name="maximumSize">
+                <size>
+                 <width>1000</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>10000</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">/* Order ID : XXXXXXX */
+
+position: absolute;
+width: 151px;
+height: 24px;
+left: 1104px;
+top: 16px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #000000;
+
+</string>
+               </property>
+               <property name="text">
+                <string>Order Id: </string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="minimumSize">
+             <size>
+              <width>1068</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>1068</width>
+              <height>5</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* Line 1 */
+
+position: absolute;
+width: 1240px;
+height: 0px;
+left: 25px;
+top: 20px;
+background-color: rgb(255, 255, 255);
+</string>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QScrollArea" name="scrollArea_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>500</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: #88B3A0;
+border-radius: 8px;</string>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1090</width>
+            <height>500</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6"/>
+         </widget>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QWidget" name="widget_10" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>20</height>
+          </size>
+         </property>
         </widget>
        </item>
       </layout>

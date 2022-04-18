@@ -249,6 +249,9 @@ QPushButton:hover {
        <height>41</height>
       </rect>
      </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
@@ -260,7 +263,7 @@ QPushButton:hover {
        <normaloff>../../img/Search.png</normaloff>../../img/Search.png</iconset>
      </property>
      <property name="autoDefault">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="default">
       <bool>false</bool>
@@ -318,7 +321,7 @@ QPushButton:hover {
       </size>
      </property>
      <property name="autoDefault">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -338,13 +341,20 @@ QPushButton:hover {
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../img/Shopping Cart.png</normaloff>../../img/Shopping Cart.png</iconset>
+       <normaloff>../../img/Shopping Cart.png</normaloff>
+       <normalon>../../img/Shopping Cart.png</normalon>../../img/Shopping Cart.png</iconset>
      </property>
      <property name="iconSize">
       <size>
        <width>40</width>
        <height>40</height>
       </size>
+     </property>
+     <property name="autoExclusive">
+      <bool>false</bool>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
      </property>
      <property name="flat">
       <bool>true</bool>

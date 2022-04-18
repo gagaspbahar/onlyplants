@@ -487,106 +487,6 @@ QPushButton:pressed {
      <string>Domisili Tanaman</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_40">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>450</y>
-      <width>211</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_41">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>520</y>
-      <width>211</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_42">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>590</y>
-      <width>211</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_43">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>190</y>
-      <width>301</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_44">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>120</y>
-      <width>301</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -605,14 +505,155 @@ QPushButton:pressed {
     </property>
     <property name="iconSize">
      <size>
-      <width>25</width>
-      <height>25</height>
+      <width>40</width>
+      <height>40</height>
      </size>
     </property>
     <property name="flat">
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>260</y>
+      <width>751</width>
+      <height>151</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>120</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>190</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_3">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>450</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_4">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>520</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_5">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>590</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>usernamebox_5</zorder>
+   <zorder>usernamebox_4</zorder>
+   <zorder>usernamebox_3</zorder>
+   <zorder>usernamebox</zorder>
+   <zorder>navbar</zorder>
+   <zorder>label_36</zorder>
+   <zorder>label_37</zorder>
+   <zorder>stockShow</zorder>
+   <zorder>domisiliShow</zorder>
+   <zorder>registerButton_2</zorder>
+   <zorder>label_38</zorder>
+   <zorder>stockShow_2</zorder>
+   <zorder>stockShow_3</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>usernamebox_2</zorder>
   </widget>
  </widget>
  <resources/>

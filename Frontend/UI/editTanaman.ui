@@ -333,53 +333,6 @@ QPushButton:hover {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>140</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Sansita</family>
-      <pointsize>22</pointsize>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 22pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_35">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>190</y>
-      <width>571</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;</string>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_36">
     <property name="geometry">
      <rect>
@@ -428,66 +381,6 @@ QPushButton:hover {
      <string>Domisili Tanaman  :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_39">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>420</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="hargaShow">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>460</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="domisiliShow">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>500</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border: 0px solid #555;
-    border-radius: 8px;
-    border-style: outset;
-    background-color : rgb(136, 179, 160);
-    padding: 5px;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
@@ -501,7 +394,7 @@ QPushButton:hover {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../img/pencil.png</pixmap>
+     <pixmap>../../img/Edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -520,7 +413,7 @@ QPushButton:hover {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../img/pencil.png</pixmap>
+     <pixmap>../../img/Edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -584,7 +477,7 @@ QPushButton:pressed {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../img/pencil.png</pixmap>
+     <pixmap>../../img/Edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -603,7 +496,7 @@ QPushButton:pressed {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../img/pencil.png</pixmap>
+     <pixmap>../../img/Edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -612,8 +505,8 @@ QPushButton:pressed {
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>440</y>
+      <x>210</x>
+      <y>430</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -622,7 +515,7 @@ QPushButton:pressed {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../img/pencil.png</pixmap>
+     <pixmap>../../img/Edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -631,8 +524,8 @@ QPushButton:pressed {
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>150</y>
+      <x>40</x>
+      <y>140</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -641,12 +534,169 @@ QPushButton:pressed {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../img/pencil.png</pixmap>
+     <pixmap>../../img/Edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>420</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../img/upload.png</normaloff>../../img/upload.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>120</y>
+      <width>261</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>22</pointsize>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>190</y>
+      <width>581</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sansita'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&amp;quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>420</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox_2{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>Stok</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_3">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>460</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox_2{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>Harga</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamebox_4">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>500</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit#usernamebox_2{
+	background-color: white;
+    border: 0px solid #555;
+    border-radius: 10px;
+    border-style: outset;
+    padding: 5px;
+	font: 12pt &quot;Sansita&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>Domisili</string>
+    </property>
+   </widget>
+   <zorder>usernamebox_4</zorder>
+   <zorder>usernamebox_3</zorder>
+   <zorder>navbar</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_36</zorder>
+   <zorder>label_37</zorder>
+   <zorder>stockShow</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>registerButton</zorder>
+   <zorder>label</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>usernamebox_2</zorder>
   </widget>
  </widget>
  <resources/>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'addTanaman.ui'
+# Form implementation generated from reading ui file 'editTanaman.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class UI_addTanaman(object):
+class UI_editTanaman(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -21,14 +21,13 @@ class UI_addTanaman(object):
         self.bgwidget.setGeometry(QtCore.QRect(0, 0, 1200, 800))
         self.bgwidget.setMinimumSize(QtCore.QSize(1200, 800))
         self.bgwidget.setMaximumSize(QtCore.QSize(1200, 800))
-        self.bgwidget.setMouseTracking(False)
         self.bgwidget.setAutoFillBackground(False)
         self.bgwidget.setStyleSheet("QWidget#bgwidget{\n"
 "background-color: white;}")
         self.bgwidget.setObjectName("bgwidget")
 
-        # BAGIAN NAVBAR
-        # TODO : Ganti sama navbar yang bener
+        # Navigation bar
+        # TODO : ganti sama navbar yang udah jadi
         self.navbar = QtWidgets.QFrame(self.bgwidget)
         self.navbar.setGeometry(QtCore.QRect(-1, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
@@ -37,8 +36,6 @@ class UI_addTanaman(object):
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "}")
-
-        # NAVIGATION BAR
         self.navbar.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.navbar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.navbar.setObjectName("navbar")
@@ -147,50 +144,88 @@ class UI_addTanaman(object):
         self.keranjang.setScaledContents(True)
         self.keranjang.setObjectName("keranjang")
 
-        # Label Nama Tanaman
-        self.namaTanamanLabel = QtWidgets.QLabel(self.bgwidget)
-        self.namaTanamanLabel.setGeometry(QtCore.QRect(40, 120, 188, 33))
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.namaTanamanLabel.setFont(font)
-        self.namaTanamanLabel.setStyleSheet("font: 16pt \"Sansita\";")
-        self.namaTanamanLabel.setObjectName("namaTanamanLabel")
-        
-        # Label Upload Foto
-        self.uploadFotoLabel = QtWidgets.QLabel(self.bgwidget)
-        self.uploadFotoLabel.setGeometry(QtCore.QRect(40, 190, 161, 31))
-        self.uploadFotoLabel.setStyleSheet("font: 16pt \"Sansita\";")
-        self.uploadFotoLabel.setObjectName("uploadFotoLabel")
-        
-        # Label Stok
+        # Gambar Tanaman
+        self.gambarTanaman = QtWidgets.QLabel(self.bgwidget)
+        self.gambarTanaman.setGeometry(QtCore.QRect(80, 190, 231, 231))
+        self.gambarTanaman.setText("")
+        self.gambarTanaman.setPixmap(QtGui.QPixmap("././img/placeholderPlant.png"))
+        self.gambarTanaman.setScaledContents(True)
+        self.gambarTanaman.setObjectName("gambarTanaman")
+
+        # Label Stok tanaman
         self.stokLabel = QtWidgets.QLabel(self.bgwidget)
-        self.stokLabel.setGeometry(QtCore.QRect(40, 450, 171, 33))
+        self.stokLabel.setGeometry(QtCore.QRect(360, 420, 161, 31))
         self.stokLabel.setStyleSheet("font: 16pt \"Sansita\";")
         self.stokLabel.setObjectName("stokLabel")
 
+        # Label Harga tanaman
+        self.hargaLabel = QtWidgets.QLabel(self.bgwidget)
+        self.hargaLabel.setGeometry(QtCore.QRect(360, 460, 161, 31))
+        self.hargaLabel.setStyleSheet("font: 16pt \"Sansita\";")
+        self.hargaLabel.setObjectName("hargaLabel")
+
         # Label Domisili
         self.domisiliLabel = QtWidgets.QLabel(self.bgwidget)
-        self.domisiliLabel.setGeometry(QtCore.QRect(310, 260, 751, 151))
-        self.domisiliLabel.setStyleSheet(" border: 0px solid #555;\n"
-"    border-radius: 8px;\n"
-"    border-style: outset;\n"
-"    background-color : rgb(136, 179, 160);\n"
-"    padding: 5px;")
-        self.domisiliLabel.setText("")
+        self.domisiliLabel.setGeometry(QtCore.QRect(360, 500, 161, 31))
+        self.domisiliLabel.setStyleSheet("font: 16pt \"Sansita\";")
         self.domisiliLabel.setObjectName("domisiliLabel")
-        
-        # Button Tambahkan Tanaman
-        self.tambahkanTanamanButton = QtWidgets.QPushButton(self.bgwidget)
-        self.tambahkanTanamanButton.setGeometry(QtCore.QRect(500, 700, 221, 31))
+
+        # Label Edit (1)
+        self.edit1Label = QtWidgets.QLabel(self.bgwidget)
+        self.edit1Label.setGeometry(QtCore.QRect(690, 430, 21, 21))
+        self.edit1Label.setText("")
+        self.edit1Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
+        self.edit1Label.setScaledContents(True)
+        self.edit1Label.setObjectName("edit1Label")
+
+        # Label Edit (2)
+        self.edit2Label = QtWidgets.QLabel(self.bgwidget)
+        self.edit2Label.setGeometry(QtCore.QRect(690, 470, 21, 21))
+        self.edit2Label.setText("")
+        self.edit2Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
+        self.edit2Label.setScaledContents(True)
+        self.edit2Label.setObjectName("edit2Label")
+
+        # Label Edit (3)
+        self.edit3Label = QtWidgets.QLabel(self.bgwidget)
+        self.edit3Label.setGeometry(QtCore.QRect(690, 510, 21, 21))
+        self.edit3Label.setText("")
+        self.edit3Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
+        self.edit3Label.setScaledContents(True)
+        self.edit3Label.setObjectName("edit3Label")
+
+        # Label Edit (4)
+        self.edit4Label = QtWidgets.QLabel(self.bgwidget)
+        self.edit4Label.setGeometry(QtCore.QRect(960, 350, 21, 21))
+        self.edit4Label.setText("")
+        self.edit4Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
+        self.edit4Label.setScaledContents(True)
+        self.edit4Label.setObjectName("edit4Label")
+
+        # Label Edit (5)
+        self.edit5Label = QtWidgets.QLabel(self.bgwidget)
+        self.edit5Label.setGeometry(QtCore.QRect(210, 430, 21, 21))
+        self.edit5Label.setText("")
+        self.edit5Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
+        self.edit5Label.setScaledContents(True)
+        self.edit5Label.setObjectName("edit5Label")
+
+        # Label Edit (6)
+        self.edit6Label = QtWidgets.QLabel(self.bgwidget)
+        self.edit6Label.setGeometry(QtCore.QRect(40, 140, 21, 21))
+        self.edit6Label.setText("")
+        self.edit6Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
+        self.edit6Label.setScaledContents(True)
+        self.edit6Label.setObjectName("edit6Label")
+
+        # Button Simpan perubahan
+        self.simpanPerubahanButton = QtWidgets.QPushButton(self.bgwidget)
+        self.simpanPerubahanButton.setGeometry(QtCore.QRect(490, 590, 221, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(11)
-        self.tambahkanTanamanButton.setFont(font)
-        self.tambahkanTanamanButton.setStyleSheet("QPushButton {\n"
+        self.simpanPerubahanButton.setFont(font)
+        self.simpanPerubahanButton.setStyleSheet("QPushButton {\n"
 "    \n"
 "    border: 0px solid #555;\n"
 "    border-radius: 8px;\n"
@@ -211,139 +246,124 @@ class UI_addTanaman(object):
 "        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
 "        );\n"
 "    }")
-        self.tambahkanTanamanButton.setCheckable(False)
-        self.tambahkanTanamanButton.setObjectName("tambahkanTanamanButton")
+        self.simpanPerubahanButton.setCheckable(False)
+        self.simpanPerubahanButton.setObjectName("simpanPerubahanButton")
 
-        # Label Deskripsi
-        self.deskripsiLabel = QtWidgets.QLabel(self.bgwidget)
-        self.deskripsiLabel.setGeometry(QtCore.QRect(40, 260, 161, 31))
-        self.deskripsiLabel.setStyleSheet("font: 16pt \"Sansita\";")
-        self.deskripsiLabel.setObjectName("deskripsiLabel")
-
-        # Label Harga
-        self.hargaLabel = QtWidgets.QLabel(self.bgwidget)
-        self.hargaLabel.setGeometry(QtCore.QRect(40, 520, 190, 33))
-        self.hargaLabel.setStyleSheet("font: 16pt \"Sansita\";")
-        self.hargaLabel.setObjectName("hargaLabel")
-
-        # Label domisili
-        self.domisiliLabel = QtWidgets.QLabel(self.bgwidget)
-        self.domisiliLabel.setGeometry(QtCore.QRect(40, 590, 211, 33))
-        self.domisiliLabel.setStyleSheet("font: 16pt \"Sansita\";")
-        self.domisiliLabel.setObjectName("domisiliLabel")
-
-        # Button Upload Foto
-        self.uploadFotoButton = QtWidgets.QPushButton(self.bgwidget)
-        self.uploadFotoButton.setGeometry(QtCore.QRect(610, 190, 51, 41))
-        self.uploadFotoButton.setText("")
+        # Upload File Button
+        self.uploadFileButton = QtWidgets.QPushButton(self.bgwidget)
+        self.uploadFileButton.setGeometry(QtCore.QRect(160, 420, 51, 41))
+        self.uploadFileButton.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("././img/upload.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.uploadFotoButton.setIcon(icon)
-        self.uploadFotoButton.setIconSize(QtCore.QSize(40, 40))
-        self.uploadFotoButton.setFlat(True)
-        self.uploadFotoButton.setObjectName("uploadFotoButton")
-
-        # Line Edit Upload Foto
-        # TODO : Ambil path file dari uploadFotoButton
-        self.uploadFotoEdit = QtWidgets.QLabel(self.bgwidget)
-        self.uploadFotoEdit.setGeometry(QtCore.QRect(310, 190, 301, 41))
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(12)
-        self.uploadFotoEdit.setFont(font)
-        self.uploadFotoEdit.setStyleSheet(" border: 0px solid #555;\n"
-"    border-radius: 8px;\n"
-"    border-style: outset;\n"
-"    background-color : #769D8A;\n"
-"    padding: 5px;")
-        self.uploadFotoEdit.setText("path file")
-        self.uploadFotoEdit.setObjectName("uploadFotoEdit")
-        
-        # Text Edit Deskripsi
-        # TODO : sesuain textedit kayak lineedit
-        self.textEdit = QtWidgets.QTextEdit(self.bgwidget)
-        self.textEdit.setGeometry(QtCore.QRect(310, 260, 751, 151))
-        self.textEdit.setObjectName("textEdit")
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(12)
-        self.textEdit.setFont(font)
-        self.textEdit.setStyleSheet("background-color : #769D8A;")
+        self.uploadFileButton.setIcon(icon)
+        self.uploadFileButton.setIconSize(QtCore.QSize(40, 40))
+        self.uploadFileButton.setFlat(True)
+        self.uploadFileButton.setObjectName("uploadFileButton")
 
         # Line Edit Nama
-        self.namaTanamanEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.namaTanamanEdit.setGeometry(QtCore.QRect(310, 120, 301, 41))
-        self.namaTanamanEdit.setStyleSheet("QLineEdit#namaTanamanEdit{\n"
-"    background-color: #769D8A;\n"
+        self.namaEdit = QtWidgets.QLineEdit(self.bgwidget)
+        self.namaEdit.setGeometry(QtCore.QRect(80, 120, 261, 51))
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        self.namaEdit.setStyleSheet("background-color: rgba(155,255,255,0);\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
 "    border-style: outset;\n"
 "    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.namaTanamanEdit.setText("")
-        self.namaTanamanEdit.setObjectName("namaTanamanEdit")
-        
+"    font: 22pt \"Sansita\";\n"
+";")
+        self.namaEdit.setFont(font)
+        self.namaEdit.setObjectName("namaEdit")
+
+        # Text Edit Deskripsi
+        self.deskripsiEdit = QtWidgets.QTextEdit(self.bgwidget)
+        self.deskripsiEdit.setGeometry(QtCore.QRect(360, 190, 581, 221))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(16)
+        self.deskripsiEdit.setFont(font)
+        self.deskripsiEdit.setStyleSheet("background-color : #769D8A;")
+        self.deskripsiEdit.setObjectName("deskripsiEdit")
+
         # Line Edit Stok
         self.stokEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.stokEdit.setGeometry(QtCore.QRect(310, 450, 211, 41))
-        self.stokEdit.setStyleSheet("QLineEdit#stokEdit{\n"
-"    background-color: #769D8A;\n"
+        self.stokEdit.setGeometry(QtCore.QRect(540, 420, 141, 31))
+        self.stokEdit.setStyleSheet("background-color: #769D8A;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
-"}")
-        self.stokEdit.setText("")
+";")
         self.stokEdit.setObjectName("stokEdit")
 
         # Line Edit Harga
         self.hargaEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.hargaEdit.setGeometry(QtCore.QRect(310, 520, 211, 41))
-        self.hargaEdit.setStyleSheet("QLineEdit#hargaEdit{\n"
-"    background-color: #769D8A;\n"
+        self.hargaEdit.setGeometry(QtCore.QRect(540, 460, 141, 31))
+        self.hargaEdit.setStyleSheet("background-color: #769D8A;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
-"}")
-        self.hargaEdit.setText("")
+";")
         self.hargaEdit.setObjectName("hargaEdit")
 
         # Line Edit Domisili
         self.domisiliEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.domisiliEdit.setGeometry(QtCore.QRect(310, 590, 211, 41))
-        self.domisiliEdit.setStyleSheet("QLineEdit#domisiliEdit{\n"
-"    background-color: #769D8A;\n"
+        self.domisiliEdit.setGeometry(QtCore.QRect(540, 500, 141, 31))
+        self.domisiliEdit.setStyleSheet("background-color: #769D8A;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
-"}")
-        self.domisiliEdit.setText("")
+";")
         self.domisiliEdit.setObjectName("domisiliEdit")
+
 
         self.domisiliEdit.raise_()
         self.hargaEdit.raise_()
-        self.stokEdit.raise_()
-        self.namaTanamanEdit.raise_()
         self.navbar.raise_()
-        self.namaTanamanLabel.raise_()
-        self.uploadFotoLabel.raise_()
+        self.gambarTanaman.raise_()
         self.stokLabel.raise_()
-        self.domisiliLabel.raise_()
-        self.tambahkanTanamanButton.raise_()
-        self.deskripsiLabel.raise_()
         self.hargaLabel.raise_()
         self.domisiliLabel.raise_()
-        self.uploadFotoButton.raise_()
-        self.textEdit.raise_()
-        self.uploadFotoEdit.raise_()
+        self.edit1Label.raise_()
+        self.edit2Label.raise_()
+        self.edit3Label.raise_()
+        self.edit4Label.raise_()
+        self.edit5Label.raise_()
+        self.edit6Label.raise_()
+        self.simpanPerubahanButton.raise_()
+        self.uploadFileButton.raise_()
+        self.namaEdit.raise_()
+        self.deskripsiEdit.raise_()
+        self.stokEdit.raise_()
+
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.berandaButton.setText(_translate("Dialog", "Beranda"))
+        self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
+        self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
+        self.stokLabel.setText(_translate("Dialog", "Stok Tanaman         :"))
+        self.hargaLabel.setText(_translate("Dialog", "Harga Tanaman      :"))
+        self.domisiliLabel.setText(_translate("Dialog", "Domisili Tanaman  :"))
+        self.simpanPerubahanButton.setText(_translate("Dialog", "Simpan Perubahan"))
+        self.uploadFileButton.clicked.connect(self.pushButton_handler)
+        self.namaEdit.setText(_translate("Dialog", "Nama Tanaman"))
+        self.deskripsiEdit.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Sansita\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Sansita\'; font-size:12pt;\">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;</span></p></body></html>"))
+        self.stokEdit.setText(_translate("Dialog", "Stok"))
+        self.hargaEdit.setText(_translate("Dialog", "Harga"))
+        self.domisiliEdit.setText(_translate("Dialog", "Domisili"))
 
     def pushButton_handler(self):
         print("Button pressed")
@@ -358,27 +378,12 @@ class UI_addTanaman(object):
         with open(path, "r") as f:
             print(f.readline())
 
-    def retranslateUi(self, Dialog):
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.berandaButton.setText(_translate("Dialog", "Beranda"))
-        self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
-        self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
-        self.namaTanamanLabel.setText(_translate("Dialog", "Nama Tanaman"))
-        self.uploadFotoLabel.setText(_translate("Dialog", "Upload Foto"))
-        self.uploadFotoButton.clicked.connect(self.pushButton_handler)
-        self.stokLabel.setText(_translate("Dialog", "Stok Tanaman"))
-        self.tambahkanTanamanButton.setText(_translate("Dialog", "Tambahkan Tanaman"))
-        self.deskripsiLabel.setText(_translate("Dialog", "Deskripsi"))
-        self.hargaLabel.setText(_translate("Dialog", "Harga Tanaman"))
-        self.domisiliLabel.setText(_translate("Dialog", "Domisili Tanaman"))
-
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = UI_addTanaman()
+    ui = UI_editTanaman()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

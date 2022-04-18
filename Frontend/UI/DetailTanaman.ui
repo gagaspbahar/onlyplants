@@ -56,7 +56,265 @@
     <string notr="true">QWidget#bgwidget{
 background-color: white;}</string>
    </property>
-   <widget class="QLabel" name="label_2">
+   <widget class="QFrame" name="navbar">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>0</y>
+      <width>1211</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#navbar{
+	background-color: rgb(234, 216, 202);
+   
+    border-style: outset;
+    padding: 5px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>-30</y>
+       <width>1211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame#frame_2{
+	background-color: rgb(136, 179, 160);
+   
+    border-style: outset;
+    padding: 5px;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Logo">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>281</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 26pt &quot;Sansita&quot;;
+color : rgb(0, 0, 0) </string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../../../../../../../Downloads/1E284E92-8854-46D1-BC93-31B6BD0FC54D-removebg-preview 1.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="berandaButton">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string>Beranda</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tanamanButton">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color :  rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string>Tanaman</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="aboutButton">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>40</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string>Tentang Kami</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="search">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>40</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Search.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="account">
+     <property name="geometry">
+      <rect>
+       <x>980</x>
+       <y>35</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/User.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="notification">
+     <property name="geometry">
+      <rect>
+       <x>1030</x>
+       <y>40</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Doorbell.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="keranjang">
+     <property name="geometry">
+      <rect>
+       <x>1080</x>
+       <y>30</y>
+       <width>31</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../img/Shopping Cart.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="gambarTanaman">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -75,7 +333,7 @@ background-color: white;}</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_10">
+   <widget class="QLabel" name="namaLabel">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -100,7 +358,7 @@ background-color: white;}</string>
      <string>Nama Tanaman</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_35">
+   <widget class="QLabel" name="deskripsiLabel">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -108,6 +366,15 @@ background-color: white;}</string>
       <width>571</width>
       <height>181</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
@@ -122,7 +389,7 @@ background-color: white;}</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_36">
+   <widget class="QLabel" name="stokLabel">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -138,47 +405,53 @@ background-color: white;}</string>
      <string>Stok Tanaman         :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_37">
+   <widget class="QLabel" name="hargaLabel">
     <property name="geometry">
      <rect>
       <x>360</x>
       <y>460</y>
-      <width>161</width>
-      <height>31</height>
+      <width>207</width>
+      <height>34</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
     </property>
     <property name="text">
-     <string>Harga Tanaman      :</string>
+     <string>Harga Tanaman</string>
     </property>
    </widget>
-   <widget class="QLabel" name="stockShow">
+   <widget class="QLabel" name="domisiliLabel">
     <property name="geometry">
      <rect>
       <x>360</x>
       <y>500</y>
-      <width>161</width>
-      <height>31</height>
+      <width>211</width>
+      <height>34</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
     </property>
     <property name="text">
-     <string>Domisili Tanaman  :</string>
+     <string>Domisili Tanaman</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_39">
+   <widget class="QLabel" name="stokText">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>580</x>
       <y>420</y>
       <width>141</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true"> border: 0px solid #555;
     border-radius: 8px;
@@ -190,15 +463,21 @@ background-color: white;}</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="hargaShow">
+   <widget class="QLabel" name="hargaText">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>580</x>
       <y>460</y>
       <width>141</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true"> border: 0px solid #555;
     border-radius: 8px;
@@ -210,15 +489,21 @@ background-color: white;}</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="domisiliShow">
+   <widget class="QLabel" name="domisiliText">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>580</x>
       <y>500</y>
       <width>141</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true"> border: 0px solid #555;
     border-radius: 8px;
@@ -230,11 +515,11 @@ background-color: white;}</string>
      <string/>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_7">
+   <widget class="QFrame" name="frameSewa">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>610</y>
+      <x>150</x>
+      <y>590</y>
       <width>891</width>
       <height>151</height>
      </rect>
@@ -253,7 +538,7 @@ background-color: white;}</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="registerButton">
+    <widget class="QPushButton" name="tambahkanKeKeranjangButton">
      <property name="geometry">
       <rect>
        <x>330</x>
@@ -298,7 +583,7 @@ QPushButton:pressed {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_46">
+    <widget class="QLabel" name="jumlahLabel">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -323,7 +608,7 @@ QPushButton:pressed {
       <string>Jumlah</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_47">
+    <widget class="QLabel" name="mulaiSewaLabel">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -348,7 +633,7 @@ QPushButton:pressed {
       <string>Tanggal Mulai Sewa</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_48">
+    <widget class="QLabel" name="kembaliSewaLabel">
      <property name="geometry">
       <rect>
        <x>460</x>
@@ -373,7 +658,7 @@ QPushButton:pressed {
       <string>Tanggal Pengembalian</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_49">
+    <widget class="QLabel" name="totalHargaLabel">
      <property name="geometry">
       <rect>
        <x>720</x>
@@ -398,7 +683,7 @@ QPushButton:pressed {
       <string>Total Harga</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="jumlahBox">
+    <widget class="QLineEdit" name="jumlahText">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -424,69 +709,37 @@ QPushButton:pressed {
       <number>3</number>
      </property>
     </widget>
-    <widget class="QLineEdit" name="dateStart">
+    <widget class="QDateEdit" name="mulaiSewaDate">
      <property name="geometry">
       <rect>
        <x>200</x>
        <y>50</y>
-       <width>41</width>
+       <width>151</width>
        <height>41</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit#dateStart{
-	background-color: white;
-    border: 0px solid #555;
-    border-radius: 10px;
-    border-style: outset;
-    padding: 5px;
-	font: 12pt &quot;Sansita&quot;;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>2</number>
      </property>
     </widget>
-    <widget class="QLineEdit" name="monthStart">
+    <widget class="QDateEdit" name="kembaliSewaDate">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>460</x>
        <y>50</y>
-       <width>41</width>
+       <width>151</width>
        <height>41</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit#monthStart{
-	background-color: white;
-    border: 0px solid #555;
-    border-radius: 10px;
-    border-style: outset;
-    padding: 5px;
-	font: 12pt &quot;Sansita&quot;;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>2</number>
      </property>
     </widget>
-    <widget class="QLineEdit" name="yearStart">
+    <widget class="QLineEdit" name="totalHargaText">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>720</x>
        <y>50</y>
-       <width>51</width>
+       <width>151</width>
        <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLineEdit#yearStart{
+      <string notr="true">QLineEdit#jumlahBox{
 	background-color: white;
     border: 0px solid #555;
     border-radius: 10px;
@@ -499,85 +752,7 @@ QPushButton:pressed {
       <string/>
      </property>
      <property name="maxLength">
-      <number>4</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="dateEnd">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>50</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit#dateEnd{
-	background-color: white;
-    border: 0px solid #555;
-    border-radius: 10px;
-    border-style: outset;
-    padding: 5px;
-	font: 12pt &quot;Sansita&quot;;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>2</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="monthEnd">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>50</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit#monthEnd{
-	background-color: white;
-    border: 0px solid #555;
-    border-radius: 10px;
-    border-style: outset;
-    padding: 5px;
-	font: 12pt &quot;Sansita&quot;;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>2</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="yearEnd">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>50</y>
-       <width>51</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit#yearEnd{
-	background-color: white;
-    border: 0px solid #555;
-    border-radius: 10px;
-    border-style: outset;
-    padding: 5px;
-	font: 12pt &quot;Sansita&quot;;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>4</number>
+      <number>3</number>
      </property>
     </widget>
    </widget>

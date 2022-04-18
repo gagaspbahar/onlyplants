@@ -6,26 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>319</width>
-    <height>200</height>
+    <width>341</width>
+    <height>257</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>0</width>
-    <height>200</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>16777215</width>
-    <height>300</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -38,7 +29,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="0">
+   <item>
     <widget class="QFrame" name="frame_2">
      <property name="styleSheet">
       <string notr="true">background: #B1B6AF;</string>
@@ -55,13 +46,13 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>75</height>
+          <height>120</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>90</height>
+          <height>231</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -76,7 +67,7 @@ border-radius: 8px;</string>
           <number>11</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>3</number>
          </property>
          <item>
           <widget class="QLabel" name="label">
@@ -105,7 +96,38 @@ color: rgb(64,64,64);
 </string>
            </property>
            <property name="text">
-            <string>Hello, xxx!</string>
+            <string>Anda belum </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+color: rgb(64,64,64);
+
+
+
+</string>
+           </property>
+           <property name="text">
+            <string>melakukan login</string>
            </property>
           </widget>
          </item>
@@ -160,7 +182,62 @@ QPushButton:hover {
 </string>
            </property>
            <property name="text">
-            <string>Keluar</string>
+            <string>Masuk</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* Frame 4 */
+QPushButton {
+position: absolute;
+width: 351px;
+height: 45px;
+left: 1014px;
+top: 976px;
+
+background: #769D8A;
+border-radius: 8px;
+
+
+/* Konfirmasi Pengajuan Penyewaan */
+
+position: absolute;
+width: 273px;
+height: 24px;
+left: 39px;
+top: 11px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #FFFFFF;
+}
+
+QPushButton:hover {
+	color : black;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Daftar</string>
            </property>
           </widget>
          </item>

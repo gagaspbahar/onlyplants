@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'UI/greetingUser.ui'
+# Form implementation generated from reading ui file 'UI/modalLoginRegistrasi.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,12 +14,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(319, 200)
-        Form.setMinimumSize(QtCore.QSize(0, 200))
-        Form.setMaximumSize(QtCore.QSize(16777215, 300))
-        self.gridLayout = QtWidgets.QGridLayout(Form)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
+        Form.resize(341, 257)
+        self.verticalLayout = QtWidgets.QVBoxLayout(Form)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.frame_2 = QtWidgets.QFrame(Form)
         self.frame_2.setStyleSheet("background: #B1B6AF;")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -28,13 +27,13 @@ class Ui_Form(object):
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_2)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.widget = QtWidgets.QWidget(self.frame_2)
-        self.widget.setMinimumSize(QtCore.QSize(0, 75))
-        self.widget.setMaximumSize(QtCore.QSize(16777215, 90))
+        self.widget.setMinimumSize(QtCore.QSize(0, 120))
+        self.widget.setMaximumSize(QtCore.QSize(16777215, 231))
         self.widget.setStyleSheet("background: #B1B6AF;\n"
 "border-radius: 8px;")
         self.widget.setObjectName("widget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget)
-        self.verticalLayout_2.setContentsMargins(-1, -1, 11, 0)
+        self.verticalLayout_2.setContentsMargins(-1, -1, 11, 3)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.label = QtWidgets.QLabel(self.widget)
@@ -52,6 +51,21 @@ class Ui_Form(object):
 "")
         self.label.setObjectName("label")
         self.verticalLayout_2.addWidget(self.label)
+        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2.setMinimumSize(QtCore.QSize(0, 25))
+        self.label_2.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.label_2.setStyleSheet("font-family: \'Sansita\';\n"
+"font-style: normal;\n"
+"font-weight: 400;\n"
+"font-size: 20px;\n"
+"line-height: 24px;\n"
+"color: rgb(64,64,64);\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_2.addWidget(self.label_2)
         self.pushButton = QtWidgets.QPushButton(self.widget)
         self.pushButton.setMinimumSize(QtCore.QSize(0, 50))
         self.pushButton.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -91,8 +105,47 @@ class Ui_Form(object):
 "")
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_2.addWidget(self.pushButton)
+        self.pushButton_2 = QtWidgets.QPushButton(self.widget)
+        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.pushButton_2.setStyleSheet("/* Frame 4 */\n"
+"QPushButton {\n"
+"position: absolute;\n"
+"width: 351px;\n"
+"height: 45px;\n"
+"left: 1014px;\n"
+"top: 976px;\n"
+"\n"
+"background: #769D8A;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"/* Konfirmasi Pengajuan Penyewaan */\n"
+"\n"
+"position: absolute;\n"
+"width: 273px;\n"
+"height: 24px;\n"
+"left: 39px;\n"
+"top: 11px;\n"
+"\n"
+"font-family: \'Sansita\';\n"
+"font-style: normal;\n"
+"font-weight: 400;\n"
+"font-size: 20px;\n"
+"line-height: 24px;\n"
+"/* identical to box height */\n"
+"\n"
+"color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    color : black;\n"
+"}\n"
+"")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.verticalLayout_2.addWidget(self.pushButton_2)
         self.verticalLayout_3.addWidget(self.widget)
-        self.gridLayout.addWidget(self.frame_2, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.frame_2)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -100,8 +153,10 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "Hello, xxx!"))
-        self.pushButton.setText(_translate("Form", "Keluar"))
+        self.label.setText(_translate("Form", "Anda belum "))
+        self.label_2.setText(_translate("Form", "melakukan login"))
+        self.pushButton.setText(_translate("Form", "Masuk"))
+        self.pushButton_2.setText(_translate("Form", "Daftar"))
 
 
 if __name__ == "__main__":

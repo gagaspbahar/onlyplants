@@ -1,0 +1,42 @@
+CREATE TABLE Akun_User (
+    idAkun SERIAL PRIMARY KEY,
+    customerName VARCHAR(225) NOT NULL,
+    Email VARCHAR(225),
+    Username VARCHAR(30) NOT NULL DEFAULT CONCAT("User" + idAkun),
+    PasswordHash VARCHAR(256) NOT NULL,
+    noTelp VARCHAR(15) NOT NULL,
+    address VARCHAR(300) NOT NULL,
+    postalCode INT NOT NULL
+);
+
+CREATE TABLE Tanaman (
+	idTanaman SERIAL PRIMARY KEY,
+	Nama VARCHAR(50) NOT NULL,
+	Harga DOUBLE NOT NULL,
+	Stok INT NOT NULL,
+	Deskripsi TEXT NOT NULL,
+	image BLOB NOT NULL,
+	video VARBINARY NOT NULL,
+	asal_kota VARCHAR(50) NOT NULL 
+);
+
+CREATE TABLE Pemesanan (
+	orderNumber SERIAL PRIMARY KEY,
+	Idpelanggan BIGINT UNSIGNED NOT NULL,
+	amount DOUBLE NOT NULL,
+	status_penyewaan ENUM ('not submitted', 'waiting for approval', 'menunggu pembayaran', 'lunas'),
+	tanggalPemesanan DATETIME NOT NULL
+	FOREIGN KEY (Idpelanggan) REFERENCES Akun_User (idAkun)
+);
+
+CREATE TABLE Detail_Pemesanan (
+	orderNumberDetail SERIAL PRIMARY KEY,
+	orderNumber BIGINT UNSIGNED NOT NULL,
+	idtanaman BIGINT UNSIGNED NOT NULL,
+	kuantitas INT NOT NULL,
+	from_date DATE NOT NULL,
+	until_date DATE NOT NULL,
+	price DOUBLE,
+	FOREIGN KEY (orderNumber) REFERENCES Pemesanan (orderNumber),
+	FOREIGN KEY (idtanaman) REFERENCES Tanaman (idTanaman)
+);

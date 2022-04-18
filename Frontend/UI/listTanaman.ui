@@ -170,102 +170,6 @@ background-color: white;}</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label1">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>400</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label2">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>400</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label3">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>400</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label4">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>710</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label5">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>710</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label6">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>710</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 16pt &quot;Sansita&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Nama Tanaman</string>
-    </property>
-   </widget>
    <widget class="QFrame" name="navbar">
     <property name="geometry">
      <rect>
@@ -289,7 +193,7 @@ background-color: white;}</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QFrame" name="frame_3">
+    <widget class="QFrame" name="frame_2">
      <property name="geometry">
       <rect>
        <x>-10</x>
@@ -299,7 +203,7 @@ background-color: white;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QFrame{
+      <string notr="true">QFrame#frame_2{
 	background-color: rgb(136, 179, 160);
    
     border-style: outset;
@@ -313,7 +217,7 @@ background-color: white;}</string>
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="Logo_2">
+    <widget class="QLabel" name="Logo_4">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -339,43 +243,7 @@ color : rgb(0, 0, 0) </string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="berandaButton">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>40</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sansita</family>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    border: 0px solid #555;
-    border-radius: 15px;
-    border-style: outset;
-    padding: 5px;
-	color : rgb(53, 78, 59);
-    background-color :  rgb(234, 216, 202);
-    }
-
-QPushButton:hover {
-	color : white;
-    }</string>
-     </property>
-     <property name="text">
-      <string>Beranda</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="tanamanButton">
+    <widget class="QPushButton" name="tanamanButton_4">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -411,7 +279,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="aboutButton">
+    <widget class="QPushButton" name="aboutButton_4">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -447,7 +315,7 @@ QPushButton:hover {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="search">
+    <widget class="QPushButton" name="searchButton_3">
      <property name="geometry">
       <rect>
        <x>930</x>
@@ -456,17 +324,36 @@ QPushButton:hover {
        <height>31</height>
       </rect>
      </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="text">
       <string/>
      </property>
-     <property name="pixmap">
-      <pixmap>../../img/Search.png</pixmap>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../img/Search.png</normaloff>../../img/Search.png</iconset>
      </property>
-     <property name="scaledContents">
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="account">
+    <widget class="QPushButton" name="userButton_3">
      <property name="geometry">
       <rect>
        <x>980</x>
@@ -478,14 +365,54 @@ QPushButton:hover {
      <property name="text">
       <string/>
      </property>
-     <property name="pixmap">
-      <pixmap>../../img/User.png</pixmap>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../img/User.png</normaloff>../../img/User.png</iconset>
      </property>
-     <property name="scaledContents">
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="flat">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="notification">
+    <widget class="QPushButton" name="cartButton_3">
+     <property name="geometry">
+      <rect>
+       <x>1080</x>
+       <y>30</y>
+       <width>31</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../img/Shopping Cart.png</normaloff>
+       <normalon>../../img/Shopping Cart.png</normalon>../../img/Shopping Cart.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>51</height>
+      </size>
+     </property>
+     <property name="autoExclusive">
+      <bool>false</bool>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="notification_4">
      <property name="geometry">
       <rect>
        <x>1030</x>
@@ -504,25 +431,276 @@ QPushButton:hover {
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="keranjang">
+    <widget class="QPushButton" name="berandaButton">
      <property name="geometry">
       <rect>
-       <x>1080</x>
-       <y>30</y>
-       <width>31</width>
-       <height>51</height>
+       <x>370</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
      <property name="text">
-      <string/>
+      <string>Beranda</string>
      </property>
-     <property name="pixmap">
-      <pixmap>../../img/Shopping Cart.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
+     <property name="checkable">
+      <bool>false</bool>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="tanaman1">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>400</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : black;
+    background-color :  white;
+    }
+
+QPushButton:hover {
+	color : blue;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tanaman1_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>400</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : black;
+    background-color :  white;
+    }
+
+QPushButton:hover {
+	color : blue;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tanaman1_3">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>400</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : black;
+    background-color :  white;
+    }
+
+QPushButton:hover {
+	color : blue;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tanaman1_4">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>710</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : black;
+    background-color :  white;
+    }
+
+QPushButton:hover {
+	color : blue;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tanaman1_5">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>710</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : black;
+    background-color :  white;
+    }
+
+QPushButton:hover {
+	color : blue;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tanaman1_6">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>710</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sansita</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : black;
+    background-color :  white;
+    }
+
+QPushButton:hover {
+	color : blue;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Nama Tanaman</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
    </widget>
   </widget>
  </widget>

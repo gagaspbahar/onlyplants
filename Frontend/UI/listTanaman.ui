@@ -243,6 +243,45 @@ color : rgb(0, 0, 0) </string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QPushButton" name="berandaButton_4">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sansita</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 0px solid #555;
+    border-radius: 15px;
+    border-style: outset;
+    padding: 5px;
+	color : rgb(53, 78, 59);
+    background-color :  rgb(234, 216, 202);
+    }
+
+QPushButton:hover {
+	color : white;
+    }</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
     <widget class="QPushButton" name="tanamanButton_4">
      <property name="geometry">
       <rect>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>829</width>
+    <height>120</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>40</width>
+    <height>120</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>120</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="Orders">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>91</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>91</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(234, 216, 202);
+border-radius: 8px</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="OrderID">
+        <property name="styleSheet">
+         <string notr="true">position: absolute;
+width: 236px;
+height: 24px;
+left: 144px;
+top: 228px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 24px;
+/* identical to box height */
+
+color: #000000;</string>
+        </property>
+        <property name="text">
+         <string>Order ID: XXXXX</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_11">
+        <property name="styleSheet">
+         <string notr="true">position: absolute;
+width: 236px;
+height: 24px;
+left: 144px;
+top: 228px;
+
+font-family: 'Sansita';
+font-style: normal;
+font-weight: Bold;
+font-size: 17px;
+line-height: 24px;
+/* identical to box height */
+
+color: #000000;</string>
+        </property>
+        <property name="text">
+         <string>Menunggu Konfirmasi Admin</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

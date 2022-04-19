@@ -1,21 +1,32 @@
+import database.db_api as db_api
 import welcomescreen
 import login
 import register
 import landingPage
 import listTanaman
-import database.db_api as db_api
+import adminPage
+import addTanaman
+import editTanaman
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 global LoggedInID
+global isAdmin
+
 
 def handleLogin(LoginWindow: login.Ui_Login, conn):
   global LoggedInID
+  global isAdmin
+  isAdmin = False
   username = LoginWindow.usernamebox.text()
   password = LoginWindow.usernamebox_2.text()
   LoggedInID = db_api.login(conn, username, password)
   print("Login successful as ID: ", LoggedInID)
+  
+  # Admin handler
+  if(LoggedInID == 1):
+    isAdmin = True
   return True
 
 def handleRegister(RegisterWindow: register.Ui_Register, conn):

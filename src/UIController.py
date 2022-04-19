@@ -47,6 +47,18 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     print("Register successful as ID: ", db_api.login(conn, username, password))
     return True
 
+  def handleAddTanaman(self, conn):
+    nama = self.AddTanamanWindow.namaTanamanEdit.text()
+    filepath = self.AddTanamanWindow.uploadFotoEdit.text()
+    deskripsi = self.AddTanamanWindow.textEdit.text()
+    stok = int(self.AddTanamanWindow.stokEdit.text())
+    harga = int(self.AddTanamanWindow.hargaEdit.text())
+    domisili = self.AddTanamanWindow.domisiliEdit.text()
+    image = db_api.convertToBinaryData(filepath)
+
+    db_api.addTanaman(conn, nama, harga, stok, deskripsi, image, domisili)
+    print("Add tanaman " + nama + " successful")
+
 
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()
@@ -90,6 +102,8 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.AdminPageWindow.editTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.EditTanamanWindow))
 
     self.AdminPageWindow.addTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AddTanamanWindow))
+
+    self.AddTanamanWindow.tambahkanTanamanButton.clicked.connect(lambda: self.handleAddTanaman(conn))
 
     withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow, self.AdminPageWindow, self.AddTanamanWindow, self.EditTanamanWindow]
     for window in withNavbar:

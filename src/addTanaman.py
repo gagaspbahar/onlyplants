@@ -312,12 +312,12 @@ class UI_addTanaman(QtWidgets.QWidget):
 "    border-style: outset;\n"
 "    background-color : #769D8A;\n"
 "    padding: 5px;")
-        self.uploadFotoEdit.setText("path file")
+        self.uploadFotoEdit.setText("Path to File")
         self.uploadFotoEdit.setObjectName("uploadFotoEdit")
         
         # Text Edit Deskripsi
         # TODO : sesuain textedit kayak lineedit
-        self.textEdit = QtWidgets.QTextEdit(self.bgwidget)
+        self.textEdit = QtWidgets.QLineEdit(self.bgwidget)
         self.textEdit.setGeometry(QtCore.QRect(310, 260, 751, 151))
         self.textEdit.setObjectName("textEdit")
         font = QtGui.QFont()
@@ -414,10 +414,7 @@ class UI_addTanaman(QtWidgets.QWidget):
     def open_dialog_box(self):
         filename = QtWidgets.QFileDialog.getOpenFileName()
         path = filename[0]
-        print(path)
-
-        with open(path, "r") as f:
-            print(f.readline())
+        self.uploadFotoEdit.setText(path)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

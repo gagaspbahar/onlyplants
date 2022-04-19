@@ -75,6 +75,54 @@ class Ui_Dialog(QtWidgets.QWidget):
         self.gambar6.setScaledContents(True)
         self.gambar6.setObjectName("gambar6")
 
+        # Label Kiri
+        self.kiri = QtWidgets.QPushButton(self.bgwidget)
+        self.kiri.setGeometry(QtCore.QRect(25, 410, 50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(40)
+        self.kiri.setFont(font)
+        self.kiri.setAutoFillBackground(False)
+        self.kiri.setStyleSheet("QPushButton {\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 15px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    color : black;\n"
+"    text-align: center;\n"
+"    background-color :  white;\n"
+"    }\n"
+"\n"
+"QPushButton:hover {\n"
+"    color : #B1B6AF;\n"
+"    }")
+        self.kiri.setCheckable(False)
+        self.kiri.setObjectName("kiri")
+
+        # Label Kanan
+        self.kanan = QtWidgets.QPushButton(self.bgwidget)
+        self.kanan.setGeometry(QtCore.QRect(1125, 410, 50, 50))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(40)
+        self.kanan.setFont(font)
+        self.kanan.setAutoFillBackground(False)
+        self.kanan.setStyleSheet("QPushButton {\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 15px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    color : black;\n"
+"    text-align: center;\n"
+"    background-color :  white;\n"
+"    }\n"
+"\n"
+"QPushButton:hover {\n"
+"    color : #B1B6AF;\n"
+"    }")
+        self.kanan.setCheckable(False)
+        self.kanan.setObjectName("kanan")
+
         # Label 1
         self.tanaman1 = QtWidgets.QPushButton(self.bgwidget)
         self.tanaman1.setGeometry(QtCore.QRect(100, 400, 241, 31))
@@ -356,7 +404,8 @@ class Ui_Dialog(QtWidgets.QWidget):
         self.cartButton.setFlat(True)
         self.cartButton.setObjectName("cartButton")
         
-
+        self.kiri.raise_()
+        self.kanan.raise_()
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -366,6 +415,8 @@ class Ui_Dialog(QtWidgets.QWidget):
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
+        self.kiri.setText(_translate("Dialog", "<"))
+        self.kanan.setText(_translate("Dialog", ">"))
         self.tanaman1.setText(_translate("Dialog", "Nama Tanaman 1"))
         self.tanaman2.setText(_translate("Dialog", "Nama Tanaman 2"))
         self.tanaman3.setText(_translate("Dialog", "Nama Tanaman 3"))

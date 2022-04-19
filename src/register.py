@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Widgets import PushButton
 
 class Ui_Register(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -38,18 +38,7 @@ class Ui_Register(QtWidgets.QWidget):
         self.loginframe.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.loginframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.loginframe.setObjectName("loginframe")
-        self.emailBox = QtWidgets.QLineEdit(self.loginframe)
-        self.emailBox.setGeometry(QtCore.QRect(30, 60, 501, 41))
-        self.emailBox.setStyleSheet("QLineEdit#emailBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.emailBox.setText("")
-        self.emailBox.setObjectName("emailBox")
+
         self.registerButton = QtWidgets.QPushButton(self.loginframe)
         self.registerButton.setGeometry(QtCore.QRect(190, 550, 171, 41))
         font = QtGui.QFont()
@@ -79,16 +68,34 @@ class Ui_Register(QtWidgets.QWidget):
 "    }")
         self.registerButton.setCheckable(False)
         self.registerButton.setObjectName("registerButton")
+
+        # Email
         self.label_3 = QtWidgets.QLabel(self.loginframe)
-        self.label_3.setGeometry(QtCore.QRect(30, 40, 81, 16))
+        self.label_3.setGeometry(QtCore.QRect(30, 25, 501, 20))
         self.label_3.setStyleSheet("font: 12pt \"Sansita\";")
         self.label_3.setObjectName("label_3")
+
+        self.emailBox = QtWidgets.QLineEdit(self.loginframe)
+        self.emailBox.setGeometry(QtCore.QRect(30, 47, 501, 41))
+        self.emailBox.setStyleSheet("QLineEdit#emailBox{\n"
+"    background-color: white;\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 10px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    font: 12pt \"Sansita\";\n"
+"}")
+        self.emailBox.setText("")
+        self.emailBox.setObjectName("emailBox")
+
+        # Nama Lengkap
         self.label_4 = QtWidgets.QLabel(self.loginframe)
-        self.label_4.setGeometry(QtCore.QRect(30, 110, 101, 16))
+        self.label_4.setGeometry(QtCore.QRect(30, 100, 501, 22))
         self.label_4.setStyleSheet("font: 12pt \"Sansita\";")
         self.label_4.setObjectName("label_4")
+
         self.namaBox = QtWidgets.QLineEdit(self.loginframe)
-        self.namaBox.setGeometry(QtCore.QRect(30, 130, 501, 41))
+        self.namaBox.setGeometry(QtCore.QRect(30, 124, 501, 41))
         self.namaBox.setStyleSheet("QLineEdit#namaBox{\n"
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
@@ -99,58 +106,14 @@ class Ui_Register(QtWidgets.QWidget):
 "}")
         self.namaBox.setText("")
         self.namaBox.setObjectName("namaBox")
+
+        # Username
         self.label_5 = QtWidgets.QLabel(self.loginframe)
-        self.label_5.setGeometry(QtCore.QRect(30, 180, 81, 16))
+        self.label_5.setGeometry(QtCore.QRect(30, 180, 501, 16))
         self.label_5.setStyleSheet("font: 12pt \"Sansita\";")
         self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(self.loginframe)
-        self.label_6.setGeometry(QtCore.QRect(30, 250, 81, 16))
-        self.label_6.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_6.setObjectName("label_6")
-        self.passwordBox = QtWidgets.QLineEdit(self.loginframe)
-        self.passwordBox.setGeometry(QtCore.QRect(30, 270, 501, 41))
-        self.passwordBox.setStyleSheet("QLineEdit#passwordBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.passwordBox.setText("")
-        self.passwordBox.setObjectName("passwordBox")
-        self.label_7 = QtWidgets.QLabel(self.loginframe)
-        self.label_7.setGeometry(QtCore.QRect(30, 320, 101, 16))
-        self.label_7.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_7.setObjectName("label_7")
-        self.telpBox = QtWidgets.QLineEdit(self.loginframe)
-        self.telpBox.setGeometry(QtCore.QRect(30, 340, 501, 41))
-        self.telpBox.setStyleSheet("QLineEdit#telpBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.telpBox.setText("")
-        self.telpBox.setObjectName("telpBox")
-        self.label_8 = QtWidgets.QLabel(self.loginframe)
-        self.label_8.setGeometry(QtCore.QRect(30, 390, 81, 21))
-        self.label_8.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_8.setObjectName("label_8")
-        self.addressBox = QtWidgets.QLineEdit(self.loginframe)
-        self.addressBox.setGeometry(QtCore.QRect(30, 410, 501, 41))
-        self.addressBox.setStyleSheet("QLineEdit#addressBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.addressBox.setText("")
-        self.addressBox.setObjectName("addressBox")
+
+        # Username
         self.usernameBox = QtWidgets.QLineEdit(self.loginframe)
         self.usernameBox.setGeometry(QtCore.QRect(30, 200, 501, 41))
         self.usernameBox.setStyleSheet("QLineEdit#usernameBox{\n"
@@ -163,8 +126,87 @@ class Ui_Register(QtWidgets.QWidget):
 "}")
         self.usernameBox.setText("")
         self.usernameBox.setObjectName("usernameBox")
+
+        # Password
+        self.label_6 = QtWidgets.QLabel(self.loginframe)
+        self.label_6.setGeometry(QtCore.QRect(30, 250, 501, 16))
+        self.label_6.setStyleSheet("font: 12pt \"Sansita\";")
+        self.label_6.setObjectName("label_6")
+
+        # Eye Button
+        self.eyeButton = PushButton(self.loginframe)
+        self.eyeButton.setGeometry(QtCore.QRect(480, 270, 51, 41))
+        self.eyeButton.setStyleSheet("")
+        self.eyeButton.setText("")
+        self.eyeButton.setIconSize(QtCore.QSize(30, 30))
+        self.eyeButton.setCheckable(True)
+        self.eyeButton.setAutoRepeatDelay(400)
+        self.eyeButton.setFlat(True)
+        self.eyeButton.setDefault(False)
+        self.eyeButton.setObjectName("eyeButton")
+        self.showPass = False
+        self.eyeButton.clicked.connect(self.setEye)
+
+        # Password
+        self.passwordBox = QtWidgets.QLineEdit(self.loginframe)
+        self.passwordBox.setGeometry(QtCore.QRect(30, 270, 501, 41))
+        self.passwordBox.setStyleSheet("QLineEdit#passwordBox{\n"
+"    background-color: white;\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 10px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    font: 12pt \"Sansita\";\n"
+"}")
+        self.passwordBox.setText("")
+        self.passwordBox.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.passwordBox.setObjectName("passwordBox")
+
+        # Nomor telepon
+        self.label_7 = QtWidgets.QLabel(self.loginframe)
+        self.label_7.setGeometry(QtCore.QRect(30, 320, 501, 22))
+        self.label_7.setStyleSheet("font: 12pt \"Sansita\";")
+        self.label_7.setObjectName("label_7")
+        self.telpBox = QtWidgets.QLineEdit(self.loginframe)
+        self.telpBox.setGeometry(QtCore.QRect(30, 344, 501, 41))
+        self.telpBox.setStyleSheet("QLineEdit#telpBox{\n"
+"    background-color: white;\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 10px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    font: 12pt \"Sansita\";\n"
+"}")
+        self.telpBox.setText("")
+        self.telpBox.setObjectName("telpBox")
+
+        # Alamat
+        self.label_8 = QtWidgets.QLabel(self.loginframe)
+        self.label_8.setGeometry(QtCore.QRect(30, 393, 501, 21))
+        self.label_8.setStyleSheet("font: 12pt \"Sansita\";")
+        self.label_8.setObjectName("label_8")
+        self.addressBox = QtWidgets.QLineEdit(self.loginframe)
+        self.addressBox.setGeometry(QtCore.QRect(30, 416, 501, 41))
+        self.addressBox.setStyleSheet("QLineEdit#addressBox{\n"
+"    background-color: white;\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 10px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    font: 12pt \"Sansita\";\n"
+"}")
+        self.addressBox.setText("")
+        self.addressBox.setObjectName("addressBox")
+
+        # Kode Pos
+        self.label_9 = QtWidgets.QLabel(self.loginframe)
+        self.label_9.setGeometry(QtCore.QRect(30, 465, 501, 21))
+        self.label_9.setStyleSheet("font: 12pt \"Sansita\";")
+        self.label_9.setObjectName("label_9")
+
+        # Kode Pos
         self.posBox = QtWidgets.QLineEdit(self.loginframe)
-        self.posBox.setGeometry(QtCore.QRect(30, 480, 501, 41))
+        self.posBox.setGeometry(QtCore.QRect(30, 488, 501, 41))
         self.posBox.setStyleSheet("QLineEdit#posBox{\n"
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
@@ -175,12 +217,10 @@ class Ui_Register(QtWidgets.QWidget):
 "}")
         self.posBox.setText("")
         self.posBox.setObjectName("posBox")
-        self.label_9 = QtWidgets.QLabel(self.loginframe)
-        self.label_9.setGeometry(QtCore.QRect(30, 460, 81, 21))
-        self.label_9.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_9.setObjectName("label_9")
+
+        # Form Registrasi
         self.label_10 = QtWidgets.QLabel(self.bgwidget)
-        self.label_10.setGeometry(QtCore.QRect(310, 110, 151, 31))
+        self.label_10.setGeometry(QtCore.QRect(310, 105, 501, 31))
         self.label_10.setStyleSheet("font: 16pt \"Sansita\";")
         self.label_10.setObjectName("label_10")
 
@@ -322,8 +362,16 @@ class Ui_Register(QtWidgets.QWidget):
         self.cartButton.setFlat(True)
         self.cartButton.setObjectName("cartButton")
 
+        self.eyeButton.raise_()
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def setEye(self):
+        self.showPass = not (self.showPass)
+        if (self.showPass) :
+                self.passwordBox.setEchoMode(QtWidgets.QLineEdit.Normal)
+        else :
+                self.passwordBox.setEchoMode(QtWidgets.QLineEdit.Password)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

@@ -315,7 +315,6 @@ class UI_addTanaman(QtWidgets.QWidget):
         self.uploadFotoEdit.setObjectName("uploadFotoEdit")
         
         # Text Edit Deskripsi
-        # TODO : sesuain textedit kayak lineedit
         self.textEdit = QtWidgets.QLineEdit(self.bgwidget)
         self.textEdit.setGeometry(QtCore.QRect(310, 260, 751, 151))
         self.textEdit.setObjectName("textEdit")

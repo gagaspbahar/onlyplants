@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Register(object):
+class Ui_Register(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -50,13 +50,13 @@ class Ui_Register(object):
 "}")
         self.emailBox.setText("")
         self.emailBox.setObjectName("emailBox")
-        self.QPushButton_3 = QtWidgets.QPushButton(self.loginframe)
-        self.QPushButton_3.setGeometry(QtCore.QRect(190, 550, 171, 41))
+        self.registerButton = QtWidgets.QPushButton(self.loginframe)
+        self.registerButton.setGeometry(QtCore.QRect(190, 550, 171, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(11)
-        self.QPushButton_3.setFont(font)
-        self.QPushButton_3.setStyleSheet("QPushButton {\n"
+        self.registerButton.setFont(font)
+        self.registerButton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 15px;\n"
 "    border-style: outset;\n"
@@ -77,8 +77,8 @@ class Ui_Register(object):
 "        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
 "        );\n"
 "    }")
-        self.QPushButton_3.setCheckable(False)
-        self.QPushButton_3.setObjectName("QPushButton_3")
+        self.registerButton.setCheckable(False)
+        self.registerButton.setObjectName("registerButton")
         self.label_3 = QtWidgets.QLabel(self.loginframe)
         self.label_3.setGeometry(QtCore.QRect(30, 40, 81, 16))
         self.label_3.setStyleSheet("font: 12pt \"Sansita\";")
@@ -139,9 +139,9 @@ class Ui_Register(object):
         self.label_8.setGeometry(QtCore.QRect(30, 390, 81, 21))
         self.label_8.setStyleSheet("font: 12pt \"Sansita\";")
         self.label_8.setObjectName("label_8")
-        self.adressBox = QtWidgets.QLineEdit(self.loginframe)
-        self.adressBox.setGeometry(QtCore.QRect(30, 410, 501, 41))
-        self.adressBox.setStyleSheet("QLineEdit#adressBox{\n"
+        self.addressBox = QtWidgets.QLineEdit(self.loginframe)
+        self.addressBox.setGeometry(QtCore.QRect(30, 410, 501, 41))
+        self.addressBox.setStyleSheet("QLineEdit#addressBox{\n"
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
@@ -149,8 +149,8 @@ class Ui_Register(object):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 "}")
-        self.adressBox.setText("")
-        self.adressBox.setObjectName("adressBox")
+        self.addressBox.setText("")
+        self.addressBox.setObjectName("addressBox")
         self.usernameBox = QtWidgets.QLineEdit(self.loginframe)
         self.usernameBox.setGeometry(QtCore.QRect(30, 200, 501, 41))
         self.usernameBox.setStyleSheet("QLineEdit#usernameBox{\n"
@@ -322,7 +322,7 @@ class Ui_Register(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.QPushButton_3.setText(_translate("Dialog", "Daftar"))
+        self.registerButton.setText(_translate("Dialog", "Daftar"))
         self.label_3.setText(_translate("Dialog", "Email"))
         self.label_4.setText(_translate("Dialog", "Nama Lengkap"))
         self.label_5.setText(_translate("Dialog", "Username"))
@@ -334,6 +334,10 @@ class Ui_Register(object):
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
+
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
 
 
 if __name__ == "__main__":

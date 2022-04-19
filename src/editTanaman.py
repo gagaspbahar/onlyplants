@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class UI_editTanaman(object):
+class UI_editTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -398,6 +398,10 @@ class UI_editTanaman(object):
 
         with open(path, "r") as f:
             print(f.readline())
+    
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
 
 
 if __name__ == "__main__":

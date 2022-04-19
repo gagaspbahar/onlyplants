@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
+class Ui_Dialog(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -93,13 +93,13 @@ class Ui_Dialog(object):
         self.Logo_4.setScaledContents(True)
         self.Logo_4.setAlignment(QtCore.Qt.AlignCenter)
         self.Logo_4.setObjectName("Logo_4")
-        self.tanamanButton_4 = QtWidgets.QPushButton(self.navbar)
-        self.tanamanButton_4.setGeometry(QtCore.QRect(520, 40, 91, 31))
+        self.tanamanButton = QtWidgets.QPushButton(self.navbar)
+        self.tanamanButton.setGeometry(QtCore.QRect(520, 40, 91, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
-        self.tanamanButton_4.setFont(font)
-        self.tanamanButton_4.setStyleSheet("QPushButton {\n"
+        self.tanamanButton.setFont(font)
+        self.tanamanButton.setStyleSheet("QPushButton {\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 15px;\n"
 "    border-style: outset;\n"
@@ -111,8 +111,8 @@ class Ui_Dialog(object):
 "QPushButton:hover {\n"
 "    color : white;\n"
 "    }")
-        self.tanamanButton_4.setCheckable(False)
-        self.tanamanButton_4.setObjectName("tanamanButton_4")
+        self.tanamanButton.setCheckable(False)
+        self.tanamanButton.setObjectName("tanamanButton")
         self.aboutButton_4 = QtWidgets.QPushButton(self.navbar)
         self.aboutButton_4.setGeometry(QtCore.QRect(670, 40, 131, 31))
         font = QtGui.QFont()
@@ -326,7 +326,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.tanamanButton_4.setText(_translate("Dialog", "Tanaman"))
+        self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton_4.setText(_translate("Dialog", "Tentang Kami"))
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanaman1.setText(_translate("Dialog", "Nama Tanaman"))
@@ -336,6 +336,9 @@ class Ui_Dialog(object):
         self.tanaman1_5.setText(_translate("Dialog", "Nama Tanaman"))
         self.tanaman1_6.setText(_translate("Dialog", "Nama Tanaman"))
 
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
 
 if __name__ == "__main__":
     import sys

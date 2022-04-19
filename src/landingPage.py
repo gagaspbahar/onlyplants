@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class UI_landingPage(object):
+class UI_landingPage(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -71,6 +71,14 @@ class UI_landingPage(object):
                                            "    }")
         self.mulaiSewaButton.setCheckable(False)
         self.mulaiSewaButton.setObjectName("mulaiSewaButton")
+
+        # Background
+        self.label = QtWidgets.QLabel(self.bgwidget)
+        self.label.setGeometry(QtCore.QRect(0, 90, 1201, 711))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("./img/image 2.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
 
         # Text Landing Page
         self.landingText = QtWidgets.QLabel(self.contentFrame)
@@ -219,6 +227,8 @@ class UI_landingPage(object):
         self.notification.setScaledContents(True)
         self.notification.setObjectName("notification")
 
+        self.label.raise_()
+        self.contentFrame.raise_()
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -230,7 +240,10 @@ class UI_landingPage(object):
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
-
+        
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
 
 if __name__ == "__main__":
     import sys

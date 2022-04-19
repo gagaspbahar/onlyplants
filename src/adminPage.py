@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class UI_adminPage(object):
+class UI_adminPage(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -240,6 +240,9 @@ class UI_adminPage(object):
         self.addTanaman.setText(_translate("Dialog", "Tambahkan Tanaman"))
         self.editTanaman.setText(_translate("Dialog", "Edit Tanaman"))
 
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
 
 if __name__ == "__main__":
     import sys

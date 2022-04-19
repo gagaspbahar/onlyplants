@@ -9,17 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-class PushButton(QtWidgets.QPushButton):
-    def __init__(self, parent=None):
-        super(PushButton, self).__init__(parent)
-        self.setIcon(QtGui.QIcon("./img/eyeclose.png"))
-
-    def mouseReleaseEvent(self, event):
-        super(PushButton, self).mouseReleaseEvent(event)
-        self.setIcon(
-            QtGui.QIcon("./img/eyeopen.png" if self.isChecked() else "./img/eyeclose.png")
-        )
+from Widgets import PushButton
 
 class Ui_Login(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -28,6 +18,8 @@ class Ui_Login(QtWidgets.QWidget):
         Dialog.setMinimumSize(QtCore.QSize(1200, 800))
         Dialog.setMaximumSize(QtCore.QSize(1200, 800))
         self.bgwidget = QtWidgets.QWidget(Dialog)
+        self.bgwidget.setWindowTitle("OnlyPlants")
+        self.bgwidget.setWindowIcon(QtGui.QIcon("./img/logo.png"))
         self.bgwidget.setEnabled(True)
         self.bgwidget.setGeometry(QtCore.QRect(0, 0, 1200, 800))
         self.bgwidget.setMinimumSize(QtCore.QSize(1200, 800))
@@ -151,7 +143,8 @@ class Ui_Login(QtWidgets.QWidget):
 "    }")
         self.daftarButton.setCheckable(False)
         self.daftarButton.setObjectName("daftarButton")
-        self.navbar = QtWidgets.QFrame(self.bgwidget)
+
+        # Navigation bar
         self.navbar = QtWidgets.QFrame(self.bgwidget)
         self.navbar.setGeometry(QtCore.QRect(0, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
@@ -184,7 +177,7 @@ class Ui_Login(QtWidgets.QWidget):
         self.Logo.setAlignment(QtCore.Qt.AlignCenter)
         self.Logo.setObjectName("Logo")
         self.berandaButton = QtWidgets.QPushButton(self.navbar)
-        self.berandaButton.setGeometry(QtCore.QRect(350, 40, 91, 31))
+        self.berandaButton.setGeometry(QtCore.QRect(350, 35, 95, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -205,7 +198,7 @@ class Ui_Login(QtWidgets.QWidget):
         self.berandaButton.setCheckable(False)
         self.berandaButton.setObjectName("berandaButton")
         self.tanamanButton = QtWidgets.QPushButton(self.navbar)
-        self.tanamanButton.setGeometry(QtCore.QRect(520, 40, 91, 31))
+        self.tanamanButton.setGeometry(QtCore.QRect(525, 35, 110, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -225,7 +218,7 @@ class Ui_Login(QtWidgets.QWidget):
         self.tanamanButton.setCheckable(False)
         self.tanamanButton.setObjectName("tanamanButton")
         self.aboutButton = QtWidgets.QPushButton(self.navbar)
-        self.aboutButton.setGeometry(QtCore.QRect(670, 40, 131, 31))
+        self.aboutButton.setGeometry(QtCore.QRect(710, 35, 150, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -245,7 +238,7 @@ class Ui_Login(QtWidgets.QWidget):
         self.aboutButton.setCheckable(False)
         self.aboutButton.setObjectName("aboutButton")
         self.searchButton = QtWidgets.QPushButton(self.navbar)
-        self.searchButton.setGeometry(QtCore.QRect(930, 40, 31, 31))
+        self.searchButton.setGeometry(QtCore.QRect(980, 40, 31, 31))
         self.searchButton.setMouseTracking(False)
         self.searchButton.setAutoFillBackground(False)
         self.searchButton.setText("")
@@ -259,7 +252,7 @@ class Ui_Login(QtWidgets.QWidget):
         self.searchButton.setFlat(True)
         self.searchButton.setObjectName("searchButton")
         self.userButton = QtWidgets.QPushButton(self.navbar)
-        self.userButton.setGeometry(QtCore.QRect(980, 35, 31, 41))
+        self.userButton.setGeometry(QtCore.QRect(1030, 35, 31, 41))
         self.userButton.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("././img/User.png"),
@@ -268,8 +261,14 @@ class Ui_Login(QtWidgets.QWidget):
         self.userButton.setIconSize(QtCore.QSize(31, 41))
         self.userButton.setFlat(True)
         self.userButton.setObjectName("userButton")
+        self.notification = QtWidgets.QLabel(self.navbar)
+        self.notification.setGeometry(QtCore.QRect(1080, 40, 31, 31))
+        self.notification.setText("")
+        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
+        self.notification.setScaledContents(True)
+        self.notification.setObjectName("notification")
         self.cartButton = QtWidgets.QPushButton(self.navbar)
-        self.cartButton.setGeometry(QtCore.QRect(1080, 30, 31, 51))
+        self.cartButton.setGeometry(QtCore.QRect(1130, 30, 31, 51))
         self.cartButton.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
@@ -282,12 +281,6 @@ class Ui_Login(QtWidgets.QWidget):
         self.cartButton.setAutoDefault(True)
         self.cartButton.setFlat(True)
         self.cartButton.setObjectName("cartButton")
-        self.notification = QtWidgets.QLabel(self.navbar)
-        self.notification.setGeometry(QtCore.QRect(1030, 40, 31, 31))
-        self.notification.setText("")
-        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
-        self.notification.setScaledContents(True)
-        self.notification.setObjectName("notification")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)

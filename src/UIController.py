@@ -8,6 +8,7 @@ import adminPage
 import addTanaman
 import editTanaman
 import sys
+import Widgets
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -25,7 +26,34 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     username = self.LoginWindow.usernamebox.text()
     password = self.LoginWindow.usernamebox_2.text()
     LoggedInID = db_api.login(conn, username, password)
-    print("Login successful as ID: ", LoggedInID)
+    if (LoggedInID == ""):
+      messageBox = Widgets.MessageBox()
+      messageBox.setMinimumSize(QtCore.QSize(400, 200))
+      messageBox.setMaximumSize(QtCore.QSize(400, 200))
+      messageBox.setText("Login gagal!")
+      messageBox.setWindowTitle("Login Gagal")
+      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
+      messageBox.setIcon(QtWidgets.QMessageBox.Critical)
+      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
+      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+      messageBox.setDetailedText("Username atau password salah")
+      messageBox.exec()
+    else :
+      messageBox = Widgets.MessageBox()
+      messageBox.setMinimumSize(QtCore.QSize(400, 200))
+      messageBox.setMaximumSize(QtCore.QSize(400, 200))
+      messageBox.setText("Login berhasil!")
+      messageBox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+      messageBox.setWindowTitle("Login Berhasil")
+      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
+      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
+      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
+      messageBox.exec()
+      # mSize = QtWidgets.QMainWindow.sizeHint() # here's what you want, not m.width()/height()
+      # screenRect = QtWidgets.QDesktopWidget().screen().rect()
+      # messageBox.move( QtWidgets.QPoint( screenRect.width()/2 - mSize.width()/2,
+      #               screenRect.height()/2 - mSize.height()/2 ) )
+      print("Login successful as ID: ", LoggedInID)
     
     # Admin handler
     if(LoggedInID == 1):
@@ -59,21 +87,26 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     db_api.addTanaman(conn, nama, harga, stok, deskripsi, image, domisili)
     print("Add tanaman " + nama + " successful")
 
-
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()
     self.widget = QtWidgets.QStackedWidget()
 
     self.WelcomeWindow = welcomescreen.Ui_Dialog()
+    self.WelcomeWindow.setWindowTitle("OnlyPlants")
+    self.WelcomeWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     self.WelcomeWindow.loginButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LoginWindow))
 
     self.LoginWindow = login.Ui_Login()
+    self.LoginWindow.setWindowTitle("OnlyPlants")
+    self.LoginWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.LoginWindow.submitButton.clicked.connect(lambda: self.handleLogin(conn))
     self.LoginWindow.daftarButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.RegisterWindow))
     self.WelcomeWindow.registerButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.RegisterWindow))
 
     self.RegisterWindow = register.Ui_Register()
+    self.RegisterWindow.setWindowTitle("OnlyPlants")
+    self.RegisterWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.RegisterWindow.registerButton.clicked.connect(lambda: self.handleRegister(conn))
 
@@ -82,21 +115,31 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.widget.addWidget(self.RegisterWindow)
 
     self.LandingPageWindow = landingPage.UI_landingPage()
+    self.LandingPageWindow.setWindowTitle("OnlyPlants")
+    self.LandingPageWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.widget.addWidget(self.LandingPageWindow)
 
     self.ListTanamanWindow = listTanaman.Ui_Dialog()
+    self.ListTanamanWindow.setWindowTitle("OnlyPlants")
+    self.ListTanamanWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     
     self.widget.addWidget(self.ListTanamanWindow)
 
     self.AdminPageWindow = adminPage.UI_adminPage()
+    self.AdminPageWindow.setWindowTitle("OnlyPlants")
+    self.AdminPageWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.widget.addWidget(self.AdminPageWindow)
 
     self.AddTanamanWindow = addTanaman.UI_addTanaman()
+    self.AddTanamanWindow.setWindowTitle("OnlyPlants")
+    self.AddTanamanWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     self.widget.addWidget(self.AddTanamanWindow)
 
     self.EditTanamanWindow = editTanaman.UI_editTanaman()
+    self.EditTanamanWindow.setWindowTitle("OnlyPlants")
+    self.EditTanamanWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     self.widget.addWidget(self.EditTanamanWindow)
 
     self.AdminPageWindow.editTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.EditTanamanWindow))
@@ -112,9 +155,6 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
     self.widget.setCurrentWidget(self.WelcomeWindow)
     self.widget.show()
-
-
-
 
 
 if __name__ == '__main__':

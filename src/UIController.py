@@ -16,8 +16,6 @@ global LoggedInID
 global isAdmin
 
 
-
-
 class UI_MainWindow(QtWidgets.QMainWindow):
 
   def handleLogin(self, conn):
@@ -83,7 +81,17 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
     self.widget.addWidget(self.AdminPageWindow)
 
-    withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow]
+    self.AddTanamanWindow = addTanaman.UI_addTanaman()
+    self.widget.addWidget(self.AddTanamanWindow)
+
+    self.EditTanamanWindow = editTanaman.UI_editTanaman()
+    self.widget.addWidget(self.EditTanamanWindow)
+
+    self.AdminPageWindow.editTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.EditTanamanWindow))
+
+    self.AdminPageWindow.addTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AddTanamanWindow))
+
+    withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow, self.AdminPageWindow, self.AddTanamanWindow, self.EditTanamanWindow]
     for window in withNavbar:
         window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
         window.tanamanButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.ListTanamanWindow))

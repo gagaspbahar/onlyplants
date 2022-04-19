@@ -47,7 +47,7 @@ data = [
     'Yemen', 'Zambia', 'Zimbabwe'
     ]
 
-class UI_addTanaman(object):
+class UI_addTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -433,6 +433,10 @@ class UI_addTanaman(object):
         self.deskripsiLabel.setText(_translate("Dialog", "Deskripsi"))
         self.hargaLabel.setText(_translate("Dialog", "Harga Tanaman"))
         self.domisiliLabel.setText(_translate("Dialog", "Domisili Tanaman"))
+    
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
 
 
 if __name__ == "__main__":

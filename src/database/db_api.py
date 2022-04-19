@@ -103,7 +103,7 @@ def createInitializeTable (conn) :
                                 ); """
 
     sql_create_tanaman_table = """CREATE TABLE IF NOT EXISTS Tanaman (
-                                    idTanaman SERIAL PRIMARY KEY,
+                                    idTanaman INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     nama VARCHAR(50) NOT NULL,
                                     harga DOUBLE NOT NULL,
                                     stok INT NOT NULL,
@@ -113,14 +113,14 @@ def createInitializeTable (conn) :
                                 );"""
 
     sql_create_pemesanan_table = """ CREATE TABLE IF NOT EXISTS Pemesanan (
-                                    orderNumber SERIAL PRIMARY KEY,
+                                    orderNumber INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     idPelanggan BIGINT UNSIGNED NOT NULL,
                                     tanggalPemesanan DATETIME NOT NULL,
                                     FOREIGN KEY (idPelanggan) REFERENCES Akun_User (idAkun)
                                 ); """
 
     sql_create_detail_pemesanan_table = """CREATE TABLE IF NOT EXISTS Detail_Pemesanan (
-                                    orderNumberDetail SERIAL PRIMARY KEY,
+                                    orderNumberDetail INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     orderNumber BIGINT UNSIGNED NOT NULL,
                                     idTanaman BIGINT UNSIGNED NOT NULL,
                                     kuantitas INT NOT NULL,

@@ -62,13 +62,13 @@ class Ui_Login(QtWidgets.QWidget):
 "}")
         self.usernamebox_2.setText("")
         self.usernamebox_2.setObjectName("usernamebox_2")
-        self.QPushButton_3 = QtWidgets.QPushButton(self.loginframe)
-        self.QPushButton_3.setGeometry(QtCore.QRect(190, 300, 171, 41))
+        self.submitButton = QtWidgets.QPushButton(self.loginframe)
+        self.submitButton.setGeometry(QtCore.QRect(190, 300, 171, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(11)
-        self.QPushButton_3.setFont(font)
-        self.QPushButton_3.setStyleSheet("QPushButton {\n"
+        self.submitButton.setFont(font)
+        self.submitButton.setStyleSheet("QPushButton {\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
 "    border-style: outset;\n"
@@ -89,8 +89,8 @@ class Ui_Login(QtWidgets.QWidget):
 "        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
 "        );\n"
 "    }")
-        self.QPushButton_3.setCheckable(False)
-        self.QPushButton_3.setObjectName("QPushButton_3")
+        self.submitButton.setCheckable(False)
+        self.submitButton.setObjectName("submitButton")
         self.label_2 = QtWidgets.QLabel(self.loginframe)
         self.label_2.setGeometry(QtCore.QRect(30, 150, 81, 16))
         self.label_2.setStyleSheet("font: 12pt \"Sansita\";")
@@ -271,7 +271,7 @@ class Ui_Login(QtWidgets.QWidget):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.QPushButton_3.setText(_translate("Dialog", "Masuk"))
+        self.submitButton.setText(_translate("Dialog", "Masuk"))
         self.label_2.setText(_translate("Dialog", "Password"))
         self.label_3.setText(_translate("Dialog", "Username"))
         self.label_5.setText(_translate("Dialog", "Belum memiliki akun ?"))

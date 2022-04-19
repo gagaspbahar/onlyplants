@@ -3,36 +3,26 @@ import login
 import register
 import landingPage
 import listTanaman
-# import 
+import database.db_api as db_api
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-# class MainWindow(QtWidgets.QMainWindow):
-#   def __init__(self, parent=None):
-#     super(MainWindow, self).__init__(parent)
-#     self.stack = QtWidgets.QStackedWidget()
-
-#     self.loginWindow = login.Ui_Login()
-#     self.registerWindow = register.Ui_Register()
-#     self.welcomeWindow = welcomescreen.Ui_Dialog()
-
-#     self.stack.addWidget(self.welcomeWindow)
-#     self.stack.addWidget(self.loginWindow)
-#     self.stack.setCurrentWidget(self.welcomeWindow)
-#     self.stack.show()
-  
-#   def initLoginPage(self):
-#     self.welcomeWindow.loginButton.clicked.connect(lambda x = self.stack: self.stack.setCurrentWidget(self.loginWindow))
-  
-#   def initRegisterPage(self):
-#     self.stack.addWidget(self.registerWindow)
-#     self.welcomeWindow.registerButton.clicked.connect(lambda x = self.stack: self.stack.setCurrentWidget(self.registerWindow))
 
 global isLoggedIn
 
+def handleLogin(LoginWindow: login.Ui_Login, conn):
+  global isLoggedIn
+  username = LoginWindow.usernamebox.text()
+  password = LoginWindow.usernamebox_2.text()
+  isLoggedIn = db_api.login(conn, username, db_api.hash(password))
+  print(isLoggedIn)
+
 if __name__ == '__main__':
-    
     import sys
+    
+    database = r".\src\database\onlyplants.db"
+    conn = db_api.create_connection(database)
+
     app = QtWidgets.QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
 
@@ -41,6 +31,8 @@ if __name__ == '__main__':
 
     LoginWindow = login.Ui_Login()
 
+    # LoginWindow.submitButton.clicked.connect(handleLogin(LoginWindow,conn))
+    LoginWindow.daftarButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
     WelcomeWindow.registerButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
     RegisterWindow = register.Ui_Register()
 

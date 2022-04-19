@@ -92,7 +92,7 @@ def retrieve_file(entryID):
 # 7. INISIALISASI TABLE
 def createInitializeTable (conn) :
     sql_create_akun_user_table = """ CREATE TABLE IF NOT EXISTS Akun_User (
-                                    idAkun SERIAL PRIMARY KEY,
+                                    idAkun INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     customerName VARCHAR(225) NOT NULL,
                                     email VARCHAR(225) NOT NULL,
                                     username VARCHAR(30) NOT NULL,
@@ -143,13 +143,13 @@ def createInitializeTable (conn) :
 # Login
 def login(conn, username, password):
     c = conn.cursor()
-    passwordHash = hashlib.sha256(password).hexdigest() # Ubah password jadi hashlib
-    c.execute("SELECT * FROM Akun_User WHERE username = ? AND passwordHash = ?", (username, passwordHash))
+    passwordHash = hashlib.sha256(password.encode('utf-8')).hexdigest() # Ubah password jadi hashlib
+    c.execute("SELECT idAkun FROM Akun_User WHERE username = ? AND passwordHash = ?", (username, passwordHash))
     row = c.fetchone()
     if row is None:
         return False
     else:
-        return True
+        return row
 
 # 9. INISIALISASI INSERT DATA
 # Register
@@ -229,6 +229,9 @@ def viewKeranjang(conn, Idpelanggan):
     c.execute("CREATE VIEW listKeranjang AS SELECT nama, kuantitas, from_date, until_date, price, FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = ? AND u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'", (Idpelanggan,))
     row = c.fetchall()
     return row
+
+def hash(string):
+    return hashlib.sha256(string.encode('utf-8')).hexdigest()
 
 # Testing
 if __name__ == '__main__':

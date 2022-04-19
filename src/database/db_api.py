@@ -191,10 +191,10 @@ def updateStatus(conn, orderNumber, status_penyewaan):
 
 # 11. INISIALISASI VIEW DATA
 # View pemesanan
-def viewPemesanan(conn, Idpelanggan):
+def viewPemesanan(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS ViewPemesanan")
-    c.execute("CREATE VIEW ViewPemesanan AS SELECT * FROM Pemesanan NATURAL JOIN Detail_Pemesanan WHERE idPelanggan = ?", (Idpelanggan,))
+    c.execute("CREATE VIEW ViewPemesanan AS SELECT * FROM Pemesanan NATURAL JOIN Detail_Pemesanan")
     row = c.fetchall()
     return row
 
@@ -218,20 +218,32 @@ def viewDetailTanaman(conn, idTanaman):
 def viewPesananAktif(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS listPesananAktif")
-    c.execute("CREATE VIEW listPesananAktif AS SELECT orderNumber, status_penyewaan, orderNumberDetail FROM ViewPemesanan WHERE orderNumberDetail NOT IN (SELECT orderNumberDetail FROM Detail_Pemesanan WHERE (status_penyewaan = 'not submitted' OR status_penyewaan = 'masa sewa habis'))")
+    c.execute("CREATE VIEW listPesananAktif AS SELECT IdPelanggan, orderNumber, status_penyewaan, orderNumberDetail FROM ViewPemesanan WHERE orderNumberDetail NOT IN (SELECT orderNumberDetail FROM Detail_Pemesanan WHERE (status_penyewaan = 'not submitted' OR status_penyewaan = 'masa sewa habis'))")
     row = c.fetchall()
     return row
 
 # View daftar keranjang
-def viewKeranjang(conn, Idpelanggan):
+def viewKeranjang(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS listKeranjang")
-    c.execute("CREATE VIEW listKeranjang AS SELECT nama, kuantitas, from_date, until_date, price, FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = ? AND u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'", (Idpelanggan,))
+    c.execute("CREATE VIEW listKeranjang AS SELECT p.idPelanggan AS IdPelanggan, nama, kuantitas, from_date, until_date, price FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'")
     row = c.fetchall()
     return row
 
 def hash(string):
     return hashlib.sha256(string.encode('utf-8')).hexdigest()
+
+# Get Data View Keranjang Table
+def getKeranjang(conn, idPelanggan):
+    c = conn.cursor()
+    c.execute("SELECT * FROM listKeranjang WHERE IdPelanggan = ?", (idPelanggan,))
+    return c.fetchall()
+
+# Get Data View PesananAktif Table
+def getPesananAktif(conn, idPelanggan):
+    c = conn.cursor()
+    c.execute("SELECT * FROM listPesananAktif WHERE IdPelanggan = ?", (idPelanggan,))
+    return c.fetchall()
 
 # Testing
 if __name__ == '__main__':
@@ -273,7 +285,6 @@ if __name__ == '__main__':
     addDetailPemesanan(conn, 2, 3, 10, "2020-01-01", "2020-01-02", "not submitted", 100000)
     
     # Update status
-    updateStatus(conn, 1, "waiting for approval")
     updateStatus(conn, 2, "waiting for approval")
 
     # Bikin view

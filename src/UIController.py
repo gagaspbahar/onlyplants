@@ -16,6 +16,19 @@ def handleLogin(LoginWindow: login.Ui_Login, conn):
   password = LoginWindow.usernamebox_2.text()
   LoggedInID = db_api.login(conn, username, password)
   print("Login successful as ID: ", LoggedInID)
+  return True
+
+def handleRegister(RegisterWindow: register.Ui_Register, conn):
+  global LoggedInID
+  username = RegisterWindow.usernameBox.text()
+  password = RegisterWindow.passwordBox.text()
+  email = RegisterWindow.emailBox.text()
+  phone = RegisterWindow.telpBox.text()
+  address = RegisterWindow.addressBox.text()
+  postalCode = RegisterWindow.posBox.text()
+  db_api.register(conn, username, db_api.hash(password), username, email, phone, address, postalCode)
+  print("Register successful as ID: ", db_api.login(conn, username, password))
+  return True
 
 if __name__ == '__main__':
     import sys
@@ -34,7 +47,10 @@ if __name__ == '__main__':
     LoginWindow.submitButton.clicked.connect(lambda: handleLogin(LoginWindow, conn))
     LoginWindow.daftarButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
     WelcomeWindow.registerButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
+
     RegisterWindow = register.Ui_Register()
+
+    RegisterWindow.registerButton.clicked.connect(lambda: handleRegister(RegisterWindow, conn))
 
     widget.addWidget(WelcomeWindow)
     widget.addWidget(LoginWindow)

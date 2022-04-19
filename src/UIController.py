@@ -7,6 +7,7 @@ import listTanaman
 import adminPage
 import addTanaman
 import editTanaman
+import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -15,73 +16,90 @@ global LoggedInID
 global isAdmin
 
 
-def handleLogin(LoginWindow: login.Ui_Login, conn):
-  global LoggedInID
-  global isAdmin
-  isAdmin = False
-  username = LoginWindow.usernamebox.text()
-  password = LoginWindow.usernamebox_2.text()
-  LoggedInID = db_api.login(conn, username, password)
-  print("Login successful as ID: ", LoggedInID)
-  
-  # Admin handler
-  if(LoggedInID == 1):
-    isAdmin = True
-  return True
 
-def handleRegister(RegisterWindow: register.Ui_Register, conn):
-  global LoggedInID
-  username = RegisterWindow.usernameBox.text()
-  password = RegisterWindow.passwordBox.text()
-  email = RegisterWindow.emailBox.text()
-  phone = RegisterWindow.telpBox.text()
-  address = RegisterWindow.addressBox.text()
-  postalCode = RegisterWindow.posBox.text()
-  db_api.register(conn, username, db_api.hash(password), username, email, phone, address, postalCode)
-  print("Register successful as ID: ", db_api.login(conn, username, password))
-  return True
+
+class UI_MainWindow(QtWidgets.QMainWindow):
+
+  def handleLogin(self, conn):
+    global LoggedInID
+    global isAdmin
+    isAdmin = False
+    username = self.LoginWindow.usernamebox.text()
+    password = self.LoginWindow.usernamebox_2.text()
+    LoggedInID = db_api.login(conn, username, password)
+    print("Login successful as ID: ", LoggedInID)
+    
+    # Admin handler
+    if(LoggedInID == 1):
+      isAdmin = True
+      self.widget.setCurrentWidget(self.AdminPageWindow)
+    else:
+      self.widget.setCurrentWidget(self.LandingPageWindow)
+    return True
+
+  def handleRegister(self, conn):
+    global LoggedInID
+    username = self.RegisterWindow.usernameBox.text()
+    password = self.RegisterWindow.passwordBox.text()
+    email = self.RegisterWindow.emailBox.text()
+    phone = self.RegisterWindow.telpBox.text()
+    address = self.RegisterWindow.addressBox.text()
+    postalCode = self.RegisterWindow.posBox.text()
+    db_api.register(conn, username, db_api.hash(password), username, email, phone, address, postalCode)
+    print("Register successful as ID: ", db_api.login(conn, username, password))
+    return True
+
+
+  def __init__(self) -> None:
+    super(QtWidgets.QWidget, self).__init__()
+    self.widget = QtWidgets.QStackedWidget()
+
+    self.WelcomeWindow = welcomescreen.Ui_Dialog()
+    self.WelcomeWindow.loginButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LoginWindow))
+
+    self.LoginWindow = login.Ui_Login()
+
+    self.LoginWindow.submitButton.clicked.connect(lambda: self.handleLogin(conn))
+    self.LoginWindow.daftarButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.RegisterWindow))
+    self.WelcomeWindow.registerButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.RegisterWindow))
+
+    self.RegisterWindow = register.Ui_Register()
+
+    self.RegisterWindow.registerButton.clicked.connect(lambda: self.handleRegister(conn))
+
+    self.widget.addWidget(self.WelcomeWindow)
+    self.widget.addWidget(self.LoginWindow)
+    self.widget.addWidget(self.RegisterWindow)
+
+    self.LandingPageWindow = landingPage.UI_landingPage()
+
+    self.widget.addWidget(self.LandingPageWindow)
+
+    self.ListTanamanWindow = listTanaman.Ui_Dialog()
+    
+    self.widget.addWidget(self.ListTanamanWindow)
+
+    self.AdminPageWindow = adminPage.UI_adminPage()
+
+    self.widget.addWidget(self.AdminPageWindow)
+
+    withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow]
+    for window in withNavbar:
+        window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
+        window.tanamanButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.ListTanamanWindow))
+
+    self.widget.setCurrentWidget(self.WelcomeWindow)
+    self.widget.show()
+
+
+
+
 
 if __name__ == '__main__':
-    import sys
     
     database = r".\src\database\onlyplants.db"
     conn = db_api.create_connection(database)
 
     app = QtWidgets.QApplication(sys.argv)
-    widget = QtWidgets.QStackedWidget()
-
-    WelcomeWindow = welcomescreen.Ui_Dialog()
-    WelcomeWindow.loginButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(LoginWindow))
-
-    LoginWindow = login.Ui_Login()
-
-    LoginWindow.submitButton.clicked.connect(lambda: handleLogin(LoginWindow, conn))
-    LoginWindow.daftarButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
-    WelcomeWindow.registerButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
-
-    RegisterWindow = register.Ui_Register()
-
-    RegisterWindow.registerButton.clicked.connect(lambda: handleRegister(RegisterWindow, conn))
-
-    widget.addWidget(WelcomeWindow)
-    widget.addWidget(LoginWindow)
-    widget.addWidget(RegisterWindow)
-
-    LandingPageWindow = landingPage.UI_landingPage()
-
-    widget.addWidget(LandingPageWindow)
-
-    ListTanamanWindow = listTanaman.Ui_Dialog()
-    
-    widget.addWidget(ListTanamanWindow)
-
-    withNavbar = [LoginWindow, RegisterWindow, LandingPageWindow, ListTanamanWindow]
-    for window in withNavbar:
-        window.berandaButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(LandingPageWindow))
-        window.tanamanButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(ListTanamanWindow))
-
-    widget.setCurrentWidget(WelcomeWindow)
-    widget.show()
-    # Window = MainWindow()
-    # Window.stack.show()
+    MainWindow = UI_MainWindow()
     sys.exit(app.exec_())

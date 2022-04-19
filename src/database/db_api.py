@@ -92,7 +92,7 @@ def retrieve_file(entryID):
 # 7. INISIALISASI TABLE
 def createInitializeTable (conn) :
     sql_create_akun_user_table = """ CREATE TABLE IF NOT EXISTS Akun_User (
-                                    idAkun SERIAL PRIMARY KEY,
+                                    idAkun INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     customerName VARCHAR(225) NOT NULL,
                                     email VARCHAR(225) NOT NULL,
                                     username VARCHAR(30) NOT NULL,
@@ -103,7 +103,7 @@ def createInitializeTable (conn) :
                                 ); """
 
     sql_create_tanaman_table = """CREATE TABLE IF NOT EXISTS Tanaman (
-                                    idTanaman SERIAL PRIMARY KEY,
+                                    idTanaman INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     nama VARCHAR(50) NOT NULL,
                                     harga DOUBLE NOT NULL,
                                     stok INT NOT NULL,
@@ -113,14 +113,14 @@ def createInitializeTable (conn) :
                                 );"""
 
     sql_create_pemesanan_table = """ CREATE TABLE IF NOT EXISTS Pemesanan (
-                                    orderNumber SERIAL PRIMARY KEY,
+                                    orderNumber INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     idPelanggan BIGINT UNSIGNED NOT NULL,
                                     tanggalPemesanan DATETIME NOT NULL,
                                     FOREIGN KEY (idPelanggan) REFERENCES Akun_User (idAkun)
                                 ); """
 
     sql_create_detail_pemesanan_table = """CREATE TABLE IF NOT EXISTS Detail_Pemesanan (
-                                    orderNumberDetail SERIAL PRIMARY KEY,
+                                    orderNumberDetail INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                     orderNumber BIGINT UNSIGNED NOT NULL,
                                     idTanaman BIGINT UNSIGNED NOT NULL,
                                     kuantitas INT NOT NULL,
@@ -143,13 +143,13 @@ def createInitializeTable (conn) :
 # Login
 def login(conn, username, password):
     c = conn.cursor()
-    passwordHash = hashlib.sha256(password).hexdigest() # Ubah password jadi hashlib
-    c.execute("SELECT * FROM Akun_User WHERE username = ? AND passwordHash = ?", (username, passwordHash))
-    row = c.fetchone()
+    passwordHash = hashlib.sha256(password.encode('utf-8')).hexdigest() # Ubah password jadi hashlib
+    c.execute("SELECT idAkun FROM Akun_User WHERE username = ? AND passwordHash = ?", (username, passwordHash))
+    row = c.fetchone()[0]
     if row is None:
-        return False
+        return ""
     else:
-        return True
+        return row
 
 # 9. INISIALISASI INSERT DATA
 # Register
@@ -191,10 +191,10 @@ def updateStatus(conn, orderNumber, status_penyewaan):
 
 # 11. INISIALISASI VIEW DATA
 # View pemesanan
-def viewPemesanan(conn, Idpelanggan):
+def viewPemesanan(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS ViewPemesanan")
-    c.execute("CREATE VIEW ViewPemesanan AS SELECT * FROM Pemesanan NATURAL JOIN Detail_Pemesanan WHERE idPelanggan = ?", (Idpelanggan,))
+    c.execute("CREATE VIEW ViewPemesanan AS SELECT * FROM Pemesanan NATURAL JOIN Detail_Pemesanan")
     row = c.fetchall()
     return row
 
@@ -218,17 +218,32 @@ def viewDetailTanaman(conn, idTanaman):
 def viewPesananAktif(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS listPesananAktif")
-    c.execute("CREATE VIEW listPesananAktif AS SELECT orderNumber, status_penyewaan, orderNumberDetail FROM ViewPemesanan WHERE orderNumberDetail NOT IN (SELECT orderNumberDetail FROM Detail_Pemesanan WHERE (status_penyewaan = 'not submitted' OR status_penyewaan = 'masa sewa habis'))")
+    c.execute("CREATE VIEW listPesananAktif AS SELECT IdPelanggan, orderNumber, status_penyewaan, orderNumberDetail FROM ViewPemesanan WHERE orderNumberDetail NOT IN (SELECT orderNumberDetail FROM Detail_Pemesanan WHERE (status_penyewaan = 'not submitted' OR status_penyewaan = 'masa sewa habis'))")
     row = c.fetchall()
     return row
 
 # View daftar keranjang
-def viewKeranjang(conn, Idpelanggan):
+def viewKeranjang(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS listKeranjang")
-    c.execute("CREATE VIEW listKeranjang AS SELECT nama, kuantitas, from_date, until_date, price, FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = ? AND u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'", (Idpelanggan,))
+    c.execute("CREATE VIEW listKeranjang AS SELECT p.idPelanggan AS IdPelanggan, nama, kuantitas, from_date, until_date, price FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'")
     row = c.fetchall()
     return row
+
+def hash(string):
+    return hashlib.sha256(string.encode('utf-8')).hexdigest()
+
+# Get Data View Keranjang Table
+def getKeranjang(conn, idPelanggan):
+    c = conn.cursor()
+    c.execute("SELECT * FROM listKeranjang WHERE IdPelanggan = ?", (idPelanggan,))
+    return c.fetchall()
+
+# Get Data View PesananAktif Table
+def getPesananAktif(conn, idPelanggan):
+    c = conn.cursor()
+    c.execute("SELECT * FROM listPesananAktif WHERE IdPelanggan = ?", (idPelanggan,))
+    return c.fetchall()
 
 # Testing
 if __name__ == '__main__':
@@ -270,7 +285,6 @@ if __name__ == '__main__':
     addDetailPemesanan(conn, 2, 3, 10, "2020-01-01", "2020-01-02", "not submitted", 100000)
     
     # Update status
-    updateStatus(conn, 1, "waiting for approval")
     updateStatus(conn, 2, "waiting for approval")
 
     # Bikin view

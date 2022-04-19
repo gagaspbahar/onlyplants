@@ -145,9 +145,9 @@ def login(conn, username, password):
     c = conn.cursor()
     passwordHash = hashlib.sha256(password.encode('utf-8')).hexdigest() # Ubah password jadi hashlib
     c.execute("SELECT idAkun FROM Akun_User WHERE username = ? AND passwordHash = ?", (username, passwordHash))
-    row = c.fetchone()
+    row = c.fetchone()[0]
     if row is None:
-        return False
+        return ""
     else:
         return row
 

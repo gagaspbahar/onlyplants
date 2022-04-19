@@ -8,14 +8,14 @@ import database.db_api as db_api
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-global isLoggedIn
+global LoggedInID
 
 def handleLogin(LoginWindow: login.Ui_Login, conn):
-  global isLoggedIn
+  global LoggedInID
   username = LoginWindow.usernamebox.text()
   password = LoginWindow.usernamebox_2.text()
-  isLoggedIn = db_api.login(conn, username, db_api.hash(password))
-  print(isLoggedIn)
+  LoggedInID = db_api.login(conn, username, password)
+  print("Login successful as ID: ", LoggedInID)
 
 if __name__ == '__main__':
     import sys
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     LoginWindow = login.Ui_Login()
 
-    # LoginWindow.submitButton.clicked.connect(handleLogin(LoginWindow,conn))
+    LoginWindow.submitButton.clicked.connect(lambda: handleLogin(LoginWindow, conn))
     LoginWindow.daftarButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
     WelcomeWindow.registerButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(RegisterWindow))
     RegisterWindow = register.Ui_Register()

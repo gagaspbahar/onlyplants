@@ -1,6 +1,9 @@
 import welcomescreen
 import login
 import register
+import landingPage
+import listTanaman
+# import 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -25,8 +28,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 #     self.stack.addWidget(self.registerWindow)
 #     self.welcomeWindow.registerButton.clicked.connect(lambda x = self.stack: self.stack.setCurrentWidget(self.registerWindow))
 
+global isLoggedIn
 
 if __name__ == '__main__':
+    
     import sys
     app = QtWidgets.QApplication(sys.argv)
     widget = QtWidgets.QStackedWidget()
@@ -42,7 +47,20 @@ if __name__ == '__main__':
     widget.addWidget(WelcomeWindow)
     widget.addWidget(LoginWindow)
     widget.addWidget(RegisterWindow)
+
+    LandingPageWindow = landingPage.UI_landingPage()
+
+    widget.addWidget(LandingPageWindow)
+
+    ListTanamanWindow = listTanaman.Ui_Dialog()
     
+    widget.addWidget(ListTanamanWindow)
+
+    withNavbar = [LoginWindow, RegisterWindow, LandingPageWindow, ListTanamanWindow]
+    for window in withNavbar:
+        window.berandaButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(LandingPageWindow))
+        window.tanamanButton.clicked.connect(lambda x = widget: widget.setCurrentWidget(ListTanamanWindow))
+
     widget.setCurrentWidget(WelcomeWindow)
     widget.show()
     # Window = MainWindow()

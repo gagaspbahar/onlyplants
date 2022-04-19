@@ -72,6 +72,14 @@ class UI_landingPage(QtWidgets.QWidget):
         self.mulaiSewaButton.setCheckable(False)
         self.mulaiSewaButton.setObjectName("mulaiSewaButton")
 
+        # Background
+        self.label = QtWidgets.QLabel(self.bgwidget)
+        self.label.setGeometry(QtCore.QRect(0, 90, 1201, 711))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("./img/image 2.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
+
         # Text Landing Page
         self.landingText = QtWidgets.QLabel(self.contentFrame)
         self.landingText.setGeometry(QtCore.QRect(50, 20, 481, 171))
@@ -219,6 +227,8 @@ class UI_landingPage(QtWidgets.QWidget):
         self.notification.setScaledContents(True)
         self.notification.setObjectName("notification")
 
+        self.label.raise_()
+        self.contentFrame.raise_()
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 

@@ -10,6 +10,16 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+class PushButton(QtWidgets.QPushButton):
+    def __init__(self, parent=None):
+        super(PushButton, self).__init__(parent)
+        self.setIcon(QtGui.QIcon("./img/eyeclose.png"))
+
+    def mouseReleaseEvent(self, event):
+        super(PushButton, self).mouseReleaseEvent(event)
+        self.setIcon(
+            QtGui.QIcon("./img/eyeopen.png" if self.isChecked() else "./img/eyeclose.png")
+        )
 
 class Ui_Login(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -61,9 +71,24 @@ class Ui_Login(QtWidgets.QWidget):
 "    font: 12pt \"Sansita\";\n"
 "}")
         self.usernamebox_2.setText("")
+        self.usernamebox_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.usernamebox_2.setObjectName("usernamebox_2")
         self.submitButton = QtWidgets.QPushButton(self.loginframe)
         self.submitButton.setGeometry(QtCore.QRect(190, 300, 171, 41))
+
+        # Eye Button
+        self.eyeButton = PushButton(self.loginframe)
+        self.eyeButton.setGeometry(QtCore.QRect(450, 175, 51, 41))
+        self.eyeButton.setStyleSheet("")
+        self.eyeButton.setText("")
+        self.eyeButton.setIconSize(QtCore.QSize(30, 30))
+        self.eyeButton.setCheckable(True)
+        self.eyeButton.setAutoRepeatDelay(400)
+        self.eyeButton.setFlat(True)
+        self.eyeButton.setDefault(False)
+        self.eyeButton.setObjectName("eyeButton")
+        self.showPass = False
+        self.eyeButton.clicked.connect(self.setEye)
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(11)
@@ -279,7 +304,14 @@ class Ui_Login(QtWidgets.QWidget):
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
-
+    
+    def setEye(self):
+        self.showPass = not (self.showPass)
+        if (self.showPass) :
+                self.usernamebox_2.setEchoMode(QtWidgets.QLineEdit.Normal)
+        else :
+                self.usernamebox_2.setEchoMode(QtWidgets.QLineEdit.Password)
+                
     def __init__(self):
         super(QtWidgets.QWidget, self).__init__()
         self.setupUi(self)

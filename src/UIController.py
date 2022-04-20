@@ -21,6 +21,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 global LoggedInID
 global isAdmin
 LoggedInID = 0
+isAdmin = False
 
 facts = ["Seorang peneliti asal Jerman, Peter Wohlleben, menemukan fakta unik bahwa ternyata pohon mempunyai perasaan, bisa berteman, dan saling menyayangi seperti halnya manusia lho Squad. Peter mengatakan bahwa pohon dapat merasakan sakit dan emosi seperti rasa takut. Pohon juga memiliki ikatan yang kuat layaknya pasangan manusia dan lebih senang jika tumbuh berdekatan serta saling bersentuhan. Hasil penelitian unik ini bisa kamu tonton di sebuah film dokumenter bernama ‘Intelligent Trees’. Tertarik?",
 "Selain memberikan manfaat bagi kehidupan manusia, pohon juga ternyata bisa mematikan. Menurut Guinness World Records, pohon manchineel adalah pohon paling berbahaya di dunia. Bahkan, semua bagian dari manchineel sangat beracun dan berpotensi menyebabkan kematian. Getah dari pohon ini dapat membuat kulit melepuh seperti terbakar. Jika memakan buahnya yang berbentuk seperti apel, akan membuat tenggorokan terasa panas terbakar dan mengalami sesak nafas.",
@@ -152,8 +153,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
       messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
       messageBox.exec()
-      newfilepath = shutil.copy(filepath, "./img/database")
-      image = db_api.convertToBinaryData(newfilepath)
+      image = db_api.convertToBinaryData(filepath)
       db_api.addTanaman(conn, nama, harga, stok, deskripsi, image, domisili)
       self.AddTanamanWindow.namaTanamanEdit.setText("")
       self.AddTanamanWindow.uploadFotoEdit.setText("Path to File")
@@ -163,7 +163,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.AddTanamanWindow.domisiliEdit.setText("")
       print("Add tanaman " + nama + " successful")
 
-  def handleEditTanaman(self, conn, idTanaman):
+  def handleEditTanaman(self, conn):
     nama = self.AddTanamanWindow.namaTanamanEdit.text()
     filepath = self.AddTanamanWindow.uploadFotoEdit.text()
     deskripsi = self.AddTanamanWindow.textEdit.text()
@@ -194,9 +194,6 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
       messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
       messageBox.exec()
-      newfilepath = shutil.copy(filepath, "./img/database")
-      image = db_api.convertToBinaryData(newfilepath)
-      db_api.editTanaman(conn, idTanaman, nama, harga, stok, deskripsi, image, domisili)
       print("Edit tanaman " + nama + " successful")
   
   def handleClickUser(self):
@@ -243,6 +240,8 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
       window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
       window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
+      # if isAdmin:
+      #   window.simpanPerubahanButton.clicked.connect(lambda: window.handleSubmit(conn))
   
     self.widget.setCurrentWidget(self.ListTanamanWindow)
   
@@ -306,14 +305,14 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.widget.addWidget(self.AddTanamanWindow)
 
     dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
-    self.EditTanamanWindow = editTanaman.UI_editTanaman(dummy)
+    self.EditTanamanWindow = editTanaman.UI_editTanaman(dummy, conn)
     self.widget.addWidget(self.EditTanamanWindow)
 
     self.greetingUserWindow = greetingUser.Ui_Form()
     self.greetingAdminWindow = greetingAdmin.Ui_Form()
     self.modalLoginRegistrasiWindow = modalLoginRegistrasi.Ui_Form()
 
-    self.AdminPageWindow.editTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.EditTanamanWindow))
+    self.AdminPageWindow.editTanaman.clicked.connect(lambda: self.goToListTanaman(conn))
 
     self.AdminPageWindow.addTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AddTanamanWindow))
 

@@ -333,7 +333,7 @@ class UI_detailTanaman(QtWidgets.QWidget):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 ";")
-        self.jumlahText.setText("")
+        self.jumlahText.setText("0")
         self.jumlahText.setMaxLength(3)
         self.onlyInt = QtGui.QIntValidator()
         self.jumlahText.setValidator(self.onlyInt)
@@ -424,7 +424,7 @@ class UI_detailTanaman(QtWidgets.QWidget):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 ";")
-        self.totalHargaText.setText("hrga")
+        self.totalHargaText.setText("0")
         self.totalHargaText.setObjectName("totalHargaText")
 
         self.retranslateUi(Dialog)
@@ -447,15 +447,23 @@ class UI_detailTanaman(QtWidgets.QWidget):
         self.kembaliSewaLabel.setText(_translate("Dialog", "Tanggal Pengembalian"))
         self.totalHargaLabel.setText(_translate("Dialog", "Total Harga"))
     
+    def handleJumlahChange(self):
+        try:
+            jumlah = int(self.jumlahText.text())
+        except:
+            jumlah = 0
+        self.totalHargaText.setText(str(jumlah * int(self.hargaText.text())))
+
     def __init__(self, data):
         super(QtWidgets.QWidget, self).__init__()
         self.data = data
         self.setupUi(self)
         self.namaLabel.setText(data[1])
         self.deskripsiLabel.setText(data[4])
-        self.hargaText.setText(str(data[2]))
+        self.hargaText.setText(str(int(data[2])))
         self.stokText.setText(str(data[3]))
         self.domisiliText.setText(data[6])
+        self.jumlahText.textChanged.connect(lambda: self.handleJumlahChange())
         if(data[5] is not None):
             pm = QtGui.QPixmap()
             pm.loadFromData(data[5])

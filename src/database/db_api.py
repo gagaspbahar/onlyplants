@@ -184,7 +184,7 @@ def addDetailPemesanan(conn, orderNumber, idTanaman, kuantitas, from_date, until
 # Edit tanaman
 def editTanaman(conn, idTanaman, Nama, Harga, Stok, Deskripsi, image, asal_kota):
     c = conn.cursor()
-    c.execute("UPDATE Tanaman SET Nama = ?, Harga = ?, Stok = ?, Deskripsi = ?, image = ?, asal_kota = ? WHERE idTanaman = ?", (Nama, Harga, Stok, Deskripsi, image, asal_kota, idTanaman))
+    c.execute("UPDATE Tanaman SET nama = ?, harga = ?, stok = ?, deskripsi = ?, image = ?, asal_kota = ? WHERE idTanaman = ?", (Nama, Harga, Stok, Deskripsi, image, asal_kota, idTanaman))
     conn.commit()
 
 # Update status

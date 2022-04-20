@@ -11,6 +11,7 @@ import greetingAdmin
 import greetingUser
 import aboutUs
 import modalLoginRegistrasi
+import checkout
 import shutil
 import sys
 import Widgets
@@ -39,31 +40,10 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     username = self.LoginWindow.usernamebox.text()
     password = self.LoginWindow.usernamebox_2.text()
     LoggedInID = db_api.login(conn, username, password)
-    messageBox = Widgets.MessageBox()
-    messageBox.setMinimumSize(QtCore.QSize(400, 200))
-    messageBox.setMaximumSize(QtCore.QSize(400, 200))
     if (LoggedInID == "" or username =="" or password ==""):
-      messageBox.setText("Login gagal!")
-      messageBox.setWindowTitle("Login Gagal")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setIcon(QtWidgets.QMessageBox.Critical)
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      if (username == ""):
-        messageBox.setDetailedText("Username tidak boleh kosong!")
-      elif (password == ""):
-        messageBox.setDetailedText("Password tidak boleh kosong!")
-      else :
-        messageBox.setDetailedText("Username atau password salah")
-      messageBox.exec()
+      Widgets.messageBoxLoginBerhasil()
     else :
-      messageBox.setText("Login berhasil!")
-      messageBox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-      messageBox.setWindowTitle("Login Berhasil")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.exec()
+      Widgets.messageBoxLoginBerhasil()
       print("Login successful as ID: ", LoggedInID)
     self.LoginWindow.usernamebox.setText("")
     self.LoginWindow.usernamebox_2.setText("")
@@ -86,28 +66,9 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     address = self.RegisterWindow.addressBox.text()
     postalCode = self.RegisterWindow.posBox.text()
     if (username == "" or password == "" or customerName == "" or email == "" or phone == "" or address == "" or postalCode == ""):
-      messageBox = Widgets.MessageBox()
-      messageBox.setMinimumSize(QtCore.QSize(400, 200))
-      messageBox.setMaximumSize(QtCore.QSize(400, 200))
-      messageBox.setText("Register gagal!")
-      messageBox.setWindowTitle("Registrasi gagal")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setIcon(QtWidgets.QMessageBox.Critical)
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.setDetailedText("Tidak boleh ada data yang kosong!")
+      Widgets.messageBoxRegisterGagal()
     else :
-      messageBox = Widgets.MessageBox()
-      messageBox.setMinimumSize(QtCore.QSize(400, 400))
-      messageBox.setMaximumSize(QtCore.QSize(400, 400))
-      messageBox.setText("Registrasi berhasil!<br>")
-      messageBox.setInformativeText(username + " berhasil terdaftar.<br> Silahkan login untuk melanjutkan.")
-      messageBox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-      messageBox.setWindowTitle("Registrasi Berhasil")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.exec()
+      Widgets.messageBoxRegisterBerhasil(username)
       db_api.register(conn, username, db_api.hash(password), customerName, email, phone, address, postalCode)
       print("Register successful as ID: ", db_api.login(conn, username, password))
       self.RegisterWindow.usernameBox.setText("")
@@ -128,32 +89,12 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     stok = int(self.AddTanamanWindow.stokEdit.text())
     harga = int(self.AddTanamanWindow.hargaEdit.text())
     domisili = self.AddTanamanWindow.domisiliEdit.text()
+    image = db_api.convertToBinaryData(filepath)
     
     if (nama == "" or filepath == "Path to File" or deskripsi == "" or stok == "" or harga == "" or domisili == ""):
-      messageBox = Widgets.MessageBox()
-      messageBox.setMinimumSize(QtCore.QSize(400, 200))
-      messageBox.setMaximumSize(QtCore.QSize(400, 200))
-      messageBox.setText("Tambah tanaman gagal!")
-      messageBox.setWindowTitle("Tambah tanaman gagal")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setIcon(QtWidgets.QMessageBox.Critical)
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.setDetailedText("Tidak boleh ada data yang kosong!")
+      Widgets.messageBoxAddTanamanGagal()
     else :
-      messageBox = Widgets.MessageBox()
-      messageBox.setMinimumSize(QtCore.QSize(400, 400))
-      messageBox.setMaximumSize(QtCore.QSize(400, 400))
-      messageBox.setText("Tambah tanaman berhasil!<br>")
-      messageBox.setInformativeText(nama + " berhasil ditambahkan.")
-      messageBox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-      messageBox.setWindowTitle("Tambah tanaman berhasil")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.exec()
-      newfilepath = shutil.copy(filepath, "./img/database")
-      image = db_api.convertToBinaryData(newfilepath)
+      Widgets.messageBoxAddTanamanBerhasil(nama)
       db_api.addTanaman(conn, nama, harga, stok, deskripsi, image, domisili)
       self.AddTanamanWindow.namaTanamanEdit.setText("")
       self.AddTanamanWindow.uploadFotoEdit.setText("Path to File")
@@ -170,32 +111,12 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     stok = int(self.AddTanamanWindow.stokEdit.text())
     harga = int(self.AddTanamanWindow.hargaEdit.text())
     domisili = self.AddTanamanWindow.domisiliEdit.text()
+    image = db_api.convertToBinaryData(filepath)
     
     if (nama == "" or filepath == "Path to File" or deskripsi == "" or stok == "" or harga == "" or domisili == ""):
-      messageBox = Widgets.MessageBox()
-      messageBox.setMinimumSize(QtCore.QSize(400, 200))
-      messageBox.setMaximumSize(QtCore.QSize(400, 200))
-      messageBox.setText("Edit tanaman gagal!")
-      messageBox.setWindowTitle("Edit tanaman gagal")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setIcon(QtWidgets.QMessageBox.Critical)
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.setDetailedText("Tidak boleh ada data yang kosong!")
+      Widgets.messageBoxEditTanamanGagal()
     else :
-      messageBox = Widgets.MessageBox()
-      messageBox.setMinimumSize(QtCore.QSize(400, 400))
-      messageBox.setMaximumSize(QtCore.QSize(400, 400))
-      messageBox.setText("Edit tanaman berhasil!<br>")
-      messageBox.setInformativeText("Data" + nama + " berhasil diubah.")
-      messageBox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-      messageBox.setWindowTitle("Edit tanaman berhasil")
-      messageBox.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-      messageBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-      messageBox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.Ok)
-      messageBox.exec()
-      newfilepath = shutil.copy(filepath, "./img/database")
-      image = db_api.convertToBinaryData(newfilepath)
+      Widgets.messageBoxEditTanamanBerhasil(nama)
       db_api.editTanaman(conn, idTanaman, nama, harga, stok, deskripsi, image, domisili)
       print("Edit tanaman " + nama + " successful")
   
@@ -214,6 +135,9 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.greetingUserWindow.setWindowModality(QtCore.Qt.ApplicationModal)
       self.greetingUserWindow.show()
   
+  def handleClickCart(self) :
+    self.widget.setCurrentWidget(self.CheckOutWindow)
+
   def handleClickModalLogin(self):
     self.widget.setCurrentWidget(self.LoginWindow)
     self.modalLoginRegistrasiWindow.close()
@@ -307,6 +231,9 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.EditTanamanWindow = editTanaman.UI_editTanaman()
     self.widget.addWidget(self.EditTanamanWindow)
 
+    self.CheckOutWindow = checkout.Ui_Checkout()
+    self.widget.addWidget(self.CheckOutWindow)
+
     self.greetingUserWindow = greetingUser.Ui_Form()
     self.greetingAdminWindow = greetingAdmin.Ui_Form()
     self.modalLoginRegistrasiWindow = modalLoginRegistrasi.Ui_Form()
@@ -322,13 +249,15 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.greetingAdminWindow.keluarButton.clicked.connect(lambda x = self.widget: self.handleLogout())
     self.greetingUserWindow.keluarButton.clicked.connect(lambda x = self.widget: self.handleLogout())
 
-    withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow, self.AboutUsWindow, self.AdminPageWindow, self.AddTanamanWindow, self.EditTanamanWindow]
+    withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow, self.AboutUsWindow, self.AdminPageWindow, self.AddTanamanWindow, self.EditTanamanWindow, self.CheckOutWindow]
     for window in withNavbar:
         window.setWindowTitle("OnlyPlants")
         window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
         window.berandaButton.clicked.connect(lambda: self.goToLandingPage())
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
+        window.aboutButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AboutUsWindow))
         window.userButton.clicked.connect(lambda: self.handleClickUser())
+        window.cartButton.clicked.connect(lambda: self.handleClickCart())
 
     self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))
 

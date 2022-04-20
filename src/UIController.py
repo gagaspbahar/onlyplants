@@ -106,7 +106,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       print("Add tanaman " + nama + " successful")
 
 
-  def handleClickUser(self):
+  def handleClickUser(self,conn):
     if(LoggedInID == 1) : 
       nama = db_api.getNamaUser(conn, LoggedInID)
       self.greetingAdminWindow.label.setText("Hai, " + nama)
@@ -273,7 +273,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
         window.berandaButton.clicked.connect(lambda: self.goToLandingPage())
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
         window.aboutButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AboutUsWindow))
-        window.userButton.clicked.connect(lambda: self.handleClickUser())
+        window.userButton.clicked.connect(lambda: self.handleClickUser(conn))
         window.cartButton.clicked.connect(lambda: self.handleClickCart(conn, 1,1))
 
     self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))

@@ -426,37 +426,84 @@ class Ui_Dialog(QtWidgets.QWidget):
 
     def updateTanaman(self, conn):
         rows = fetchTanaman(conn)
-        if len(rows) >= 6:
-            self.tanaman1.setText(rows[0][1])
-            self.tanaman2.setText(rows[1][1])
-            self.tanaman3.setText(rows[2][1])
-            self.tanaman4.setText(rows[3][1])
-            self.tanaman5.setText(rows[4][1])
-            self.tanaman6.setText(rows[5][1])
-            pm = QtGui.QPixmap()
-            pm.loadFromData(blobToBase64(rows[0][5]))
-            self.gambar1.setPixmap(pm)
-            pm = QtGui.QPixmap()
-            pm.loadFromData(blobToBase64(rows[1][5]))
-            self.gambar2.setPixmap(pm)
-            pm = QtGui.QPixmap()
-            pm.loadFromData(blobToBase64(rows[2][5]))
-            self.gambar3.setPixmap(pm)
-            pm = QtGui.QPixmap()
-            pm.loadFromData(blobToBase64(rows[3][5]))
-            self.gambar4.setPixmap(pm)
-            pm = QtGui.QPixmap()
-            pm.loadFromData(blobToBase64(rows[4][5]))
-            self.gambar5.setPixmap(pm)
-            pm = QtGui.QPixmap()
-            pm.loadFromData(blobToBase64(rows[5][5]))
-            self.gambar6.setPixmap(pm)
+        self.totalTanaman = len(rows)
+        tc = self.tanamanCounter
+        if len(rows) - self.tanamanCounter > 0:
+            self.updateTanaman1(rows[tc])
+            if(tc + 1 < len(rows)):
+                self.updateTanaman2(rows[tc + 1])
+            if(tc + 2 < len(rows)):
+                self.updateTanaman3(rows[tc+2])
+            if(tc + 3 < len(rows)):
+                self.updateTanaman4(rows[tc+3])
+            if(tc + 4 < len(rows)):
+                self.updateTanaman5(rows[tc+4])
+            if(tc + 5 < len(rows)):
+                self.updateTanaman6(rows[tc+5])
+    
+    def decreaseTanamanCounter(self, conn):
+        if self.tanamanCounter < 6:
+            self.tanamanCounter = 0
+        else:
+            self.tanamanCounter -= 6
+        print("counter: ", self.tanamanCounter)
+        self.updateTanaman(conn)
+    
+    def increaseTanamanCounter(self, conn):
+        if self.tanamanCounter + 6 < self.totalTanaman:
+            if(self.tanamanCounter + 12 < self.totalTanaman):
+                self.tanamanCounter += 6
+            else:
+                self.tanamanCounter += self.totalTanaman - self.tanamanCounter - 6
+        else:
+            self.tanamanCounter = self.totalTanaman - 6
+        print("counter: ", self.tanamanCounter)
+        self.updateTanaman(conn)
 
+    def updateTanaman1(self, row):
+        self.tanaman1.setText(row[1])
+        pm = QtGui.QPixmap()
+        pm.loadFromData(blobToBase64(row[5]))
+        self.gambar1.setPixmap(pm)
 
+    def updateTanaman2(self, row):
+        self.tanaman2.setText(row[1])
+        pm = QtGui.QPixmap()
+        pm.loadFromData(blobToBase64(row[5]))
+        self.gambar2.setPixmap(pm)
 
-    def __init__(self):
+    def updateTanaman3(self, row):
+        self.tanaman3.setText(row[1])
+        pm = QtGui.QPixmap()
+        pm.loadFromData(blobToBase64(row[5]))
+        self.gambar3.setPixmap(pm)
+
+    def updateTanaman4(self, row):
+        self.tanaman4.setText(row[1])
+        pm = QtGui.QPixmap()
+        pm.loadFromData(blobToBase64(row[5]))
+        self.gambar4.setPixmap(pm)
+    
+    def updateTanaman5(self, row):
+        self.tanaman5.setText(row[1])
+        pm = QtGui.QPixmap()
+        pm.loadFromData(blobToBase64(row[5]))
+        self.gambar5.setPixmap(pm)
+    
+    def updateTanaman6(self, row):
+        self.tanaman6.setText(row[1])
+        pm = QtGui.QPixmap()
+        pm.loadFromData(blobToBase64(row[5]))
+        self.gambar6.setPixmap(pm)
+
+    def __init__(self, conn):
         super(QtWidgets.QWidget, self).__init__()
         self.setupUi(self)
+        print(conn)
+        self.tanamanCounter = 0
+        self.totalTanaman = 0
+        self.kanan.clicked.connect(lambda: self.increaseTanamanCounter(conn))
+        self.kiri.clicked.connect(lambda: self.decreaseTanamanCounter(conn))
 
 if __name__ == "__main__":
     import sys

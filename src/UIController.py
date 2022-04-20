@@ -119,7 +119,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
     self.widget.addWidget(self.LandingPageWindow)
 
-    self.ListTanamanWindow = listTanaman.Ui_Dialog()
+    self.ListTanamanWindow = listTanaman.Ui_Dialog(conn)
     
     self.widget.addWidget(self.ListTanamanWindow)
 

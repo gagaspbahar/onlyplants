@@ -87,6 +87,10 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     db_api.addTanaman(conn, nama, harga, stok, deskripsi, image, domisili)
     print("Add tanaman " + nama + " successful")
 
+  def goToListTanaman(self, conn):
+    self.ListTanamanWindow.updateTanaman(conn)
+    self.widget.setCurrentWidget(self.ListTanamanWindow)
+
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()
     self.widget = QtWidgets.QStackedWidget()
@@ -97,16 +101,13 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.WelcomeWindow.loginButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LoginWindow))
 
     self.LoginWindow = login.Ui_Login()
-    self.LoginWindow.setWindowTitle("OnlyPlants")
-    self.LoginWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
+    
 
     self.LoginWindow.submitButton.clicked.connect(lambda: self.handleLogin(conn))
     self.LoginWindow.daftarButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.RegisterWindow))
     self.WelcomeWindow.registerButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.RegisterWindow))
 
     self.RegisterWindow = register.Ui_Register()
-    self.RegisterWindow.setWindowTitle("OnlyPlants")
-    self.RegisterWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.RegisterWindow.registerButton.clicked.connect(lambda: self.handleRegister(conn))
 
@@ -115,31 +116,21 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.widget.addWidget(self.RegisterWindow)
 
     self.LandingPageWindow = landingPage.UI_landingPage()
-    self.LandingPageWindow.setWindowTitle("OnlyPlants")
-    self.LandingPageWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.widget.addWidget(self.LandingPageWindow)
 
     self.ListTanamanWindow = listTanaman.Ui_Dialog()
-    self.ListTanamanWindow.setWindowTitle("OnlyPlants")
-    self.ListTanamanWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     
     self.widget.addWidget(self.ListTanamanWindow)
 
     self.AdminPageWindow = adminPage.UI_adminPage()
-    self.AdminPageWindow.setWindowTitle("OnlyPlants")
-    self.AdminPageWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
 
     self.widget.addWidget(self.AdminPageWindow)
 
     self.AddTanamanWindow = addTanaman.UI_addTanaman()
-    self.AddTanamanWindow.setWindowTitle("OnlyPlants")
-    self.AddTanamanWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     self.widget.addWidget(self.AddTanamanWindow)
 
     self.EditTanamanWindow = editTanaman.UI_editTanaman()
-    self.EditTanamanWindow.setWindowTitle("OnlyPlants")
-    self.EditTanamanWindow.setWindowIcon(QtGui.QIcon("./img/logo.png"))
     self.widget.addWidget(self.EditTanamanWindow)
 
     self.AdminPageWindow.editTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.EditTanamanWindow))
@@ -150,8 +141,10 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
     withNavbar = [self.LoginWindow, self.RegisterWindow, self.LandingPageWindow, self.ListTanamanWindow, self.AdminPageWindow, self.AddTanamanWindow, self.EditTanamanWindow]
     for window in withNavbar:
+        window.setWindowTitle("OnlyPlants")
+        window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
         window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
-        window.tanamanButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.ListTanamanWindow))
+        window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
 
     self.widget.setCurrentWidget(self.WelcomeWindow)
     self.widget.show()

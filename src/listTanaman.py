@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from database.db_api import *
 
 class Ui_Dialog(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -423,6 +423,36 @@ class Ui_Dialog(QtWidgets.QWidget):
         self.tanaman4.setText(_translate("Dialog", "Nama Tanaman 4"))
         self.tanaman5.setText(_translate("Dialog", "Nama Tanaman 5"))
         self.tanaman6.setText(_translate("Dialog", "Nama Tanaman 6"))
+
+    def updateTanaman(self, conn):
+        rows = fetchTanaman(conn)
+        if len(rows) >= 6:
+            self.tanaman1.setText(rows[0][1])
+            self.tanaman2.setText(rows[1][1])
+            self.tanaman3.setText(rows[2][1])
+            self.tanaman4.setText(rows[3][1])
+            self.tanaman5.setText(rows[4][1])
+            self.tanaman6.setText(rows[5][1])
+            pm = QtGui.QPixmap()
+            pm.loadFromData(blobToBase64(rows[0][5]))
+            self.gambar1.setPixmap(pm)
+            pm = QtGui.QPixmap()
+            pm.loadFromData(blobToBase64(rows[1][5]))
+            self.gambar2.setPixmap(pm)
+            pm = QtGui.QPixmap()
+            pm.loadFromData(blobToBase64(rows[2][5]))
+            self.gambar3.setPixmap(pm)
+            pm = QtGui.QPixmap()
+            pm.loadFromData(blobToBase64(rows[3][5]))
+            self.gambar4.setPixmap(pm)
+            pm = QtGui.QPixmap()
+            pm.loadFromData(blobToBase64(rows[4][5]))
+            self.gambar5.setPixmap(pm)
+            pm = QtGui.QPixmap()
+            pm.loadFromData(blobToBase64(rows[5][5]))
+            self.gambar6.setPixmap(pm)
+
+
 
     def __init__(self):
         super(QtWidgets.QWidget, self).__init__()

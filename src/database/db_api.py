@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 import hashlib
+import base64
 
 # 1. BIKIN KONEKSI
 def create_connection(db_file):
@@ -205,6 +206,15 @@ def viewTanaman(conn):
     c.execute("CREATE VIEW ViewTanaman AS SELECT * FROM Tanaman WHERE idTanaman NOT IN (SELECT idTanaman FROM Tanaman WHERE stok = 0)")
     row = c.fetchall()
     return row
+
+def fetchTanaman(conn):
+    c = conn.cursor()
+    c.execute("SELECT * FROM Tanaman WHERE idTanaman NOT IN (SELECT idTanaman FROM Tanaman WHERE stok = 0)")
+    row = c.fetchall()
+    return row
+
+def blobToBase64(blob):
+    return base64.b64decode(base64.b64encode(blob).decode('utf-8'))
 
 # View detail tanaman
 def viewDetailTanaman(conn, idTanaman):

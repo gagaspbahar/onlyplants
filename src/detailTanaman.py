@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class UI_detailTanaman(object):
+class UI_detailTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -26,8 +26,7 @@ class UI_detailTanaman(object):
 "background-color: white;}")
         self.bgwidget.setObjectName("bgwidget")
 
-        # Navigation Bar
-        # TODO : Ganti jadi navbar yang bener
+        # Navigation bar
         self.navbar = QtWidgets.QFrame(self.bgwidget)
         self.navbar.setGeometry(QtCore.QRect(0, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
@@ -60,7 +59,7 @@ class UI_detailTanaman(object):
         self.Logo.setAlignment(QtCore.Qt.AlignCenter)
         self.Logo.setObjectName("Logo")
         self.berandaButton = QtWidgets.QPushButton(self.navbar)
-        self.berandaButton.setGeometry(QtCore.QRect(350, 40, 91, 31))
+        self.berandaButton.setGeometry(QtCore.QRect(350, 35, 95, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -81,7 +80,7 @@ class UI_detailTanaman(object):
         self.berandaButton.setCheckable(False)
         self.berandaButton.setObjectName("berandaButton")
         self.tanamanButton = QtWidgets.QPushButton(self.navbar)
-        self.tanamanButton.setGeometry(QtCore.QRect(520, 40, 91, 31))
+        self.tanamanButton.setGeometry(QtCore.QRect(525, 35, 110, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -101,7 +100,7 @@ class UI_detailTanaman(object):
         self.tanamanButton.setCheckable(False)
         self.tanamanButton.setObjectName("tanamanButton")
         self.aboutButton = QtWidgets.QPushButton(self.navbar)
-        self.aboutButton.setGeometry(QtCore.QRect(670, 40, 131, 31))
+        self.aboutButton.setGeometry(QtCore.QRect(710, 35, 150, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -121,7 +120,7 @@ class UI_detailTanaman(object):
         self.aboutButton.setCheckable(False)
         self.aboutButton.setObjectName("aboutButton")
         self.searchButton = QtWidgets.QPushButton(self.navbar)
-        self.searchButton.setGeometry(QtCore.QRect(930, 40, 31, 31))
+        self.searchButton.setGeometry(QtCore.QRect(980, 40, 31, 31))
         self.searchButton.setMouseTracking(False)
         self.searchButton.setAutoFillBackground(False)
         self.searchButton.setText("")
@@ -135,7 +134,7 @@ class UI_detailTanaman(object):
         self.searchButton.setFlat(True)
         self.searchButton.setObjectName("searchButton")
         self.userButton = QtWidgets.QPushButton(self.navbar)
-        self.userButton.setGeometry(QtCore.QRect(980, 35, 31, 41))
+        self.userButton.setGeometry(QtCore.QRect(1030, 35, 31, 41))
         self.userButton.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("././img/User.png"),
@@ -144,8 +143,14 @@ class UI_detailTanaman(object):
         self.userButton.setIconSize(QtCore.QSize(31, 41))
         self.userButton.setFlat(True)
         self.userButton.setObjectName("userButton")
+        self.notification = QtWidgets.QLabel(self.navbar)
+        self.notification.setGeometry(QtCore.QRect(1080, 40, 31, 31))
+        self.notification.setText("")
+        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
+        self.notification.setScaledContents(True)
+        self.notification.setObjectName("notification")
         self.cartButton = QtWidgets.QPushButton(self.navbar)
-        self.cartButton.setGeometry(QtCore.QRect(1080, 30, 31, 51))
+        self.cartButton.setGeometry(QtCore.QRect(1130, 30, 31, 51))
         self.cartButton.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
@@ -158,12 +163,6 @@ class UI_detailTanaman(object):
         self.cartButton.setAutoDefault(True)
         self.cartButton.setFlat(True)
         self.cartButton.setObjectName("cartButton")
-        self.notification = QtWidgets.QLabel(self.navbar)
-        self.notification.setGeometry(QtCore.QRect(1030, 40, 31, 31))
-        self.notification.setText("")
-        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
-        self.notification.setScaledContents(True)
-        self.notification.setObjectName("notification")
 
         # Gambar Tanaman
         self.gambarTanaman = QtWidgets.QLabel(self.bgwidget)
@@ -175,7 +174,7 @@ class UI_detailTanaman(object):
 
         # Nama Tanaman
         self.namaLabel = QtWidgets.QLabel(self.bgwidget)
-        self.namaLabel.setGeometry(QtCore.QRect(100, 140, 181, 31))
+        self.namaLabel.setGeometry(QtCore.QRect(80, 140, 500, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(22)
@@ -231,7 +230,8 @@ class UI_detailTanaman(object):
 "    border-style: outset;\n"
 "    background-color : rgb(136, 179, 160);\n"
 "    padding: 5px;")
-        self.stokText.setText("")
+        self.stokText.setText("Stok")
+        self.stokText.setAlignment(QtCore.Qt.AlignCenter)
         self.stokText.setObjectName("stokText")
 
         # Text Harga
@@ -246,7 +246,8 @@ class UI_detailTanaman(object):
 "    border-style: outset;\n"
 "    background-color : rgb(136, 179, 160);\n"
 "    padding: 5px;")
-        self.hargaText.setText("")
+        self.hargaText.setText("Hrg")
+        self.hargaText.setAlignment(QtCore.Qt.AlignCenter)
         self.hargaText.setObjectName("hargaText")
 
         # Text Domisili
@@ -261,7 +262,8 @@ class UI_detailTanaman(object):
 "    border-style: outset;\n"
 "    background-color : rgb(136, 179, 160);\n"
 "    padding: 5px;")
-        self.domisiliText.setText("")
+        self.domisiliText.setText("Dom")
+        self.domisiliText.setAlignment(QtCore.Qt.AlignCenter)
         self.domisiliText.setObjectName("domisiliText")
 
         # Frame Sewa
@@ -309,7 +311,7 @@ class UI_detailTanaman(object):
         
         # Label Jumlah
         self.jumlahLabel = QtWidgets.QLabel(self.frameSewa)
-        self.jumlahLabel.setGeometry(QtCore.QRect(30, 20, 51, 31))
+        self.jumlahLabel.setGeometry(QtCore.QRect(62, 20, 71, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(11)
@@ -317,51 +319,12 @@ class UI_detailTanaman(object):
         font.setItalic(False)
         font.setWeight(50)
         self.jumlahLabel.setFont(font)
-        self.jumlahLabel.setStyleSheet("font: 11pt \"Sansita\";")
+        self.jumlahLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.jumlahLabel.setObjectName("jumlahLabel")
-
-        # Label Mulai Sewa
-        self.mulaiSewaLabel = QtWidgets.QLabel(self.frameSewa)
-        self.mulaiSewaLabel.setGeometry(QtCore.QRect(200, 20, 121, 31))
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.mulaiSewaLabel.setFont(font)
-        self.mulaiSewaLabel.setStyleSheet("font: 11pt \"Sansita\";")
-        self.mulaiSewaLabel.setObjectName("mulaiSewaLabel")
-
-        # Label Kembali Sewa
-        self.kembaliSewaLabel = QtWidgets.QLabel(self.frameSewa)
-        self.kembaliSewaLabel.setGeometry(QtCore.QRect(460, 20, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.kembaliSewaLabel.setFont(font)
-        self.kembaliSewaLabel.setStyleSheet("font: 11pt \"Sansita\";")
-        self.kembaliSewaLabel.setObjectName("kembaliSewaLabel")
-
-        # Label Total Harga
-        self.totalHargaLabel = QtWidgets.QLabel(self.frameSewa)
-        self.totalHargaLabel.setGeometry(QtCore.QRect(720, 20, 71, 31))
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.totalHargaLabel.setFont(font)
-        self.totalHargaLabel.setStyleSheet("font: 11pt \"Sansita\";")
-        self.totalHargaLabel.setObjectName("totalHargaLabel")
 
         # Label Text Jumlah
         self.jumlahText = QtWidgets.QLineEdit(self.frameSewa)
-        self.jumlahText.setGeometry(QtCore.QRect(20, 50, 71, 41))
+        self.jumlahText.setGeometry(QtCore.QRect(62, 50, 71, 41))
         self.jumlahText.setStyleSheet(
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
@@ -372,11 +335,26 @@ class UI_detailTanaman(object):
 ";")
         self.jumlahText.setText("")
         self.jumlahText.setMaxLength(3)
+        self.onlyInt = QtGui.QIntValidator()
+        self.jumlahText.setValidator(self.onlyInt)
         self.jumlahText.setObjectName("jumlahText")
+
+        # Label Mulai Sewa
+        self.mulaiSewaLabel = QtWidgets.QLabel(self.frameSewa)
+        self.mulaiSewaLabel.setGeometry(QtCore.QRect(195, 20, 180, 31))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.mulaiSewaLabel.setFont(font)
+        self.mulaiSewaLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.mulaiSewaLabel.setObjectName("mulaiSewaLabel")
 
         # Date mulai sewa
         self.mulaiSewaDate = QtWidgets.QDateEdit(self.frameSewa)
-        self.mulaiSewaDate.setGeometry(QtCore.QRect(200, 50, 151, 41))
+        self.mulaiSewaDate.setGeometry(QtCore.QRect(195, 50, 180, 41))
         self.mulaiSewaDate.setStyleSheet(
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
@@ -384,12 +362,26 @@ class UI_detailTanaman(object):
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
-";")
+";")    
+        self.mulaiSewaDate.setAlignment(QtCore.Qt.AlignCenter)
         self.mulaiSewaDate.setObjectName("mulaiSewaDate")
+
+        # Label Kembali Sewa
+        self.kembaliSewaLabel = QtWidgets.QLabel(self.frameSewa)
+        self.kembaliSewaLabel.setGeometry(QtCore.QRect(437, 20, 180, 31))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.kembaliSewaLabel.setFont(font)
+        self.kembaliSewaLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.kembaliSewaLabel.setObjectName("kembaliSewaLabel")
 
         # Date kembali sewa
         self.kembaliSewaDate = QtWidgets.QDateEdit(self.frameSewa)
-        self.kembaliSewaDate.setGeometry(QtCore.QRect(460, 50, 151, 41))
+        self.kembaliSewaDate.setGeometry(QtCore.QRect(437, 50, 180, 41))
         self.kembaliSewaDate.setStyleSheet(
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
@@ -397,12 +389,33 @@ class UI_detailTanaman(object):
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
-";")
+";")    
+        self.kembaliSewaDate.setAlignment(QtCore.Qt.AlignCenter)
         self.kembaliSewaDate.setObjectName("kembaliSewaDate")
 
+        # Label Total Harga
+        self.totalHargaLabel = QtWidgets.QLabel(self.frameSewa)
+        self.totalHargaLabel.setGeometry(QtCore.QRect(679, 20, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.totalHargaLabel.setFont(font)
+        self.totalHargaLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.totalHargaLabel.setObjectName("totalHargaLabel")
+
         # Label Text Total Harga
-        self.totalHargaText = QtWidgets.QLineEdit(self.frameSewa)
-        self.totalHargaText.setGeometry(QtCore.QRect(720, 50, 151, 41))
+        self.totalHargaText = QtWidgets.QLabel(self.frameSewa)
+        self.totalHargaText.setGeometry(QtCore.QRect(679, 50, 151, 41))
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.totalHargaText.setFont(font)
         self.totalHargaText.setStyleSheet(
 "    background-color: white;\n"
 "    border: 0px solid #555;\n"
@@ -411,7 +424,7 @@ class UI_detailTanaman(object):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 ";")
-        self.totalHargaText.setText("")
+        self.totalHargaText.setText("hrga")
         self.totalHargaText.setObjectName("totalHargaText")
 
         self.retranslateUi(Dialog)
@@ -425,7 +438,7 @@ class UI_detailTanaman(object):
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
         self.namaLabel.setText(_translate("Dialog", "Nama Tanaman"))
         self.deskripsiLabel.setText(_translate("Dialog", "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""))
-        self.stokLabel.setText(_translate("Dialog", "Stok Tanaman         :"))
+        self.stokLabel.setText(_translate("Dialog", "Stok Tanaman"))
         self.hargaLabel.setText(_translate("Dialog", "Harga Tanaman"))
         self.domisiliLabel.setText(_translate("Dialog", "Domisili Tanaman"))
         self.tambahkanKeKeranjangButton.setText(_translate("Dialog", "Tambahkan Ke Keranjang"))
@@ -433,13 +446,28 @@ class UI_detailTanaman(object):
         self.mulaiSewaLabel.setText(_translate("Dialog", "Tanggal Mulai Sewa"))
         self.kembaliSewaLabel.setText(_translate("Dialog", "Tanggal Pengembalian"))
         self.totalHargaLabel.setText(_translate("Dialog", "Total Harga"))
+    
+    def __init__(self, data):
+        super(QtWidgets.QWidget, self).__init__()
+        self.data = data
+        self.setupUi(self)
+        self.namaLabel.setText(data[1])
+        self.deskripsiLabel.setText(data[4])
+        self.hargaText.setText(str(data[2]))
+        self.stokText.setText(str(data[3]))
+        self.domisiliText.setText(data[6])
+        if(data[5] is not None):
+            pm = QtGui.QPixmap()
+            pm.loadFromData(data[5])
+            self.gambarTanaman.setPixmap(pm)
 
 
 if __name__ == "__main__":
     import sys
+    dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = UI_detailTanaman()
+    ui = UI_detailTanaman(dummy)
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

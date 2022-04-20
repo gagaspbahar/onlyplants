@@ -10,6 +10,43 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+data = [
+    'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola','Antigua & Deps',
+    'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas',
+    'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize',
+    'Benin', 'Bhutan', 'Bolivia', 'Bosnia Herzegovina', 'Botswana',
+    'Brazil', 'Brunei', 'Bulgaria', 'Burkina', 'Burundi', 'Cambodia', 'Cameroon',
+    'Canada', 'Cape Verde', 'Central African Rep', 'Chad', 'Chile', 'China',
+    'Colombia', 'Comoros', 'Congo', 'Congo {Democratic Rep}', 'Costa Rica',
+    'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti',
+    'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt',
+    'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia',
+    'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany',
+    'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau',
+    'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+    'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Ivory Coast', 'Jamaica',
+    'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea North',
+    'Korea South', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia',
+    'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania',
+    'Luxembourg', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives',
+    'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico',
+    'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco',
+    'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 
+    'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan',
+    'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines',
+    'Poland', 'Portugal', 'Qatar', 'Romania', 'Russian Federation', 'Rwanda',
+    'St Kitts & Nevis', 'St Lucia', 'Saint Vincent & the Grenadines',
+    'Samoa', 'San Marino', 'Sao Tome & Principe', 'Saudi Arabia', 'Senegal',
+    'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia',
+    'Solomon Islands', 'Somalia', 'South Africa', 'South Sudan', 'Spain',
+    'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland',
+    'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga',
+    'Trinidad & Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda',
+    'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States',
+    'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam',
+    'Yemen', 'Zambia', 'Zimbabwe'
+    ]
+
 class UI_editTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -27,7 +64,6 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.bgwidget.setObjectName("bgwidget")
 
         # Navigation bar
-        # TODO : ganti sama navbar yang udah jadi
         self.navbar = QtWidgets.QFrame(self.bgwidget)
         self.navbar.setGeometry(QtCore.QRect(0, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
@@ -60,7 +96,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.Logo.setAlignment(QtCore.Qt.AlignCenter)
         self.Logo.setObjectName("Logo")
         self.berandaButton = QtWidgets.QPushButton(self.navbar)
-        self.berandaButton.setGeometry(QtCore.QRect(350, 40, 91, 31))
+        self.berandaButton.setGeometry(QtCore.QRect(350, 35, 95, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -81,7 +117,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.berandaButton.setCheckable(False)
         self.berandaButton.setObjectName("berandaButton")
         self.tanamanButton = QtWidgets.QPushButton(self.navbar)
-        self.tanamanButton.setGeometry(QtCore.QRect(520, 40, 91, 31))
+        self.tanamanButton.setGeometry(QtCore.QRect(525, 35, 110, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -101,7 +137,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.tanamanButton.setCheckable(False)
         self.tanamanButton.setObjectName("tanamanButton")
         self.aboutButton = QtWidgets.QPushButton(self.navbar)
-        self.aboutButton.setGeometry(QtCore.QRect(670, 40, 131, 31))
+        self.aboutButton.setGeometry(QtCore.QRect(710, 35, 150, 40))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(15)
@@ -121,7 +157,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.aboutButton.setCheckable(False)
         self.aboutButton.setObjectName("aboutButton")
         self.searchButton = QtWidgets.QPushButton(self.navbar)
-        self.searchButton.setGeometry(QtCore.QRect(930, 40, 31, 31))
+        self.searchButton.setGeometry(QtCore.QRect(980, 40, 31, 31))
         self.searchButton.setMouseTracking(False)
         self.searchButton.setAutoFillBackground(False)
         self.searchButton.setText("")
@@ -135,7 +171,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.searchButton.setFlat(True)
         self.searchButton.setObjectName("searchButton")
         self.userButton = QtWidgets.QPushButton(self.navbar)
-        self.userButton.setGeometry(QtCore.QRect(980, 35, 31, 41))
+        self.userButton.setGeometry(QtCore.QRect(1030, 35, 31, 41))
         self.userButton.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("././img/User.png"),
@@ -144,8 +180,14 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.userButton.setIconSize(QtCore.QSize(31, 41))
         self.userButton.setFlat(True)
         self.userButton.setObjectName("userButton")
+        self.notification = QtWidgets.QLabel(self.navbar)
+        self.notification.setGeometry(QtCore.QRect(1080, 40, 31, 31))
+        self.notification.setText("")
+        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
+        self.notification.setScaledContents(True)
+        self.notification.setObjectName("notification")
         self.cartButton = QtWidgets.QPushButton(self.navbar)
-        self.cartButton.setGeometry(QtCore.QRect(1080, 30, 31, 51))
+        self.cartButton.setGeometry(QtCore.QRect(1130, 30, 31, 51))
         self.cartButton.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("././img/Shopping Cart.png"),
@@ -158,12 +200,6 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.cartButton.setAutoDefault(True)
         self.cartButton.setFlat(True)
         self.cartButton.setObjectName("cartButton")
-        self.notification = QtWidgets.QLabel(self.navbar)
-        self.notification.setGeometry(QtCore.QRect(1030, 40, 31, 31))
-        self.notification.setText("")
-        self.notification.setPixmap(QtGui.QPixmap("././img/Doorbell.png"))
-        self.notification.setScaledContents(True)
-        self.notification.setObjectName("notification")
 
         # Gambar Tanaman
         self.gambarTanaman = QtWidgets.QLabel(self.bgwidget)
@@ -175,25 +211,25 @@ class UI_editTanaman(QtWidgets.QWidget):
 
         # Label Stok tanaman
         self.stokLabel = QtWidgets.QLabel(self.bgwidget)
-        self.stokLabel.setGeometry(QtCore.QRect(360, 420, 161, 31))
+        self.stokLabel.setGeometry(QtCore.QRect(360, 420, 200, 31))
         self.stokLabel.setStyleSheet("font: 16pt \"Sansita\";")
         self.stokLabel.setObjectName("stokLabel")
 
         # Label Harga tanaman
         self.hargaLabel = QtWidgets.QLabel(self.bgwidget)
-        self.hargaLabel.setGeometry(QtCore.QRect(360, 460, 161, 31))
+        self.hargaLabel.setGeometry(QtCore.QRect(360, 460, 200, 31))
         self.hargaLabel.setStyleSheet("font: 16pt \"Sansita\";")
         self.hargaLabel.setObjectName("hargaLabel")
 
         # Label Domisili
         self.domisiliLabel = QtWidgets.QLabel(self.bgwidget)
-        self.domisiliLabel.setGeometry(QtCore.QRect(360, 500, 161, 31))
+        self.domisiliLabel.setGeometry(QtCore.QRect(360, 500, 200, 31))
         self.domisiliLabel.setStyleSheet("font: 16pt \"Sansita\";")
         self.domisiliLabel.setObjectName("domisiliLabel")
 
         # Label Edit (1)
         self.edit1Label = QtWidgets.QLabel(self.bgwidget)
-        self.edit1Label.setGeometry(QtCore.QRect(690, 430, 21, 21))
+        self.edit1Label.setGeometry(QtCore.QRect(725, 430, 21, 21))
         self.edit1Label.setText("")
         self.edit1Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
         self.edit1Label.setScaledContents(True)
@@ -201,7 +237,7 @@ class UI_editTanaman(QtWidgets.QWidget):
 
         # Label Edit (2)
         self.edit2Label = QtWidgets.QLabel(self.bgwidget)
-        self.edit2Label.setGeometry(QtCore.QRect(690, 470, 21, 21))
+        self.edit2Label.setGeometry(QtCore.QRect(725, 470, 21, 21))
         self.edit2Label.setText("")
         self.edit2Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
         self.edit2Label.setScaledContents(True)
@@ -209,7 +245,7 @@ class UI_editTanaman(QtWidgets.QWidget):
 
         # Label Edit (3)
         self.edit3Label = QtWidgets.QLabel(self.bgwidget)
-        self.edit3Label.setGeometry(QtCore.QRect(690, 510, 21, 21))
+        self.edit3Label.setGeometry(QtCore.QRect(725, 510, 21, 21))
         self.edit3Label.setText("")
         self.edit3Label.setPixmap(QtGui.QPixmap("././img/Edit.png"))
         self.edit3Label.setScaledContents(True)
@@ -277,7 +313,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("././img/upload.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.uploadFileButton.setIcon(icon)
-        self.uploadFileButton.setIconSize(QtCore.QSize(40, 40))
+        self.uploadFileButton.setIconSize(QtCore.QSize(30, 30))
         self.uploadFileButton.setFlat(True)
         self.uploadFileButton.setObjectName("uploadFileButton")
 
@@ -308,7 +344,7 @@ class UI_editTanaman(QtWidgets.QWidget):
 
         # Line Edit Stok
         self.stokEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.stokEdit.setGeometry(QtCore.QRect(540, 420, 141, 31))
+        self.stokEdit.setGeometry(QtCore.QRect(580, 420, 141, 31))
         self.stokEdit.setStyleSheet("background-color: #769D8A;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
@@ -316,11 +352,14 @@ class UI_editTanaman(QtWidgets.QWidget):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 ";")
+        self.stokEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.onlyInt = QtGui.QIntValidator()
+        self.stokEdit.setValidator(self.onlyInt)
         self.stokEdit.setObjectName("stokEdit")
 
         # Line Edit Harga
         self.hargaEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.hargaEdit.setGeometry(QtCore.QRect(540, 460, 141, 31))
+        self.hargaEdit.setGeometry(QtCore.QRect(580, 460, 141, 31))
         self.hargaEdit.setStyleSheet("background-color: #769D8A;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
@@ -328,11 +367,13 @@ class UI_editTanaman(QtWidgets.QWidget):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 ";")
+        self.hargaEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.hargaEdit.setValidator(self.onlyInt)
         self.hargaEdit.setObjectName("hargaEdit")
 
         # Line Edit Domisili
         self.domisiliEdit = QtWidgets.QLineEdit(self.bgwidget)
-        self.domisiliEdit.setGeometry(QtCore.QRect(540, 500, 141, 31))
+        self.domisiliEdit.setGeometry(QtCore.QRect(580, 500, 141, 31))
         self.domisiliEdit.setStyleSheet("background-color: #769D8A;\n"
 "    border: 0px solid #555;\n"
 "    border-radius: 10px;\n"
@@ -340,6 +381,9 @@ class UI_editTanaman(QtWidgets.QWidget):
 "    padding: 5px;\n"
 "    font: 12pt \"Sansita\";\n"
 ";")
+        self.domisiliEdit.setAlignment(QtCore.Qt.AlignCenter)
+        completer = QtWidgets.QCompleter(data)
+        self.domisiliEdit.setCompleter(completer)
         self.domisiliEdit.setObjectName("domisiliEdit")
 
 
@@ -371,9 +415,9 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
-        self.stokLabel.setText(_translate("Dialog", "Stok Tanaman         :"))
-        self.hargaLabel.setText(_translate("Dialog", "Harga Tanaman      :"))
-        self.domisiliLabel.setText(_translate("Dialog", "Domisili Tanaman  :"))
+        self.stokLabel.setText(_translate("Dialog", "Stok Tanaman"))
+        self.hargaLabel.setText(_translate("Dialog", "Harga Tanaman "))
+        self.domisiliLabel.setText(_translate("Dialog", "Domisili Tanaman"))
         self.simpanPerubahanButton.setText(_translate("Dialog", "Simpan Perubahan"))
         self.uploadFileButton.clicked.connect(self.pushButton_handler)
         self.namaEdit.setText(_translate("Dialog", "Nama Tanaman"))
@@ -390,14 +434,10 @@ class UI_editTanaman(QtWidgets.QWidget):
         print("Button pressed")
         self.open_dialog_box()
 
-    # TODO : save pathnya lempar ke label
     def open_dialog_box(self):
         filename = QtWidgets.QFileDialog.getOpenFileName()
         path = filename[0]
-        print(path)
-
-        with open(path, "r") as f:
-            print(f.readline())
+        # Ganti pathnya 
     
     def __init__(self):
         super(QtWidgets.QWidget, self).__init__()

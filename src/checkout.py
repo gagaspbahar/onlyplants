@@ -491,7 +491,7 @@ class Ui_Checkout(QtWidgets.QWidget):
         self.aboutButton.setText(_translate("Form", "Tentang Kami"))
         self.konfirmasiPengajuan.setText(_translate("Form", "Konfirmasi Pengajuan Sewa"))
         self.label.setText(_translate("Form", "Pesanan Anda"))
-        self.label_5.setText(_translate("Form", "Daftar cartButton Pemesanan"))
+        self.label_5.setText(_translate("Form", "Daftar Keranjang Pemesanan"))
         self.namaItem.setText(_translate("Form", "Nama Item"))
         self.orderId.setText(_translate("Form", "Order Id: "))
         
@@ -505,6 +505,11 @@ class Ui_Checkout(QtWidgets.QWidget):
         super(QtWidgets.QWidget, self).__init__()
         self.setupUi(self)
 
+    def inisial(self, conn, idPelanggan):
+            self.removeIsiKeranjang()
+            self.removePesananWidgets()
+            self.handleAddKeranjang(conn, idPelanggan)
+            
     def handleAddKeranjang(self, conn, idPelanggan):
                 listItem = db_api.getKeranjang(conn, idPelanggan)
                 totalPrice = 0
@@ -521,13 +526,8 @@ class Ui_Checkout(QtWidgets.QWidget):
                 self.totalHarga.setText("Total Harga: Rp" + str(totalPrice))
                 self.orderId.setText("Order Id: "+ str(descrip[1]))
 
-
-    def konfirmasiPesanan_handeler(self, conn, orderNumber, idPelanggan):
-                self.removeIsiKeranjang()
-                self.removePesananWidgets()
-                db_api.updateStatus(conn, orderNumber, "waiting for approval")
+    def handleAddPesanan(self, conn, idPelanggan):
                 listPesanan = db_api.getPesananAktif(conn, idPelanggan)
-                
                 for orders in listPesanan:
                         pesanan = modalPesananBerlangsung()
                         ord = list(orders)
@@ -535,6 +535,12 @@ class Ui_Checkout(QtWidgets.QWidget):
                         pesanan.setupUi(FormPesanan)
                         pesanan.OrderID.setText("Order Number: "+ str(ord[1]))
                         self.slotPesananBerlangsung.addWidget(FormPesanan)
+            
+    def konfirmasiPesanan_handeler(self, conn, orderNumber, idPelanggan):
+                self.removeIsiKeranjang()
+                self.removePesananWidgets()
+                db_api.updateStatus(conn, orderNumber, "waiting for approval")
+                self.handleAddPesanan(conn, idPelanggan)
         
     def removePesananWidgets(self):
         try:    

@@ -124,7 +124,7 @@ class Ui_Dialog(QtWidgets.QWidget):
 
         # Label 1
         self.tanaman1 = QtWidgets.QPushButton(self.bgwidget)
-        self.tanaman1.setGeometry(QtCore.QRect(100, 400, 241, 31))
+        self.tanaman1.setGeometry(QtCore.QRect(100, 400, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(16)
@@ -148,7 +148,7 @@ class Ui_Dialog(QtWidgets.QWidget):
 
         # Label 2
         self.tanaman2 = QtWidgets.QPushButton(self.bgwidget)
-        self.tanaman2.setGeometry(QtCore.QRect(480, 400, 241, 31))
+        self.tanaman2.setGeometry(QtCore.QRect(480, 400, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(16)
@@ -172,7 +172,7 @@ class Ui_Dialog(QtWidgets.QWidget):
 
         # Label 3
         self.tanaman3 = QtWidgets.QPushButton(self.bgwidget)
-        self.tanaman3.setGeometry(QtCore.QRect(850, 400, 241, 31))
+        self.tanaman3.setGeometry(QtCore.QRect(850, 400, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(16)
@@ -196,7 +196,7 @@ class Ui_Dialog(QtWidgets.QWidget):
 
         # Label 4
         self.tanaman4 = QtWidgets.QPushButton(self.bgwidget)
-        self.tanaman4.setGeometry(QtCore.QRect(100, 710, 241, 31))
+        self.tanaman4.setGeometry(QtCore.QRect(100, 710, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(16)
@@ -220,7 +220,7 @@ class Ui_Dialog(QtWidgets.QWidget):
 
         # Label 5
         self.tanaman5 = QtWidgets.QPushButton(self.bgwidget)
-        self.tanaman5.setGeometry(QtCore.QRect(480, 710, 241, 31))
+        self.tanaman5.setGeometry(QtCore.QRect(480, 710, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(16)
@@ -244,7 +244,7 @@ class Ui_Dialog(QtWidgets.QWidget):
 
         # Label 6
         self.tanaman6 = QtWidgets.QPushButton(self.bgwidget)
-        self.tanaman6.setGeometry(QtCore.QRect(850, 710, 241, 31))
+        self.tanaman6.setGeometry(QtCore.QRect(850, 710, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(16)

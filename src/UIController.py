@@ -10,6 +10,7 @@ import editTanaman
 import sys
 import Widgets
 
+from random import randint
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -106,6 +107,12 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.ListTanamanWindow.decreaseTanamanCounter(conn)
     self.goToListTanaman(conn)
 
+  def goToLandingPage(self):
+    self.desc = ["Tahukah anda bahwa", "Lalala", "Lilili", "Lululu", "Lelele"]
+    self.descRand = randint(0, len(self.desc) - 1)
+    self.LandingPageWindow.landingText.setText(self.desc[self.descRand])
+    self.widget.setCurrentWidget(self.LandingPageWindow)
+
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()
     self.widget = QtWidgets.QStackedWidget()
@@ -158,7 +165,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     for window in withNavbar:
         window.setWindowTitle("OnlyPlants")
         window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
-        window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
+        window.berandaButton.clicked.connect(lambda: self.goToLandingPage())
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
 
     self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))
@@ -175,6 +182,8 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
     self.ListTanamanWindow.kanan.clicked.connect(lambda: self.handleKanan(conn))
     self.ListTanamanWindow.kiri.clicked.connect(lambda: self.handleKiri(conn))
+
+    self.LandingPageWindow.mulaiSewaButton.clicked.connect(lambda: self.goToListTanaman(conn))
 
     self.widget.setCurrentWidget(self.WelcomeWindow)
     self.widget.show()

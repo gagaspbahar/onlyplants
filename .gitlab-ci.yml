@@ -14,7 +14,7 @@ pylint:
   tags:
     - gagas
   script:
-    - pylint -d C0301 src/*.py
+    - pylint --fail-under=3 -d C0301 src/*.py
 
 pytest:
   stage: Test

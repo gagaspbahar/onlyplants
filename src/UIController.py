@@ -121,8 +121,17 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.greetingUserWindow.setWindowModality(QtCore.Qt.ApplicationModal)
       self.greetingUserWindow.show()
   
-  def handleClickCart(self) :
-    self.widget.setCurrentWidget(self.CheckOutWindow)
+
+  def handleClickCart(self, conn, idPelanggan, orderNumber) :
+    if (LoggedInID == 1):
+      db_api.viewPemesanan(conn)
+      db_api.viewPesananAktif(conn)
+      db_api.viewKeranjang(conn)
+      self.CheckOutWindow.inisial(conn, idPelanggan)
+      self.CheckOutWindow.konfirmasiPengajuan.clicked.connect(lambda: self.CheckOutWindow.konfirmasiPesanan_handeler(conn,orderNumber,idPelanggan))
+      self.widget.setCurrentWidget(self.CheckOutWindow)
+    else:
+      self.handleClickUser()
 
   def handleClickModalLogin(self):
     self.widget.setCurrentWidget(self.LoginWindow)
@@ -189,7 +198,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
   # def initiateCart(self):
 
 
-  def __init__(self) -> None:
+  def __init__(self, conn) -> None:
     super(QtWidgets.QWidget, self).__init__()
     self.widget = QtWidgets.QStackedWidget()
     self.widget.setWindowTitle("OnlyPlants")
@@ -265,7 +274,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
         window.aboutButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AboutUsWindow))
         window.userButton.clicked.connect(lambda: self.handleClickUser())
-        window.cartButton.clicked.connect(lambda: self.handleClickCart())
+        window.cartButton.clicked.connect(lambda: self.handleClickCart(conn, 1,1))
 
     self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))
 

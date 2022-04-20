@@ -1,6 +1,6 @@
 # IF2250-2022-K01-11-OnlyPlants
 
-> **OnlyPlants** merupakan layanan peminjaman tanaman yang berbasis aplikasi sehingga dapat digunakan dimana saja, dan kapan saja. From
+> **OnlyPlants** merupakan layanan peminjaman tanaman yang berbasis aplikasi sehingga dapat digunakan dimana saja, dan kapan saja. Aplikasi ini memperbolehkan pengguna untuk memilih jumlah tanaman yang ingin disewa, tanggal mulai sewa, dan tanggal pengembelian. Tanpa banyak basa-basi, **Selamat Mencoba!**
 
 ## Cara Instalasi
 ---

@@ -254,7 +254,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.goToListTanaman(conn)
 
   def goToLandingPage(self):
-    self.desc = ["Tahukah anda bahwa", "Lalala", "Lilili", "Lululu", "Lelele"]
+    self.desc = facts
     self.descRand = randint(0, len(self.desc) - 1)
     self.LandingPageWindow.landingText.setText(self.desc[self.descRand])
     self.widget.setCurrentWidget(self.LandingPageWindow)

@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import database.db_api as db_api
+from Widgets import messageBoxTambahKeranjangBerhasil
 
 class UI_detailTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -499,6 +500,7 @@ class UI_detailTanaman(QtWidgets.QWidget):
 
         db_api.addDetailPemesanan(conn, currentOrderNumber, self.data[0], jumlah, mulaiSewa, kembaliSewa, "not submitted", int(self.totalHargaText.text()))
 
+        messageBoxTambahKeranjangBerhasil()
         print("Successfully added " + str(self.data[0]) + " to cart")
 
     def __init__(self, data, conn):

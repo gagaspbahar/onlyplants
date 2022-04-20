@@ -235,7 +235,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
 
   def goToListTanaman(self, conn):
-    self.ListTanamanWindow.updateTanaman(conn)
+    self.ListTanamanWindow.updateTanaman(conn, isAdmin)
     windows = [self.ListTanamanWindow.Tanaman1Window, self.ListTanamanWindow.Tanaman2Window, self.ListTanamanWindow.Tanaman3Window, self.ListTanamanWindow.Tanaman4Window, self.ListTanamanWindow.Tanaman5Window, self.ListTanamanWindow.Tanaman6Window]
     for window in windows:
       self.widget.addWidget(window)
@@ -243,14 +243,15 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
       window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
       window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
+  
     self.widget.setCurrentWidget(self.ListTanamanWindow)
   
   def handleKanan(self, conn):
-    self.ListTanamanWindow.increaseTanamanCounter(conn)
+    self.ListTanamanWindow.increaseTanamanCounter(conn, isAdmin)
     self.goToListTanaman(conn)
   
   def handleKiri(self, conn):
-    self.ListTanamanWindow.decreaseTanamanCounter(conn)
+    self.ListTanamanWindow.decreaseTanamanCounter(conn, isAdmin)
     self.goToListTanaman(conn)
 
   def goToLandingPage(self):
@@ -304,7 +305,8 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.AddTanamanWindow = addTanaman.UI_addTanaman()
     self.widget.addWidget(self.AddTanamanWindow)
 
-    self.EditTanamanWindow = editTanaman.UI_editTanaman()
+    dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
+    self.EditTanamanWindow = editTanaman.UI_editTanaman(dummy)
     self.widget.addWidget(self.EditTanamanWindow)
 
     self.greetingUserWindow = greetingUser.Ui_Form()

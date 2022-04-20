@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from database.db_api import *
 
 data = [
     'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola','Antigua & Deps',
@@ -436,19 +437,32 @@ class UI_editTanaman(QtWidgets.QWidget):
 
     def open_dialog_box(self):
         filename = QtWidgets.QFileDialog.getOpenFileName()
-        path = filename[0]
+        self.path = filename[0]
+        self.gambarTanaman.setPixmap(QtGui.QPixmap(self.path))
         # Ganti pathnya 
     
-    def __init__(self):
+    def __init__(self, data):
         super(QtWidgets.QWidget, self).__init__()
+        self.data = data
         self.setupUi(self)
+        self.namaEdit.setText(data[1])
+        self.deskripsiEdit.setText(data[4])
+        self.hargaEdit.setText(str(data[2]))
+        self.stokEdit.setText(str(data[3]))
+        self.domisiliEdit.setText(data[6])
+        if(data[5] is not None):
+            pm = QtGui.QPixmap()
+            pm.loadFromData(data[5])
+            self.gambarTanaman.setPixmap(pm)
 
 
 if __name__ == "__main__":
     import sys
+    dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = UI_editTanaman()
+    ui = UI_editTanaman(dummy)
     ui.setupUi(Dialog)
+    ui.__init__(dummy)
     Dialog.show()
     sys.exit(app.exec_())

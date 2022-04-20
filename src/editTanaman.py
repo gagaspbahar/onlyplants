@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import database.db_api as db_api
+import Widgets
 
 data = [
     'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola','Antigua & Deps',
@@ -481,15 +482,16 @@ class UI_editTanaman(QtWidgets.QWidget):
         else:
             image = self.data[5]
         if nama == "" or deskripsi == "" or stok == "" or harga == "" or domisili == "":
+            Widgets.messageBoxEditTanamanGagal()
             print("Gagal mengedit tanaman")
         else:
             db_api.editTanaman(conn, self.data[0], nama, harga, stok, deskripsi, image, domisili)
+            Widgets.messageBoxEditTanamanBerhasil(nama)
             print("Edit tanaman berhasil")
 
     def __init__(self, data, conn):
         super(QtWidgets.QWidget, self).__init__()
         self.tanamanId = data[0]
-        print(self)
         self.data = data
         self.path = None
         self.setupUi(self)

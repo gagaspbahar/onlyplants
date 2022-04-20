@@ -13,7 +13,6 @@ import greetingUser
 import aboutUs
 import modalLoginRegistrasi
 import checkout
-import shutil
 import sys
 import Widgets
 
@@ -106,22 +105,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.AddTanamanWindow.domisiliEdit.setText("")
       print("Add tanaman " + nama + " successful")
 
-  def handleEditTanaman(self, conn):
-    nama = self.AddTanamanWindow.namaTanamanEdit.text()
-    filepath = self.AddTanamanWindow.uploadFotoEdit.text()
-    deskripsi = self.AddTanamanWindow.textEdit.text()
-    stok = int(self.AddTanamanWindow.stokEdit.text())
-    harga = int(self.AddTanamanWindow.hargaEdit.text())
-    domisili = self.AddTanamanWindow.domisiliEdit.text()
-    image = db_api.convertToBinaryData(filepath)
-    
-    if (nama == "" or filepath == "Path to File" or deskripsi == "" or stok == "" or harga == "" or domisili == ""):
-      Widgets.messageBoxEditTanamanGagal()
-    else :
-      Widgets.messageBoxEditTanamanBerhasil(nama)
-      db_api.editTanaman(conn, idTanaman, nama, harga, stok, deskripsi, image, domisili)
-      print("Edit tanaman " + nama + " successful")
-  
+
   def handleClickUser(self):
     if(LoggedInID == 1) : 
       nama = db_api.getNamaUser(conn, LoggedInID)
@@ -169,8 +153,10 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
       window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
       window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
-      # if isAdmin:
-      #   window.simpanPerubahanButton.clicked.connect(lambda: window.handleSubmit(conn))
+      if isAdmin:
+        window.RedirectButton.clicked.connect(lambda: self.widget.setCurrentWidget(self.AdminPageWindow))
+      else:
+        window.RedirectButton.clicked.connect(lambda: self.goToListTanaman(conn))
   
     self.widget.setCurrentWidget(self.ListTanamanWindow)
   
@@ -190,6 +176,9 @@ class UI_MainWindow(QtWidgets.QMainWindow):
   
   def handleCheckout(self):
     Widgets.messageBoxCheckoutBerhasil()
+
+  # def initiateCart(self):
+
 
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()

@@ -15,15 +15,12 @@ import modalLoginRegistrasi
 import checkout
 import sys
 import Widgets
-import datetime
 
 from random import randint
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 global LoggedInID
 global isAdmin
-global currentOrderNumber
-currentOrderNumber = -1
 LoggedInID = 0
 isAdmin = False
 
@@ -45,11 +42,10 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     password = self.LoginWindow.usernamebox_2.text()
     LoggedInID = db_api.login(conn, username, password)
     if (LoggedInID == "" or username =="" or password ==""):
-      Widgets.messageBoxLoginGagal(LoggedInID, username, password)
+      Widgets.messageBoxLoginBerhasil()
     else :
       Widgets.messageBoxLoginBerhasil()
       print("Login successful as ID: ", LoggedInID)
-      self.initiateCart(conn)
     self.LoginWindow.usernamebox.setText("")
     self.LoginWindow.usernamebox_2.setText("")
     
@@ -59,7 +55,6 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.widget.setCurrentWidget(self.AdminPageWindow)
     else:
       self.widget.setCurrentWidget(self.LandingPageWindow)
-
     return True
 
   def handleRegister(self, conn):
@@ -111,7 +106,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       print("Add tanaman " + nama + " successful")
 
 
-  def handleClickUser(self,conn):
+  def handleClickUser(self):
     if(LoggedInID == 1) : 
       nama = db_api.getNamaUser(conn, LoggedInID)
       self.greetingAdminWindow.label.setText("Hai, " + nama)
@@ -127,17 +122,16 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.greetingUserWindow.show()
   
 
-  def handleClickCart(self, conn, idPelanggan) :
-    if (LoggedInID > 0):
+  def handleClickCart(self, conn, idPelanggan, orderNumber) :
+    if (LoggedInID == 1):
       db_api.viewPemesanan(conn)
       db_api.viewPesananAktif(conn)
       db_api.viewKeranjang(conn)
       self.CheckOutWindow.inisial(conn, idPelanggan)
-      self.CheckOutWindow.konfirmasiPengajuan.clicked.connect(lambda: self.CheckOutWindow.konfirmasiPesanan_handler(conn,currentOrderNumber,idPelanggan))
-      self.CheckOutWindow.handleAddKeranjang(conn, currentOrderNumber)
+      self.CheckOutWindow.konfirmasiPengajuan.clicked.connect(lambda: self.CheckOutWindow.konfirmasiPesanan_handeler(conn,orderNumber,idPelanggan))
       self.widget.setCurrentWidget(self.CheckOutWindow)
     else:
-      self.handleClickUser(conn)
+      self.handleClickUser()
 
   def handleClickModalLogin(self):
     self.widget.setCurrentWidget(self.LoginWindow)
@@ -201,11 +195,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
   def handleCheckout(self):
     Widgets.messageBoxCheckoutBerhasil()
 
-  def initiateCart(self, conn):
-    global currentOrderNumber
-    currentOrderNumber = db_api.getOrderTableLength(conn)
-    today = datetime.datetime.today().strftime('%Y-%m-%d')
-    db_api.addPemesanan(conn, LoggedInID, today)
+  # def initiateCart(self):
 
 
   def __init__(self, conn) -> None:
@@ -283,8 +273,8 @@ class UI_MainWindow(QtWidgets.QMainWindow):
         window.berandaButton.clicked.connect(lambda: self.goToLandingPage())
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
         window.aboutButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AboutUsWindow))
-        window.userButton.clicked.connect(lambda: self.handleClickUser(conn))
-        window.cartButton.clicked.connect(lambda: self.handleClickCart(conn, LoggedInID))
+        window.userButton.clicked.connect(lambda: self.handleClickUser())
+        window.cartButton.clicked.connect(lambda: self.handleClickCart(conn, 1,1))
 
     self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))
 
@@ -311,7 +301,7 @@ if __name__ == '__main__':
     
     database = r".\src\database\onlyplants.db"
     conn = db_api.create_connection(database)
-
+    QtGui.QFontDatabase.addApplicationFont("./resources/Sansita-Regular.ttf")
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = UI_MainWindow(conn)
+    MainWindow = UI_MainWindow()
     sys.exit(app.exec_())

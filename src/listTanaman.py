@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from database.db_api import *
+import detailTanaman
 
 class Ui_Dialog(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -463,47 +464,61 @@ class Ui_Dialog(QtWidgets.QWidget):
     def updateTanaman1(self, row):
         self.tanaman1.setText(row[1])
         pm = QtGui.QPixmap()
-        pm.loadFromData(blobToBase64(row[5]))
+        pm.loadFromData(row[5])
         self.gambar1.setPixmap(pm)
+        self.Tanaman1Window = detailTanaman.UI_detailTanaman(row)
 
     def updateTanaman2(self, row):
         self.tanaman2.setText(row[1])
         pm = QtGui.QPixmap()
-        pm.loadFromData(blobToBase64(row[5]))
+        pm.loadFromData(row[5])
         self.gambar2.setPixmap(pm)
+        self.Tanaman2Window = detailTanaman.UI_detailTanaman(row)
 
     def updateTanaman3(self, row):
         self.tanaman3.setText(row[1])
         pm = QtGui.QPixmap()
-        pm.loadFromData(blobToBase64(row[5]))
+        pm.loadFromData(row[5])
         self.gambar3.setPixmap(pm)
+        self.Tanaman3Window = detailTanaman.UI_detailTanaman(row)
 
     def updateTanaman4(self, row):
         self.tanaman4.setText(row[1])
         pm = QtGui.QPixmap()
-        pm.loadFromData(blobToBase64(row[5]))
+        pm.loadFromData(row[5])
         self.gambar4.setPixmap(pm)
+        self.Tanaman4Window = detailTanaman.UI_detailTanaman(row)
     
     def updateTanaman5(self, row):
         self.tanaman5.setText(row[1])
         pm = QtGui.QPixmap()
-        pm.loadFromData(blobToBase64(row[5]))
+        pm.loadFromData(row[5])
         self.gambar5.setPixmap(pm)
+        self.Tanaman5Window = detailTanaman.UI_detailTanaman(row)
     
     def updateTanaman6(self, row):
         self.tanaman6.setText(row[1])
         pm = QtGui.QPixmap()
-        pm.loadFromData(blobToBase64(row[5]))
+        pm.loadFromData(row[5])
         self.gambar6.setPixmap(pm)
+        self.Tanaman6Window = detailTanaman.UI_detailTanaman(row)
+
 
     def __init__(self, conn):
         super(QtWidgets.QWidget, self).__init__()
         self.setupUi(self)
-        print(conn)
+        dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
         self.tanamanCounter = 0
         self.totalTanaman = 0
-        self.kanan.clicked.connect(lambda: self.increaseTanamanCounter(conn))
-        self.kiri.clicked.connect(lambda: self.decreaseTanamanCounter(conn))
+        self.Tanaman1Window = detailTanaman.UI_detailTanaman(dummy)
+        self.Tanaman2Window = detailTanaman.UI_detailTanaman(dummy)
+        self.Tanaman3Window = detailTanaman.UI_detailTanaman(dummy)
+        self.Tanaman4Window = detailTanaman.UI_detailTanaman(dummy)
+        self.Tanaman5Window = detailTanaman.UI_detailTanaman(dummy)
+        self.Tanaman6Window = detailTanaman.UI_detailTanaman(dummy)
+
+        # self.kanan.clicked.connect(lambda: self.increaseTanamanCounter(conn))
+        # self.kiri.clicked.connect(lambda: self.decreaseTanamanCounter(conn))
 
 if __name__ == "__main__":
     import sys

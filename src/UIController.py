@@ -89,7 +89,22 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
   def goToListTanaman(self, conn):
     self.ListTanamanWindow.updateTanaman(conn)
+    windows = [self.ListTanamanWindow.Tanaman1Window, self.ListTanamanWindow.Tanaman2Window, self.ListTanamanWindow.Tanaman3Window, self.ListTanamanWindow.Tanaman4Window, self.ListTanamanWindow.Tanaman5Window, self.ListTanamanWindow.Tanaman6Window]
+    for window in windows:
+      self.widget.addWidget(window)
+      window.setWindowTitle("OnlyPlants")
+      window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
+      window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
+      window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
     self.widget.setCurrentWidget(self.ListTanamanWindow)
+  
+  def handleKanan(self, conn):
+    self.ListTanamanWindow.increaseTanamanCounter(conn)
+    self.goToListTanaman(conn)
+  
+  def handleKiri(self, conn):
+    self.ListTanamanWindow.decreaseTanamanCounter(conn)
+    self.goToListTanaman(conn)
 
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()
@@ -145,6 +160,21 @@ class UI_MainWindow(QtWidgets.QMainWindow):
         window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
         window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
+
+    self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))
+
+    self.ListTanamanWindow.tanaman2.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman2Window))
+
+    self.ListTanamanWindow.tanaman3.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman3Window))
+
+    self.ListTanamanWindow.tanaman4.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman4Window))
+
+    self.ListTanamanWindow.tanaman5.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman5Window))
+
+    self.ListTanamanWindow.tanaman6.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman6Window))
+
+    self.ListTanamanWindow.kanan.clicked.connect(lambda: self.handleKanan(conn))
+    self.ListTanamanWindow.kiri.clicked.connect(lambda: self.handleKiri(conn))
 
     self.widget.setCurrentWidget(self.WelcomeWindow)
     self.widget.show()

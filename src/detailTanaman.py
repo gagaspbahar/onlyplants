@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class UI_detailTanaman(object):
+class UI_detailTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -446,13 +446,28 @@ class UI_detailTanaman(object):
         self.mulaiSewaLabel.setText(_translate("Dialog", "Tanggal Mulai Sewa"))
         self.kembaliSewaLabel.setText(_translate("Dialog", "Tanggal Pengembalian"))
         self.totalHargaLabel.setText(_translate("Dialog", "Total Harga"))
+    
+    def __init__(self, data):
+        super(QtWidgets.QWidget, self).__init__()
+        self.data = data
+        self.setupUi(self)
+        self.namaLabel.setText(data[1])
+        self.deskripsiLabel.setText(data[4])
+        self.hargaText.setText(str(data[2]))
+        self.stokText.setText(str(data[3]))
+        self.domisiliText.setText(data[6])
+        if(data[5] is not None):
+            pm = QtGui.QPixmap()
+            pm.loadFromData(data[5])
+            self.gambarTanaman.setPixmap(pm)
 
 
 if __name__ == "__main__":
     import sys
+    dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = UI_detailTanaman()
+    ui = UI_detailTanaman(dummy)
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

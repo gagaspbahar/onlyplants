@@ -180,7 +180,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
   # def initiateCart(self):
 
 
-  def __init__(self) -> None:
+  def __init__(self, conn) -> None:
     super(QtWidgets.QWidget, self).__init__()
     self.widget = QtWidgets.QStackedWidget()
     self.widget.setWindowTitle("OnlyPlants")

@@ -1,2 +1,13 @@
+import UIController as UIC
+import database.db_api as db_api
+from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+
 if __name__ == '__main__':
-    print("Hello, World!")
+    
+    database = r".\src\database\onlyplants.db"
+    conn = db_api.create_connection(database)
+
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = UIC.UI_MainWindow(conn)
+    sys.exit(app.exec_())

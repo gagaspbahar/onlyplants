@@ -126,10 +126,19 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
   def handleClickModalLogin(self):
     self.widget.setCurrentWidget(self.LoginWindow)
+    self.LoginWindow.usernamebox.setText("")
+    self.LoginWindow.usernamebox_2.setText("")
     self.modalLoginRegistrasiWindow.close()
   
   def handleClickModalRegister(self):
     self.widget.setCurrentWidget(self.RegisterWindow)
+    self.RegisterWindow.usernameBox.setText("")
+    self.RegisterWindow.passwordBox.setText("")
+    self.RegisterWindow.namaBox.setText("")
+    self.RegisterWindow.emailBox.setText("")
+    self.RegisterWindow.telpBox.setText("")
+    self.RegisterWindow.addressBox.setText("")
+    self.RegisterWindow.posBox.setText("")
     self.modalLoginRegistrasiWindow.close()
   
   def handleClickAdminButton(self) :

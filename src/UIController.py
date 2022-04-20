@@ -23,6 +23,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 global LoggedInID
 global isAdmin
 LoggedInID = 0
+isAdmin = False
 
 facts = ["Seorang peneliti asal Jerman, Peter Wohlleben, menemukan fakta unik bahwa ternyata pohon mempunyai perasaan, bisa berteman, dan saling menyayangi seperti halnya manusia lho Squad. Peter mengatakan bahwa pohon dapat merasakan sakit dan emosi seperti rasa takut. Pohon juga memiliki ikatan yang kuat layaknya pasangan manusia dan lebih senang jika tumbuh berdekatan serta saling bersentuhan. Hasil penelitian unik ini bisa kamu tonton di sebuah film dokumenter bernama ‘Intelligent Trees’. Tertarik?",
 "Selain memberikan manfaat bagi kehidupan manusia, pohon juga ternyata bisa mematikan. Menurut Guinness World Records, pohon manchineel adalah pohon paling berbahaya di dunia. Bahkan, semua bagian dari manchineel sangat beracun dan berpotensi menyebabkan kematian. Getah dari pohon ini dapat membuat kulit melepuh seperti terbakar. Jika memakan buahnya yang berbentuk seperti apel, akan membuat tenggorokan terasa panas terbakar dan mengalami sesak nafas.",
@@ -105,7 +106,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       self.AddTanamanWindow.domisiliEdit.setText("")
       print("Add tanaman " + nama + " successful")
 
-  def handleEditTanaman(self, conn, idTanaman):
+  def handleEditTanaman(self, conn):
     nama = self.AddTanamanWindow.namaTanamanEdit.text()
     filepath = self.AddTanamanWindow.uploadFotoEdit.text()
     deskripsi = self.AddTanamanWindow.textEdit.text()
@@ -160,7 +161,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
 
 
   def goToListTanaman(self, conn):
-    self.ListTanamanWindow.updateTanaman(conn)
+    self.ListTanamanWindow.updateTanaman(conn, isAdmin)
     windows = [self.ListTanamanWindow.Tanaman1Window, self.ListTanamanWindow.Tanaman2Window, self.ListTanamanWindow.Tanaman3Window, self.ListTanamanWindow.Tanaman4Window, self.ListTanamanWindow.Tanaman5Window, self.ListTanamanWindow.Tanaman6Window]
     for window in windows:
       self.widget.addWidget(window)
@@ -168,14 +169,17 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
       window.berandaButton.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.LandingPageWindow))
       window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
+      # if isAdmin:
+      #   window.simpanPerubahanButton.clicked.connect(lambda: window.handleSubmit(conn))
+  
     self.widget.setCurrentWidget(self.ListTanamanWindow)
   
   def handleKanan(self, conn):
-    self.ListTanamanWindow.increaseTanamanCounter(conn)
+    self.ListTanamanWindow.increaseTanamanCounter(conn, isAdmin)
     self.goToListTanaman(conn)
   
   def handleKiri(self, conn):
-    self.ListTanamanWindow.decreaseTanamanCounter(conn)
+    self.ListTanamanWindow.decreaseTanamanCounter(conn, isAdmin)
     self.goToListTanaman(conn)
 
   def goToLandingPage(self):
@@ -232,8 +236,8 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.AddTanamanWindow = addTanaman.UI_addTanaman()
     self.widget.addWidget(self.AddTanamanWindow)
 
-    self.EditTanamanWindow = editTanaman.UI_editTanaman()
-    # self.EditTanamanWindow.simpanPerubahanButton.clicked.connect(lambda: self.handleEditTanaman(conn))
+    dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
+    self.EditTanamanWindow = editTanaman.UI_editTanaman(dummy, conn)
     self.widget.addWidget(self.EditTanamanWindow)
 
     self.CheckOutWindow = checkout.Ui_Checkout()
@@ -244,7 +248,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.greetingAdminWindow = greetingAdmin.Ui_Form()
     self.modalLoginRegistrasiWindow = modalLoginRegistrasi.Ui_Form()
 
-    self.AdminPageWindow.editTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.EditTanamanWindow))
+    self.AdminPageWindow.editTanaman.clicked.connect(lambda: self.goToListTanaman(conn))
 
     self.AdminPageWindow.addTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AddTanamanWindow))
 

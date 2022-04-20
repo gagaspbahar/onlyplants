@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from database.db_api import *
 import detailTanaman
+import editTanaman
 
 class Ui_Dialog(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -422,32 +423,32 @@ class Ui_Dialog(QtWidgets.QWidget):
         self.tanaman5.setText(_translate("Dialog", "Nama Tanaman 5"))
         self.tanaman6.setText(_translate("Dialog", "Nama Tanaman 6"))
 
-    def updateTanaman(self, conn):
+    def updateTanaman(self, conn, isAdmin):
         rows = fetchTanaman(conn)
         self.totalTanaman = len(rows)
         tc = self.tanamanCounter
         if len(rows) - self.tanamanCounter > 0:
-            self.updateTanaman1(rows[tc])
+            self.updateTanaman1(rows[tc], isAdmin, conn)
             if(tc + 1 < len(rows)):
-                self.updateTanaman2(rows[tc + 1])
+                self.updateTanaman2(rows[tc + 1], isAdmin, conn)
             if(tc + 2 < len(rows)):
-                self.updateTanaman3(rows[tc+2])
+                self.updateTanaman3(rows[tc+2], isAdmin, conn)
             if(tc + 3 < len(rows)):
-                self.updateTanaman4(rows[tc+3])
+                self.updateTanaman4(rows[tc+3], isAdmin, conn)
             if(tc + 4 < len(rows)):
-                self.updateTanaman5(rows[tc+4])
+                self.updateTanaman5(rows[tc+4], isAdmin, conn)
             if(tc + 5 < len(rows)):
-                self.updateTanaman6(rows[tc+5])
+                self.updateTanaman6(rows[tc+5], isAdmin, conn)
     
-    def decreaseTanamanCounter(self, conn):
+    def decreaseTanamanCounter(self, conn, isAdmin):
         if self.tanamanCounter < 6:
             self.tanamanCounter = 0
         else:
             self.tanamanCounter -= 6
         print("counter: ", self.tanamanCounter)
-        self.updateTanaman(conn)
+        self.updateTanaman(conn, isAdmin)
     
-    def increaseTanamanCounter(self, conn):
+    def increaseTanamanCounter(self, conn, isAdmin):
         if self.tanamanCounter + 6 < self.totalTanaman:
             if(self.tanamanCounter + 12 < self.totalTanaman):
                 self.tanamanCounter += 6
@@ -456,49 +457,67 @@ class Ui_Dialog(QtWidgets.QWidget):
         else:
             self.tanamanCounter = self.totalTanaman - 6
         print("counter: ", self.tanamanCounter)
-        self.updateTanaman(conn)
+        self.updateTanaman(conn, isAdmin)
 
-    def updateTanaman1(self, row):
+    def updateTanaman1(self, row, isAdmin, conn):
         self.tanaman1.setText(row[1])
         pm = QtGui.QPixmap()
         pm.loadFromData(row[5])
         self.gambar1.setPixmap(pm)
-        self.Tanaman1Window = detailTanaman.UI_detailTanaman(row)
+        if isAdmin:
+            self.Tanaman1Window = editTanaman.UI_editTanaman(row, conn)
+        else:
+            self.Tanaman1Window = detailTanaman.UI_detailTanaman(row)
 
-    def updateTanaman2(self, row):
+    def updateTanaman2(self, row, isAdmin, conn):
         self.tanaman2.setText(row[1])
         pm = QtGui.QPixmap()
         pm.loadFromData(row[5])
         self.gambar2.setPixmap(pm)
-        self.Tanaman2Window = detailTanaman.UI_detailTanaman(row)
+        if isAdmin:
+            self.Tanaman2Window = editTanaman.UI_editTanaman(row, conn)
+        else:
+            self.Tanaman2Window = detailTanaman.UI_detailTanaman(row)
 
-    def updateTanaman3(self, row):
+    def updateTanaman3(self, row, isAdmin, conn):
         self.tanaman3.setText(row[1])
         pm = QtGui.QPixmap()
         pm.loadFromData(row[5])
         self.gambar3.setPixmap(pm)
-        self.Tanaman3Window = detailTanaman.UI_detailTanaman(row)
+        if isAdmin:
+            self.Tanaman3Window = editTanaman.UI_editTanaman(row, conn)
+        else:
+            self.Tanaman3Window = detailTanaman.UI_detailTanaman(row)
 
-    def updateTanaman4(self, row):
+    def updateTanaman4(self, row, isAdmin, conn):
         self.tanaman4.setText(row[1])
         pm = QtGui.QPixmap()
         pm.loadFromData(row[5])
         self.gambar4.setPixmap(pm)
-        self.Tanaman4Window = detailTanaman.UI_detailTanaman(row)
+        if isAdmin:
+            self.Tanaman4Window = editTanaman.UI_editTanaman(row, conn)
+        else:
+            self.Tanaman4Window = detailTanaman.UI_detailTanaman(row)
     
-    def updateTanaman5(self, row):
+    def updateTanaman5(self, row, isAdmin, conn):
         self.tanaman5.setText(row[1])
         pm = QtGui.QPixmap()
         pm.loadFromData(row[5])
         self.gambar5.setPixmap(pm)
-        self.Tanaman5Window = detailTanaman.UI_detailTanaman(row)
-    
-    def updateTanaman6(self, row):
+        if isAdmin:
+            self.Tanaman5Window = editTanaman.UI_editTanaman(row, conn)
+        else:
+            self.Tanaman5Window = detailTanaman.UI_detailTanaman(row)
+
+    def updateTanaman6(self, row, isAdmin, conn):
         self.tanaman6.setText(row[1])
         pm = QtGui.QPixmap()
         pm.loadFromData(row[5])
         self.gambar6.setPixmap(pm)
-        self.Tanaman6Window = detailTanaman.UI_detailTanaman(row)
+        if isAdmin:
+            self.Tanaman6Window = editTanaman.UI_editTanaman(row, conn)
+        else:
+            self.Tanaman6Window = detailTanaman.UI_detailTanaman(row)
 
 
     def __init__(self, conn):

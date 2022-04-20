@@ -306,6 +306,38 @@ class UI_editTanaman(QtWidgets.QWidget):
         self.simpanPerubahanButton.setCheckable(False)
         self.simpanPerubahanButton.setObjectName("simpanPerubahanButton")
 
+        # Button Redirect
+        self.RedirectButton = QtWidgets.QPushButton(self.bgwidget)
+        self.RedirectButton.setGeometry(QtCore.QRect(8, 100, 75, 25))
+        self.RedirectButton.setObjectName("RedirectButton")
+        font = QtGui.QFont()
+        font.setFamily("Sansita")
+        font.setPointSize(9)
+        self.RedirectButton.setFont(font)
+        self.RedirectButton.setStyleSheet("QPushButton {\n"
+"    \n"
+"    border: 0px solid #555;\n"
+"    border-radius: 8px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"    }\n"
+"\n"
+"QPushButton:hover {\n"
+"    color : white;\n"
+"     background-color : rgb(85, 170, 127);\n"
+"    }\n"
+"\n"
+"QPushButton:pressed {\n"
+"    border-style: inset;\n"
+"    background: qradialgradient(\n"
+"        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+"        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
+"        );\n"
+"    }")
+        self.RedirectButton.setCheckable(False)
+        self.RedirectButton.setText("< Kembali")
+        self.RedirectButton.setObjectName("RedirectButton")
+
         # Upload File Button
         self.uploadFileButton = QtWidgets.QPushButton(self.bgwidget)
         self.uploadFileButton.setGeometry(QtCore.QRect(160, 420, 51, 41))

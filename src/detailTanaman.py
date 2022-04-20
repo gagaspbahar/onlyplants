@@ -174,7 +174,7 @@ class UI_detailTanaman(QtWidgets.QWidget):
 
         # Nama Tanaman
         self.namaLabel = QtWidgets.QLabel(self.bgwidget)
-        self.namaLabel.setGeometry(QtCore.QRect(80, 140, 500, 31))
+        self.namaLabel.setGeometry(QtCore.QRect(80, 140, 500, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(22)

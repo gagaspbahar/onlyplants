@@ -254,7 +254,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.goToListTanaman(conn)
 
   def goToLandingPage(self):
-    self.desc = ["Tahukah anda bahwa", "Lalala", "Lilili", "Lululu", "Lelele"]
+    self.desc = facts
     self.descRand = randint(0, len(self.desc) - 1)
     self.LandingPageWindow.landingText.setText(self.desc[self.descRand])
     self.widget.setCurrentWidget(self.LandingPageWindow)
@@ -316,7 +316,6 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.AdminPageWindow.addTanaman.clicked.connect(lambda x = self.widget: self.widget.setCurrentWidget(self.AddTanamanWindow))
 
     self.AddTanamanWindow.tambahkanTanamanButton.clicked.connect(lambda: self.handleAddTanaman(conn))
-
     self.modalLoginRegistrasiWindow.loginButton.clicked.connect(lambda x = self.widget: self.handleClickModalLogin())
     self.modalLoginRegistrasiWindow.registrasiButton.clicked.connect(lambda x = self.widget: self.handleClickModalRegister())
     self.greetingAdminWindow.masukAdminButton.clicked.connect(lambda x = self.widget: self.handleClickAdminButton())
@@ -329,6 +328,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
         window.setWindowIcon(QtGui.QIcon("./img/logo.png"))
         window.berandaButton.clicked.connect(lambda: self.goToLandingPage())
         window.tanamanButton.clicked.connect(lambda: self.goToListTanaman(conn))
+        window.userButton.clicked.connect(lambda: self.handleClickUser())
 
     self.ListTanamanWindow.tanaman1.clicked.connect(lambda: self.widget.setCurrentWidget(self.ListTanamanWindow.Tanaman1Window))
 

@@ -465,8 +465,9 @@ class UI_editTanaman(QtWidgets.QWidget):
 
     def open_dialog_box(self):
         filename = QtWidgets.QFileDialog.getOpenFileName()
-        self.path = filename[0]
-        self.gambarTanaman.setPixmap(QtGui.QPixmap(self.path))
+        if (filename[0] is not None and filename[0] != ""):
+                self.path = filename[0]
+                self.gambarTanaman.setPixmap(QtGui.QPixmap(self.path))
         # Ganti pathnya 
     
     def handleSubmit(self, conn):
@@ -477,7 +478,7 @@ class UI_editTanaman(QtWidgets.QWidget):
         harga = self.hargaEdit.text()
         domisili = self.domisiliEdit.text()
         print(nama)
-        if(self.path is not None):
+        if(self.path is not None and self.path != ""):
             image = db_api.convertToBinaryData(self.path)
         else:
             image = self.data[5]

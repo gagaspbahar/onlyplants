@@ -132,7 +132,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
       db_api.viewPesananAktif(conn)
       db_api.viewKeranjang(conn)
       self.CheckOutWindow.inisial(conn, idPelanggan)
-      self.CheckOutWindow.konfirmasiPengajuan.clicked.connect(lambda: self.CheckOutWindow.konfirmasiPesanan_handler(conn,currentOrderNumber,idPelanggan))
+      self.CheckOutWindow.konfirmasiPengajuan.clicked.connect(lambda: self.konfirmasiPesanan_handler(conn,currentOrderNumber,idPelanggan))
       self.CheckOutWindow.handleAddKeranjang(conn, currentOrderNumber)
       self.widget.setCurrentWidget(self.CheckOutWindow)
     else:
@@ -210,6 +210,12 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     today = datetime.datetime.today().strftime('%Y-%m-%d')
     db_api.addPemesanan(conn, LoggedInID, today)
 
+  def konfirmasiPesanan_handler(self, conn, orderNumber, idPelanggan):
+    self.CheckOutWindow.removeIsiKeranjang()
+    self.CheckOutWindow.removePesananWidgets()
+    db_api.updateStatus(conn, orderNumber, "waiting for approval")
+    self.CheckOutWindow.handleAddPesanan(conn, idPelanggan)
+    self.initiateCart(conn)
 
 
   def __init__(self, conn) -> None:

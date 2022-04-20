@@ -14,7 +14,7 @@ pylint:
   tags:
     - gagas
   script:
-    - pylint -d C0301 C0114 C0200 src/*.py
+    - pylint -d C0301 src/*.py
 
 pytest:
   stage: Test

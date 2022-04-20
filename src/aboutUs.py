@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'register.ui'
+# Form implementation generated from reading ui file 'aboutUs.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -9,9 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Widgets import PushButton
 
-class Ui_Register(QtWidgets.QWidget):
+
+class Ui_AboutUs(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1200, 800)
@@ -27,211 +27,59 @@ class Ui_Register(QtWidgets.QWidget):
 "background-color: white;}")
         self.bgwidget.setObjectName("bgwidget")
         self.loginframe = QtWidgets.QFrame(self.bgwidget)
-        self.loginframe.setGeometry(QtCore.QRect(310, 140, 571, 611))
+        self.loginframe.setGeometry(QtCore.QRect(120, 300, 571, 421))
         self.loginframe.setStyleSheet("QFrame#loginframe{\n"
-"    background-color: rgb(244, 208, 185);\n"
+"    background-color: rgb(234, 216, 202);\n"
 "    border: 0px solid #555;\n"
-"    border-radius: 20px;\n"
+"    border-radius: 10px;\n"
 "    border-style: outset;\n"
 "    padding: 5px;\n"
 "}")
         self.loginframe.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.loginframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.loginframe.setObjectName("loginframe")
-        self.registerButton = QtWidgets.QPushButton(self.loginframe)
-        self.registerButton.setGeometry(QtCore.QRect(190, 550, 171, 41))
+        self.Logo_2 = QtWidgets.QLabel(self.loginframe)
+        self.Logo_2.setGeometry(QtCore.QRect(170, 95, 281, 121))
+        self.Logo_2.setStyleSheet("font: 87 26pt \"Sansita\";\n"
+"color : rgb(0, 0, 0) ")
+        self.Logo_2.setText("")
+        self.Logo_2.setPixmap(QtGui.QPixmap("././img/logo.png"))
+        self.Logo_2.setScaledContents(False)
+        self.Logo_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.Logo_2.setObjectName("Logo_2")
+        self.label_35 = QtWidgets.QLabel(self.loginframe)
+        self.label_35.setGeometry(QtCore.QRect(15, 180, 550, 31))
         font = QtGui.QFont()
         font.setFamily("Sansita")
-        font.setPointSize(11)
-        self.registerButton.setFont(font)
-        self.registerButton.setStyleSheet("QPushButton {\n"
-"    border: 2px solid #555;\n"
-"    border-radius: 15px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    color : black;\n"
-"    background-color : rgb(136, 179, 160);\n"
-"    }\n"
-"\n"
-"QPushButton:hover {\n"
-"    color : white;\n"
-"    background-color : rgb(85, 170, 127)\n"
-"    }\n"
-"\n"
-"QPushButton:pressed {\n"
-"    border-style: inset;\n"
-"    background: qradialgradient(\n"
-"        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"        radius: 1.35, stop: 0 #fff, stop: 1 #ddd\n"
-"        );\n"
-"    }")
-        self.registerButton.setCheckable(False)
-        self.registerButton.setObjectName("registerButton")
-
-        # Email
-        self.label_3 = QtWidgets.QLabel(self.loginframe)
-        self.label_3.setGeometry(QtCore.QRect(30, 25, 501, 20))
-        self.label_3.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_3.setObjectName("label_3")
-
-        self.emailBox = QtWidgets.QLineEdit(self.loginframe)
-        self.emailBox.setGeometry(QtCore.QRect(30, 47, 501, 41))
-        self.emailBox.setStyleSheet("QLineEdit#emailBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.emailBox.setText("")
-        self.emailBox.setObjectName("emailBox")
-
-        # Nama Lengkap
-        self.label_4 = QtWidgets.QLabel(self.loginframe)
-        self.label_4.setGeometry(QtCore.QRect(30, 100, 501, 22))
-        self.label_4.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_4.setObjectName("label_4")
-
-        self.namaBox = QtWidgets.QLineEdit(self.loginframe)
-        self.namaBox.setGeometry(QtCore.QRect(30, 124, 501, 41))
-        self.namaBox.setStyleSheet("QLineEdit#namaBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.namaBox.setText("")
-        self.namaBox.setObjectName("namaBox")
-
-        # Username
-        self.label_5 = QtWidgets.QLabel(self.loginframe)
-        self.label_5.setGeometry(QtCore.QRect(30, 180, 501, 16))
-        self.label_5.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_5.setObjectName("label_5")
-
-        # Username
-        self.usernameBox = QtWidgets.QLineEdit(self.loginframe)
-        self.usernameBox.setGeometry(QtCore.QRect(30, 200, 501, 41))
-        self.usernameBox.setStyleSheet("QLineEdit#usernameBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.usernameBox.setText("")
-        self.usernameBox.setObjectName("usernameBox")
-
-        # Password
-        self.label_6 = QtWidgets.QLabel(self.loginframe)
-        self.label_6.setGeometry(QtCore.QRect(30, 250, 501, 16))
-        self.label_6.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_6.setObjectName("label_6")
-
-        # Eye Button
-        self.eyeButton = PushButton(self.loginframe)
-        self.eyeButton.setGeometry(QtCore.QRect(480, 270, 51, 41))
-        self.eyeButton.setStyleSheet("")
-        self.eyeButton.setText("")
-        self.eyeButton.setIconSize(QtCore.QSize(30, 30))
-        self.eyeButton.setCheckable(True)
-        self.eyeButton.setAutoRepeatDelay(400)
-        self.eyeButton.setFlat(True)
-        self.eyeButton.setDefault(False)
-        self.eyeButton.setObjectName("eyeButton")
-        self.showPass = False
-        self.eyeButton.clicked.connect(self.setEye)
-
-        # Password
-        self.passwordBox = QtWidgets.QLineEdit(self.loginframe)
-        self.passwordBox.setGeometry(QtCore.QRect(30, 270, 501, 41))
-        self.passwordBox.setStyleSheet("QLineEdit#passwordBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.passwordBox.setText("")
-        self.passwordBox.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.passwordBox.setObjectName("passwordBox")
-
-        # Nomor telepon
-        self.label_7 = QtWidgets.QLabel(self.loginframe)
-        self.label_7.setGeometry(QtCore.QRect(30, 320, 501, 22))
-        self.label_7.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_7.setObjectName("label_7")
-
-        self.telpBox = QtWidgets.QLineEdit(self.loginframe)
-        self.telpBox.setGeometry(QtCore.QRect(30, 344, 501, 41))
-        self.telpBox.setStyleSheet("QLineEdit#telpBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.telpBox.setText("")
-        rx = QtCore.QRegExp("[0-9]\\d{0,15}")
-        # the validator treats the regexp as "^[1-9]\\d{0,3}$"
-        validator = QtGui.QRegExpValidator(rx, self.telpBox)
-        self.telpBox.setValidator(validator)
-        self.telpBox.setObjectName("telpBox")
-
-        # Alamat
-        self.label_8 = QtWidgets.QLabel(self.loginframe)
-        self.label_8.setGeometry(QtCore.QRect(30, 393, 501, 21))
-        self.label_8.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_8.setObjectName("label_8")
-        self.addressBox = QtWidgets.QLineEdit(self.loginframe)
-        self.addressBox.setGeometry(QtCore.QRect(30, 416, 501, 41))
-        self.addressBox.setStyleSheet("QLineEdit#addressBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.addressBox.setText("")
-        self.addressBox.setObjectName("addressBox")
-
-        # Kode Pos
-        self.label_9 = QtWidgets.QLabel(self.loginframe)
-        self.label_9.setGeometry(QtCore.QRect(30, 465, 501, 21))
-        self.label_9.setStyleSheet("font: 12pt \"Sansita\";")
-        self.label_9.setObjectName("label_9")
-
-        # Kode Pos
-        self.posBox = QtWidgets.QLineEdit(self.loginframe)
-        self.posBox.setGeometry(QtCore.QRect(30, 488, 501, 41))
-        self.posBox.setStyleSheet("QLineEdit#posBox{\n"
-"    background-color: white;\n"
-"    border: 0px solid #555;\n"
-"    border-radius: 10px;\n"
-"    border-style: outset;\n"
-"    padding: 5px;\n"
-"    font: 12pt \"Sansita\";\n"
-"}")
-        self.posBox.setText("")
-        self.onlyInt = QtGui.QIntValidator()
-        self.posBox.setValidator(self.onlyInt)
-        self.posBox.setMaxLength(5)
-        self.posBox.setObjectName("posBox")
-
-        # Form Registrasi
-        self.label_10 = QtWidgets.QLabel(self.bgwidget)
-        self.label_10.setGeometry(QtCore.QRect(310, 105, 501, 31))
-        self.label_10.setStyleSheet("font: 16pt \"Sansita\";")
-        self.label_10.setObjectName("label_10")
-
-        # Navigation bar
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_35.setFont(font)
+        self.label_35.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_35.setScaledContents(False)
+        self.label_35.setWordWrap(True)
+        self.label_35.setObjectName("label_35")
+        self.label_36 = QtWidgets.QLabel(self.loginframe)
+        self.label_36.setGeometry(QtCore.QRect(60, 170, 50, 16))
+        self.label_36.setStyleSheet("font: 6pt \"Sansita\";")
+        self.label_36.setScaledContents(False)
+        self.label_36.setWordWrap(True)
+        self.label_36.setObjectName("label_36")
+        self.label_37 = QtWidgets.QLabel(self.loginframe)
+        self.label_37.setGeometry(QtCore.QRect(90, 220, 400, 161))
+        self.label_37.setStyleSheet("font: 13pt \"Sansita\";\n"
+"color : rgb(53, 78, 59);")
+        self.label_37.setScaledContents(False)
+        self.label_37.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_37.setWordWrap(True)
+        self.label_37.setObjectName("label_37")
+        self.label = QtWidgets.QLabel(self.bgwidget)
+        self.label.setGeometry(QtCore.QRect(800, 90, 1201, 711))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("././img/bgimage.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
         self.navbar = QtWidgets.QFrame(self.bgwidget)
         self.navbar.setGeometry(QtCore.QRect(0, 0, 1211, 91))
         self.navbar.setStyleSheet("QFrame#navbar{\n"
@@ -368,30 +216,59 @@ class Ui_Register(QtWidgets.QWidget):
         self.cartButton.setAutoDefault(True)
         self.cartButton.setFlat(True)
         self.cartButton.setObjectName("cartButton")
+        self.label_3 = QtWidgets.QLabel(self.bgwidget)
+        self.label_3.setGeometry(QtCore.QRect(280, 145, 251, 261))
+        self.label_3.setStyleSheet("QLabel {\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 15px;\n"
+"    border-style: outset;\n"
+"    color :  rgb(53, 78, 59);\n"
+"    }")
+        self.label_3.setText("")
+        self.label_3.setPixmap(QtGui.QPixmap("././img/roundedplant.png"))
+        self.label_3.setScaledContents(True)
+        self.label_3.setObjectName("label_3")
+        self.loginframe_2 = QtWidgets.QFrame(self.bgwidget)
+        self.loginframe_2.setGeometry(QtCore.QRect(570, 145, 191, 261))
+        self.loginframe_2.setStyleSheet("QFrame{\n"
+"    background-color: rgb(153, 86, 40);\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 20px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"}")
+        self.loginframe_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.loginframe_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.loginframe_2.setObjectName("loginframe_2")
+        self.loginframe_3 = QtWidgets.QFrame(self.bgwidget)
+        self.loginframe_3.setGeometry(QtCore.QRect(50, 145, 191, 261))
+        self.loginframe_3.setStyleSheet("QFrame{\n"
+"    \n"
+"    background-color: rgb(38, 95, 86);\n"
+"    border: 0px solid #555;\n"
+"    border-radius: 20px;\n"
+"    border-style: outset;\n"
+"    padding: 5px;\n"
+"}")
+        self.loginframe_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.loginframe_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.loginframe_3.setObjectName("loginframe_3")
+        self.label.raise_()
+        self.loginframe.raise_()
+        self.navbar.raise_()
+        self.label_3.raise_()
+        self.loginframe_2.raise_()
+        self.loginframe_3.raise_()
 
-        self.eyeButton.raise_()
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
-
-    def setEye(self):
-        self.showPass = not (self.showPass)
-        if (self.showPass) :
-                self.passwordBox.setEchoMode(QtWidgets.QLineEdit.Normal)
-        else :
-                self.passwordBox.setEchoMode(QtWidgets.QLineEdit.Password)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.registerButton.setText(_translate("Dialog", "Daftar"))
-        self.label_3.setText(_translate("Dialog", "Email"))
-        self.label_4.setText(_translate("Dialog", "Nama Lengkap"))
-        self.label_5.setText(_translate("Dialog", "Username"))
-        self.label_6.setText(_translate("Dialog", "Password"))
-        self.label_7.setText(_translate("Dialog", "Nomor Telepon"))
-        self.label_8.setText(_translate("Dialog", "Alamat"))
-        self.label_9.setText(_translate("Dialog", "Kode Pos"))
-        self.label_10.setText(_translate("Dialog", "Form Registrasi"))
+        self.label_35.setText(_translate("Dialog", "Layanan Penyewaan Tanaman Pertama di Dunia"))
+        self.label_36.setText(_translate("Dialog", "bukan"))
+        self.label_37.setText(_translate("Dialog", "OnlyPlants adalah aplikasi peminjaman tanaman yang memungkinkan penyewaan dari mana saja, dan kapan saja. <br><br> Kontak Kami : <br> 0812-1234-5678 "))
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))
@@ -405,7 +282,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Register()
+    ui = Ui_AboutUs()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

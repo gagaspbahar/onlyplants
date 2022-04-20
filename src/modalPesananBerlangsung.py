@@ -11,7 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
+class modalPesananBerlangsung(QtWidgets.QWidget):
+    
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(829, 120)
@@ -76,12 +80,18 @@ class Ui_Form(object):
         self.OrderID.setText(_translate("Form", "Order ID: XXXXX"))
         self.label_11.setText(_translate("Form", "Menunggu Konfirmasi Admin"))
 
+    def setDescriptionPesanan(self, orderId):
+        self.OrderID.setText("Order ID: " + str(orderId))
+        
 
+            
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = Ui_Form()
+    ui = modalPesananBerlangsung()
+
     ui.setupUi(Form)
+    ui.OrderID.setText("OrderId : 1")
     Form.show()
     sys.exit(app.exec_())

@@ -146,11 +146,14 @@ def login(conn, username, password):
     c = conn.cursor()
     passwordHash = hashlib.sha256(password.encode('utf-8')).hexdigest() # Ubah password jadi hashlib
     c.execute("SELECT idAkun FROM Akun_User WHERE username = ? AND passwordHash = ?", (username, passwordHash))
-    row = c.fetchone()[0]
-    if row is None:
+    try :
+        row = c.fetchone()[0]
+        if row is None:
+            return ""
+        else:
+            return row
+    except:
         return ""
-    else:
-        return row
 
 # 9. INISIALISASI INSERT DATA
 # Register
@@ -179,9 +182,9 @@ def addDetailPemesanan(conn, orderNumber, idTanaman, kuantitas, from_date, until
 
 # 10. INISIALISASI UPDATE DATA
 # Edit tanaman
-def editTanaman(conn, idTanaman, Nama, Harga, Stok, Deskripsi, image, video, asal_kota):
+def editTanaman(conn, idTanaman, Nama, Harga, Stok, Deskripsi, image, asal_kota):
     c = conn.cursor()
-    c.execute("UPDATE Tanaman SET Nama = ?, Harga = ?, Stok = ?, Deskripsi = ?, image = ?, video = ?, asal_kota = ? WHERE idTanaman = ?", (Nama, Harga, Stok, Deskripsi, image, video, asal_kota, idTanaman))
+    c.execute("UPDATE Tanaman SET Nama = ?, Harga = ?, Stok = ?, Deskripsi = ?, image = ?, asal_kota = ? WHERE idTanaman = ?", (Nama, Harga, Stok, Deskripsi, image, asal_kota, idTanaman))
     conn.commit()
 
 # Update status
@@ -236,7 +239,7 @@ def viewPesananAktif(conn):
 def viewKeranjang(conn):
     c = conn.cursor()
     c.execute("DROP VIEW IF EXISTS listKeranjang")
-    c.execute("CREATE VIEW listKeranjang AS SELECT p.idPelanggan AS IdPelanggan, nama, kuantitas, from_date, until_date, price FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'")
+    c.execute("CREATE VIEW listKeranjang AS SELECT p.idPelanggan AS IdPelanggan, p.orderNumber AS OrderNumber, nama, kuantitas, from_date, until_date, price, dp.idTanaman as idTanamans FROM Akun_User u, Tanaman t, Pemesanan p, Detail_pemesanan dp WHERE u.idAkun = p.idPelanggan AND p.orderNumber = dp.orderNumber AND t.idTanaman = dp.idTanaman AND status_penyewaan = 'not submitted'")
     row = c.fetchall()
     return row
 
@@ -253,6 +256,17 @@ def getKeranjang(conn, idPelanggan):
 def getPesananAktif(conn, idPelanggan):
     c = conn.cursor()
     c.execute("SELECT * FROM listPesananAktif WHERE IdPelanggan = ?", (idPelanggan,))
+    return c.fetchall()
+
+def getNamaUser(conn, idPelanggan) :
+    c = conn.cursor()
+    c.execute("SELECT customerName FROM Akun_User WHERE idAkun = ?", (idPelanggan,))
+    return c.fetchone()[0]
+
+# Update Remove Data Table
+def removeDetailPemesanan(conn, idTanamans, jumlah, tanggalSewa, tanggalPengembalian, orderNumber) :
+    c = conn.cursor()
+    c.execute("DELETE FROM Detail_Pemesanan WHERE orderNumber = ? AND kuantitas = ? AND from_date = ? AND until_date = ? AND idtanaman = ? AND status_penyewaan = 'not submitted", (orderNumber,jumlah, tanggalSewa, tanggalPengembalian, idTanamans) )
     return c.fetchall()
 
 # Testing

@@ -11,7 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
+class Ui_Form(QtWidgets.QWidget):
+
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
+        
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(341, 257)
@@ -66,10 +71,10 @@ class Ui_Form(object):
 "")
         self.label_2.setObjectName("label_2")
         self.verticalLayout_2.addWidget(self.label_2)
-        self.pushButton = QtWidgets.QPushButton(self.widget)
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.pushButton.setStyleSheet("/* Frame 4 */\n"
+        self.loginButton = QtWidgets.QPushButton(self.widget)
+        self.loginButton.setMinimumSize(QtCore.QSize(0, 50))
+        self.loginButton.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.loginButton.setStyleSheet("/* Frame 4 */\n"
 "QPushButton {\n"
 "position: absolute;\n"
 "width: 351px;\n"
@@ -103,12 +108,12 @@ class Ui_Form(object):
 "    color : black;\n"
 "}\n"
 "")
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_2.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.widget)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.pushButton_2.setStyleSheet("/* Frame 4 */\n"
+        self.loginButton.setObjectName("loginButton")
+        self.verticalLayout_2.addWidget(self.loginButton)
+        self.registrasiButton = QtWidgets.QPushButton(self.widget)
+        self.registrasiButton.setMinimumSize(QtCore.QSize(0, 50))
+        self.registrasiButton.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.registrasiButton.setStyleSheet("/* Frame 4 */\n"
 "QPushButton {\n"
 "position: absolute;\n"
 "width: 351px;\n"
@@ -142,8 +147,8 @@ class Ui_Form(object):
 "    color : black;\n"
 "}\n"
 "")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout_2.addWidget(self.pushButton_2)
+        self.registrasiButton.setObjectName("registrasiButton")
+        self.verticalLayout_2.addWidget(self.registrasiButton)
         self.verticalLayout_3.addWidget(self.widget)
         self.verticalLayout.addWidget(self.frame_2)
 
@@ -155,8 +160,8 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Anda belum "))
         self.label_2.setText(_translate("Form", "melakukan login"))
-        self.pushButton.setText(_translate("Form", "Masuk"))
-        self.pushButton_2.setText(_translate("Form", "Daftar"))
+        self.loginButton.setText(_translate("Form", "Masuk"))
+        self.registrasiButton.setText(_translate("Form", "Daftar"))
 
 
 if __name__ == "__main__":

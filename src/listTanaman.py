@@ -99,13 +99,10 @@ class Ui_Dialog(QtWidgets.QWidget):
 "    }")
         self.kiri.setCheckable(False)
         self.kiri.setObjectName("kiri")
-
-        # Label Kanan
+        
+        # Label kanan
         self.kanan = QtWidgets.QPushButton(self.bgwidget)
         self.kanan.setGeometry(QtCore.QRect(1125, 410, 50, 50))
-        font = QtGui.QFont()
-        font.setFamily("Sansita")
-        font.setPointSize(40)
         self.kanan.setFont(font)
         self.kanan.setAutoFillBackground(False)
         self.kanan.setStyleSheet("QPushButton {\n"

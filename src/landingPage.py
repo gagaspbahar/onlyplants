@@ -11,7 +11,6 @@
 from random import randint
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class UI_landingPage(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -44,7 +43,7 @@ class UI_landingPage(QtWidgets.QWidget):
 
         # Button mulai menyewa
         self.mulaiSewaButton = QtWidgets.QPushButton(self.contentFrame)
-        self.mulaiSewaButton.setGeometry(QtCore.QRect(190, 210, 171, 41))
+        self.mulaiSewaButton.setGeometry(QtCore.QRect(190, 225, 171, 41))
         font = QtGui.QFont()
         font.setFamily("Sansita")
         font.setPointSize(11)
@@ -81,12 +80,23 @@ class UI_landingPage(QtWidgets.QWidget):
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
 
-        # Text Landing Page
+        # Label Fakta Unik
         self.landingText = QtWidgets.QLabel(self.contentFrame)
-        self.landingText.setGeometry(QtCore.QRect(50, 20, 481, 171))
+        self.landingText.setGeometry(QtCore.QRect(40, 10, 481, 40))
         self.landingText.setStyleSheet("font: 16pt \"Sansita\";")
         self.landingText.setScaledContents(False)
         self.landingText.setWordWrap(True)
+        self.landingText.setText("Fakta Unik tentang Tanaman")
+        self.landingText.setAlignment(QtCore.Qt.AlignCenter)
+        self.landingText.setObjectName("landingText")
+
+        # Text Landing Page
+        self.landingText = QtWidgets.QLabel(self.contentFrame)
+        self.landingText.setGeometry(QtCore.QRect(40, 48, 481, 171))
+        self.landingText.setStyleSheet("font: 10pt \"Sansita\";")
+        self.landingText.setScaledContents(False)
+        self.landingText.setWordWrap(True)
+        self.landingText.setAlignment(QtCore.Qt.AlignCenter)
         self.landingText.setObjectName("landingText")
 
         # Navigation bar
@@ -236,7 +246,6 @@ class UI_landingPage(QtWidgets.QWidget):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.mulaiSewaButton.setText(_translate("Dialog", "Mulai Menyewa !"))
-        self.landingText.setText(_translate("Dialog", "Lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum"))
         self.berandaButton.setText(_translate("Dialog", "Beranda"))
         self.tanamanButton.setText(_translate("Dialog", "Tanaman"))
         self.aboutButton.setText(_translate("Dialog", "Tentang Kami"))

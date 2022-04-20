@@ -9,9 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-
-class Ui_Form(object):
+import database.db_api as db_api
+class Ui_Form(QtWidgets.QWidget):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1006, 142)
@@ -75,7 +74,7 @@ class Ui_Form(object):
         self.trash.setStyleSheet("background:transparent;")
         self.trash.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("UI\\../../img/Delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("././img/Delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.trash.setIcon(icon)
         self.trash.setIconSize(QtCore.QSize(31, 31))
         self.trash.setObjectName("trash")
@@ -94,13 +93,47 @@ class Ui_Form(object):
         self.tanggalSewa.setText(_translate("Form", "Tanggal Sewa"))
         self.tanggalKembali.setText(_translate("Form", "Tanggal Pengembalian"))
         self.hargaTotal.setText(_translate("Form", "Harga Total"))
+        self.trash.clicked.connect(lambda _, b=self: trashButton_handler(b))
 
+    def setDescription(self, Form, no, nama, jumlah, tanggalsewa, tanggalkembali, hargatotal):
+        self.noItem.setText(str(no)+".")
+        self.namaItem.setText(("Nama Item: " + str(nama)))
+        self.jumlah.setText(("Jumlah: "+ str(jumlah)))
+        self.tanggalSewa.setText(("Tanggal Sewa: " + str(tanggalsewa)))
+        self.tanggalKembali.setText(("Tanggal Pengembalian: " + tanggalkembali))
+        self.hargaTotal.setText(("Harga Total: " + str(hargatotal)))
+        
+    def __init__(self):
+        super(QtWidgets.QWidget, self).__init__()
+        self.setupUi(self)
+        
+def trashButton_handler(self):
+    Error = "failed :("
+    try:
+        #db_api.removeDetailPemesanan(conn, idTanamans, jumlah, tanggalSewa, tanggalPengembalian, orderNumber)    
+        if (self.horizontalLayout is not None):  
+            while (self.horizontalLayout.count()):
+                child = self.horizontalLayout.takeAt(0)
+                if child.widget() is not None:
+                    child.widget().deleteLater()
+                if child == self.verticalLayout_5:
+                    while(self.verticalLayout_5.count()):
+                        subchild = self.verticalLayout_5.takeAt(0)
+                        if subchild.widget() is not None:
+                            subchild.widget().deleteLater()
+                    self.verticalLayout_5.deleteLater()
+            self.horizontalLayout.deleteLater()
+            
+    except:
+        print(Error)
 
+                
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()
     ui.setupUi(Form)
+    ui.setDescription(Form, 1, "angel", 3, "10203", "alskdj", 12340)
     Form.show()
     sys.exit(app.exec_())

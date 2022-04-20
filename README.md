@@ -9,8 +9,17 @@
 ```
 git clone https://gitlab.informatika.org/gagaspbahar/if2250-2022-k01-11-onlyplants.git
 ```
+2. Unduh semua requirements dengan membuka repository dan mengetik
+```
+pip install -r requirements.txt
+```
 ## Cara Penggunaan
-
+1. Buka terminal pada repository penyimpanan ini (**if2250-2022-k01-11-onlyplants**)
+2. Ketik
+```
+python src/main.py
+```
+3. Selamat bermain dengan aplikasi buatan kami! Saran dan masukan sangat kami harapkan.
 
 ## Daftar Modul
 ---

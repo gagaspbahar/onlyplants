@@ -489,7 +489,7 @@ class Ui_Checkout(QtWidgets.QWidget):
         self.berandaButton.setText(_translate("Form", "Beranda"))
         self.tanamanButton.setText(_translate("Form", "Tanaman"))
         self.aboutButton.setText(_translate("Form", "Tentang Kami"))
-        self.konfirmasiPengajuan.setText(_translate("Form", "KonfirmasiPengajuanSewa"))
+        self.konfirmasiPengajuan.setText(_translate("Form", "Konfirmasi Pengajuan Sewa"))
         self.label.setText(_translate("Form", "Pesanan Anda"))
         self.label_5.setText(_translate("Form", "Daftar cartButton Pemesanan"))
         self.namaItem.setText(_translate("Form", "Nama Item"))

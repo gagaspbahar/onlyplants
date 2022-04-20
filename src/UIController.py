@@ -1,3 +1,4 @@
+from email import message
 import database.db_api as db_api
 import welcomescreen
 import login
@@ -182,6 +183,9 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.descRand = randint(0, len(self.desc) - 1)
     self.LandingPageWindow.landingText.setText(self.desc[self.descRand])
     self.widget.setCurrentWidget(self.LandingPageWindow)
+  
+  def handleCheckout(self):
+    Widgets.messageBoxCheckoutBerhasil()
 
   def __init__(self) -> None:
     super(QtWidgets.QWidget, self).__init__()
@@ -229,9 +233,11 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     self.widget.addWidget(self.AddTanamanWindow)
 
     self.EditTanamanWindow = editTanaman.UI_editTanaman()
+    # self.EditTanamanWindow.simpanPerubahanButton.clicked.connect(lambda: self.handleEditTanaman(conn))
     self.widget.addWidget(self.EditTanamanWindow)
 
     self.CheckOutWindow = checkout.Ui_Checkout()
+    self.CheckOutWindow.konfirmasiPengajuan.clicked.connect(lambda: self.handleCheckout())
     self.widget.addWidget(self.CheckOutWindow)
 
     self.greetingUserWindow = greetingUser.Ui_Form()

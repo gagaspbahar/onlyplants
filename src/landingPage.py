@@ -11,6 +11,14 @@
 from random import randint
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+facts = ["Seorang peneliti asal Jerman, Peter Wohlleben, menemukan fakta unik bahwa ternyata pohon mempunyai perasaan, bisa berteman, dan saling menyayangi seperti halnya manusia lho Squad. Peter mengatakan bahwa pohon dapat merasakan sakit dan emosi seperti rasa takut. Pohon juga memiliki ikatan yang kuat layaknya pasangan manusia dan lebih senang jika tumbuh berdekatan serta saling bersentuhan. Hasil penelitian unik ini bisa kamu tonton di sebuah film dokumenter bernama ‘Intelligent Trees’. Tertarik?",
+"Selain memberikan manfaat bagi kehidupan manusia, pohon juga ternyata bisa mematikan. Menurut Guinness World Records, pohon manchineel adalah pohon paling berbahaya di dunia. Bahkan, semua bagian dari manchineel sangat beracun dan berpotensi menyebabkan kematian. Getah dari pohon ini dapat membuat kulit melepuh seperti terbakar. Jika memakan buahnya yang berbentuk seperti apel, akan membuat tenggorokan terasa panas terbakar dan mengalami sesak nafas.",
+"Pohon terbesar di dunia berada di kawasan kecil di lereng barat pegunungan Sierra Nevada, California, AS. Pohon ini bernama sequoia raksasa, atau Sequoiadendron giganteum. Sequoia terbesar dan tertinggi, dapat tumbuh hingga seukuran gedung 36 lantai, lho. Pada umumnya, pohon ini berdiameter 6 meter dengan cabang-cabang raksasa berukuran hingga diameter 2,5 meter. Kulit pohon sequoia bisa memiliki ketebalan 90 cm. Selain bentuknya yang besar, pohon ini juga mempunyai umur yang panjang hingga 5.000 tahun.",
+"Tanaman herbal memiliki segudang manfaat kesehatan. Seperti daun basil yang punya zat antioksidan kuat dan bisa melindungi tubuh dari radikal bebas. Atau daun thyme yang bisa meningkatkan sistem kekebalan tubuh, menurunkan tekanan darah dan menghentikan batuk, ungkap laman Health Line.", 
+"Pohon yang diduga paling lama hidup adalah pohon pinus bristlecone dari California timur, yang pada tahun 2012 usianya diperkirakan 5.062 tahun. Namun untuk mencapai usia lanjut, beberapa pohon memiliki taktik yang cukup cerdik: melakukan kloning. Pohon mengkloning diri sendiri dan hidup di sebuah koloni klona, yang merupakan kumpulan pohon identik yang terhubung oleh sistem akar yang sama.",
+"Peneliti Rusia berhasil menghidupkan tanaman yang telah lama punah dengan menggunakan biji yang ditanam oleh tupai 32.000 tahun yang lalu. Jejak tanaman silene stenophylla (tanaman bunga yang suka pada iklim dingin) yang berasal dari Jaman Es ditemukan di sempadan sungai di Siberia. Ilmuwan mengambil jaringan dari biji tanaman itu dan menggunakannya untuk menumbuhkan kecambah, yang lalu tumbuh menjadi tanaman tersebut."]
+
+
 class UI_landingPage(QtWidgets.QWidget):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -96,6 +104,9 @@ class UI_landingPage(QtWidgets.QWidget):
         self.landingText.setStyleSheet("font: 10pt \"Sansita\";")
         self.landingText.setScaledContents(False)
         self.landingText.setWordWrap(True)
+        self.desc = facts
+        self.descRand = randint(0, len(self.desc) - 1)
+        self.landingText.setText(self.desc[self.descRand])
         self.landingText.setAlignment(QtCore.Qt.AlignCenter)
         self.landingText.setObjectName("landingText")
 

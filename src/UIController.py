@@ -42,7 +42,7 @@ class UI_MainWindow(QtWidgets.QMainWindow):
     password = self.LoginWindow.usernamebox_2.text()
     LoggedInID = db_api.login(conn, username, password)
     if (LoggedInID == "" or username =="" or password ==""):
-      Widgets.messageBoxLoginBerhasil()
+      Widgets.messageBoxLoginGagal(LoggedInID, username, password)
     else :
       Widgets.messageBoxLoginBerhasil()
       print("Login successful as ID: ", LoggedInID)

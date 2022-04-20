@@ -467,7 +467,7 @@ class Ui_Dialog(QtWidgets.QWidget):
         if isAdmin:
             self.Tanaman1Window = editTanaman.UI_editTanaman(row, conn)
         else:
-            self.Tanaman1Window = detailTanaman.UI_detailTanaman(row)
+            self.Tanaman1Window = detailTanaman.UI_detailTanaman(row, conn)
 
     def updateTanaman2(self, row, isAdmin, conn):
         self.tanaman2.setText(row[1])
@@ -477,7 +477,7 @@ class Ui_Dialog(QtWidgets.QWidget):
         if isAdmin:
             self.Tanaman2Window = editTanaman.UI_editTanaman(row, conn)
         else:
-            self.Tanaman2Window = detailTanaman.UI_detailTanaman(row)
+            self.Tanaman2Window = detailTanaman.UI_detailTanaman(row, conn)
 
     def updateTanaman3(self, row, isAdmin, conn):
         self.tanaman3.setText(row[1])
@@ -487,7 +487,7 @@ class Ui_Dialog(QtWidgets.QWidget):
         if isAdmin:
             self.Tanaman3Window = editTanaman.UI_editTanaman(row, conn)
         else:
-            self.Tanaman3Window = detailTanaman.UI_detailTanaman(row)
+            self.Tanaman3Window = detailTanaman.UI_detailTanaman(row, conn)
 
     def updateTanaman4(self, row, isAdmin, conn):
         self.tanaman4.setText(row[1])
@@ -497,7 +497,7 @@ class Ui_Dialog(QtWidgets.QWidget):
         if isAdmin:
             self.Tanaman4Window = editTanaman.UI_editTanaman(row, conn)
         else:
-            self.Tanaman4Window = detailTanaman.UI_detailTanaman(row)
+            self.Tanaman4Window = detailTanaman.UI_detailTanaman(row, conn)
     
     def updateTanaman5(self, row, isAdmin, conn):
         self.tanaman5.setText(row[1])
@@ -507,7 +507,7 @@ class Ui_Dialog(QtWidgets.QWidget):
         if isAdmin:
             self.Tanaman5Window = editTanaman.UI_editTanaman(row, conn)
         else:
-            self.Tanaman5Window = detailTanaman.UI_detailTanaman(row)
+            self.Tanaman5Window = detailTanaman.UI_detailTanaman(row, conn)
 
     def updateTanaman6(self, row, isAdmin, conn):
         self.tanaman6.setText(row[1])
@@ -517,7 +517,7 @@ class Ui_Dialog(QtWidgets.QWidget):
         if isAdmin:
             self.Tanaman6Window = editTanaman.UI_editTanaman(row, conn)
         else:
-            self.Tanaman6Window = detailTanaman.UI_detailTanaman(row)
+            self.Tanaman6Window = detailTanaman.UI_detailTanaman(row, conn)
 
 
     def __init__(self, conn):
@@ -526,12 +526,12 @@ class Ui_Dialog(QtWidgets.QWidget):
         dummy = (1, 'Dummy', 100000, 10, "Dummy data", None, "Jakarta")
         self.tanamanCounter = 0
         self.totalTanaman = 0
-        self.Tanaman1Window = detailTanaman.UI_detailTanaman(dummy)
-        self.Tanaman2Window = detailTanaman.UI_detailTanaman(dummy)
-        self.Tanaman3Window = detailTanaman.UI_detailTanaman(dummy)
-        self.Tanaman4Window = detailTanaman.UI_detailTanaman(dummy)
-        self.Tanaman5Window = detailTanaman.UI_detailTanaman(dummy)
-        self.Tanaman6Window = detailTanaman.UI_detailTanaman(dummy)
+        self.Tanaman1Window = detailTanaman.UI_detailTanaman(dummy, conn)
+        self.Tanaman2Window = detailTanaman.UI_detailTanaman(dummy, conn)
+        self.Tanaman3Window = detailTanaman.UI_detailTanaman(dummy, conn)
+        self.Tanaman4Window = detailTanaman.UI_detailTanaman(dummy, conn)
+        self.Tanaman5Window = detailTanaman.UI_detailTanaman(dummy, conn)
+        self.Tanaman6Window = detailTanaman.UI_detailTanaman(dummy, conn)
 
         # self.kanan.clicked.connect(lambda: self.increaseTanamanCounter(conn))
         # self.kiri.clicked.connect(lambda: self.decreaseTanamanCounter(conn))

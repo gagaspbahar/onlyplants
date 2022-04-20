@@ -506,25 +506,30 @@ class Ui_Checkout(QtWidgets.QWidget):
         self.setupUi(self)
 
     def inisial(self, conn, idPelanggan):
+            currentOrderNumber = db_api.getOrderTableLength(conn) - 1
             self.removeIsiKeranjang()
             self.removePesananWidgets()
-            self.handleAddKeranjang(conn, idPelanggan)
+            # self.handleAddKeranjang(conn, currentOrderNumber)
+            self.handleAddPesanan(conn, idPelanggan)
             
-    def handleAddKeranjang(self, conn, idPelanggan):
-                listItem = db_api.getKeranjang(conn, idPelanggan)
+    def handleAddKeranjang(self, conn, orderNumber):
+                db_api.viewKeranjang(conn)
+                listItem = db_api.getKeranjang(conn, orderNumber)
                 totalPrice = 0
                 count = 1
+                orderID = 0
                 for description in listItem:
                         keranjang = Ui_Form()
                         FormKeranjang = QtWidgets.QWidget()
                         descrip = list(description)
+                        orderID = descrip[1]
                         keranjang.setupUi(FormKeranjang)
                         keranjang.setDescription(FormKeranjang, count,descrip[2], descrip[3], descrip[4], descrip[5], descrip[6])
                         count+=1
                         totalPrice += descrip[6]
                         self.verticalLayout_6.addWidget(FormKeranjang)
                 self.totalHarga.setText("Total Harga: Rp" + str(totalPrice))
-                self.orderId.setText("Order Id: "+ str(descrip[1]))
+                self.orderId.setText("Order Id: "+ str(orderID))
 
     def handleAddPesanan(self, conn, idPelanggan):
                 listPesanan = db_api.getPesananAktif(conn, idPelanggan)
@@ -536,7 +541,7 @@ class Ui_Checkout(QtWidgets.QWidget):
                         pesanan.OrderID.setText("Order Number: "+ str(ord[1]))
                         self.slotPesananBerlangsung.addWidget(FormPesanan)
             
-    def konfirmasiPesanan_handeler(self, conn, orderNumber, idPelanggan):
+    def konfirmasiPesanan_handler(self, conn, orderNumber, idPelanggan):
                 self.removeIsiKeranjang()
                 self.removePesananWidgets()
                 db_api.updateStatus(conn, orderNumber, "waiting for approval")
@@ -566,9 +571,9 @@ class Ui_Checkout(QtWidgets.QWidget):
                 print("remove from keranjang totally failed, hope it works")
 if __name__ == "__main__":
         
-        
         database = r".\src\database\onlyplants.db"
         conn = db_api.create_connection(database)
+        currentOrderNumber = db_api.getOrderTableLength(conn)
         db_api.viewPemesanan(conn)
         db_api.viewPesananAktif(conn)
         db_api.viewKeranjang(conn)
@@ -578,7 +583,7 @@ if __name__ == "__main__":
         Form = QtWidgets.QWidget()
         ui = Ui_Checkout()
         ui.setupUi(Form)
-        ui.handleAddKeranjang(conn,1)
+        ui.handleAddKeranjang(conn, currentOrderNumber)
         ui.konfirmasiPengajuan.clicked.connect(lambda: ui.konfirmasiPesanan_handeler(conn,1,1))
         Form.show()
         sys.exit(app.exec_())

@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import database.db_api as db_api
 
 class UI_detailTanaman(QtWidgets.QWidget):
     def setupUi(self, Dialog):
@@ -486,7 +487,21 @@ class UI_detailTanaman(QtWidgets.QWidget):
             jumlah = 0
         self.totalHargaText.setText(str(jumlah * int(self.hargaText.text())))
 
-    def __init__(self, data):
+    def handleSubmit(self, conn):
+        currentOrderNumber = db_api.getOrderTableLength(conn) - 1
+        try:
+            jumlah = int(self.jumlahText.text())
+        except:
+            jumlah = 0
+        
+        mulaiSewa = db_api.changeDateFormat(self.mulaiSewaDate.text())
+        kembaliSewa = db_api.changeDateFormat(self.kembaliSewaDate.text())
+
+        db_api.addDetailPemesanan(conn, currentOrderNumber, self.data[0], jumlah, mulaiSewa, kembaliSewa, "not submitted", int(self.totalHargaText.text()))
+
+        print("Successfully added " + str(self.data[0]) + " to cart")
+
+    def __init__(self, data, conn):
         super(QtWidgets.QWidget, self).__init__()
         self.data = data
         self.setupUi(self)
@@ -500,6 +515,8 @@ class UI_detailTanaman(QtWidgets.QWidget):
             pm = QtGui.QPixmap()
             pm.loadFromData(data[5])
             self.gambarTanaman.setPixmap(pm)
+        
+        self.tambahkanKeKeranjangButton.clicked.connect(lambda: self.handleSubmit(conn))
 
 
 if __name__ == "__main__":

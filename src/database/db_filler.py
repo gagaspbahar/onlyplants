@@ -6,10 +6,10 @@ if __name__ == "__main__":
   conn = create_connection(db)
   createInitializeTable(conn)
   register(conn, "admin", hash("admin"), "Admin", "admin@onlyPlants.com", "08080808111", "Jalan Kenangan", 13242)
-  register(conn, "Gagas", hash("gagas"), "Gagas Praharsa Bahar", "gagas@cust.com", "0801238405", "Jalan Bekasi", 29292)
-  register(conn, "Dhika", hash("dhika"), "Andhika Arta Aryanto", "dhika@cust2.com", "08012384105", "Jalan Deket Kiara Artha", 29294)
-  register(conn, "Rania", hash("rania"), "Gagas Praharsa Bahar", "rania@cust3.com", "08012383405", "Jalan BSD", 29293)
-  register(conn, "Angel", hash("angel"), "Angelica Winasta Sinisuka", "angel@cust4.com", "08012384405", "Jalan Bandung", 29295)
+  register(conn, "gagas", hash("gagas"), "Gagas Praharsa Bahar", "gagas@cust.com", "0801238405", "Jalan Bekasi", 29292)
+  register(conn, "dhika", hash("dhika"), "Andhika Arta Aryanto", "dhika@cust2.com", "08012384105", "Jalan Deket Kiara Artha", 29294)
+  register(conn, "rania", hash("rania"), "Eppy", "rania@cust3.com", "08012383405", "Jalan BSD", 29293)
+  register(conn, "angel", hash("angel"), "Angelica Winasta Sinisuka", "angel@cust4.com", "08012384405", "Jalan Bandung", 29295)
 
   # insert data tanaman
   image = convertToBinaryData(r".\img\bonsai.jpg")

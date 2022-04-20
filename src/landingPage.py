@@ -263,7 +263,7 @@ class UI_landingPage(QtWidgets.QWidget):
         
     def __init__(self):
         super(QtWidgets.QWidget, self).__init__()
-        self.desc = ["Tahukah anda bahwa", "Lalala", "Lilili", "Lululu", "Lelele"]
+        self.desc = ["Selain memberikan manfaat bagi kehidupan manusia, pohon juga ternyata bisa mematikan. Menurut Guinness World Records, pohon manchineel adalah pohon paling berbahaya di dunia. Bahkan, semua bagian dari manchineel sangat beracun dan berpotensi menyebabkan kematian. Getah dari pohon ini dapat membuat kulit melepuh seperti terbakar. Jika memakan buahnya yang berbentuk seperti apel, akan membuat tenggorokan terasa panas terbakar dan mengalami sesak nafas."]
         self.descRand = randint(0, len(self.desc) - 1)
         self.setupUi(self)
         self.landingText.setText(self.desc[self.descRand])

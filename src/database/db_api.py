@@ -2,6 +2,7 @@ import sqlite3
 from sqlite3 import Error
 import hashlib
 import base64
+import datetime
 
 # 1. BIKIN KONEKSI
 def create_connection(db_file):
@@ -114,7 +115,7 @@ def createInitializeTable (conn) :
                                 );"""
 
     sql_create_pemesanan_table = """ CREATE TABLE IF NOT EXISTS Pemesanan (
-                                    orderNumber INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                    orderNumber INTEGER PRIMARY KEY NOT NULL,
                                     idPelanggan BIGINT UNSIGNED NOT NULL,
                                     tanggalPemesanan DATETIME NOT NULL,
                                     FOREIGN KEY (idPelanggan) REFERENCES Akun_User (idAkun)
@@ -171,7 +172,8 @@ def addTanaman(conn, Nama, Harga, Stok, Deskripsi, image, asal_kota):
 # Input pemesanan
 def addPemesanan(conn, idPelanggan, tanggalPemesanan):
     c = conn.cursor()
-    c.execute("INSERT INTO Pemesanan (idPelanggan, tanggalPemesanan) VALUES (?, ?)", (idPelanggan, tanggalPemesanan))
+    curr = getOrderTableLength(conn)
+    c.execute("INSERT INTO Pemesanan (orderNumber, idPelanggan, tanggalPemesanan) VALUES (?, ?, ?)", (curr, idPelanggan, tanggalPemesanan))
     conn.commit()
 
 # Input detail pemesanan
@@ -243,13 +245,19 @@ def viewKeranjang(conn):
     row = c.fetchall()
     return row
 
+def getOrderTableLength(conn):
+    c = conn.cursor()
+    c.execute("SELECT COUNT(*) FROM Pemesanan")
+    row = c.fetchone()[0]
+    return row
+
 def hash(string):
     return hashlib.sha256(string.encode('utf-8')).hexdigest()
 
 # Get Data View Keranjang Table
-def getKeranjang(conn, idPelanggan):
+def getKeranjang(conn, orderNumber):
     c = conn.cursor()
-    c.execute("SELECT * FROM listKeranjang WHERE IdPelanggan = ?", (idPelanggan,))
+    c.execute("SELECT * FROM listKeranjang WHERE OrderNumber = ?", (orderNumber,))
     return c.fetchall()
 
 # Get Data View PesananAktif Table
@@ -268,6 +276,9 @@ def removeDetailPemesanan(conn, idTanamans, jumlah, tanggalSewa, tanggalPengemba
     c = conn.cursor()
     c.execute("DELETE FROM Detail_Pemesanan WHERE orderNumber = ? AND kuantitas = ? AND from_date = ? AND until_date = ? AND idtanaman = ? AND status_penyewaan = 'not submitted", (orderNumber,jumlah, tanggalSewa, tanggalPengembalian, idTanamans) )
     return c.fetchall()
+
+def changeDateFormat(dateNow):
+    return datetime.datetime.strptime(dateNow, '%d/%m/%Y').strftime('%Y-%m-%d')
 
 # Testing
 if __name__ == '__main__':

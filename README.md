@@ -5,10 +5,7 @@
 ## Cara Instalasi
 ---
 
-1. Unduh repository ke penyimpanan lokal dengan membuka cmd dan mengetik
-```
-git clone https://gitlab.informatika.org/gagaspbahar/if2250-2022-k01-11-onlyplants.git
-```
+1. Clone repository ke penyimpanan lokal
 2. Unduh semua requirements dengan membuka repository dan mengetik
 ```
 pip install -r requirements.txt
@@ -75,6 +72,6 @@ python src/main.py
 | status_penyewaan | varchar(50)
 | price | double
 
-## Status Projek
+## Status Proyek
 ---
-Belum selesai
+Selesai
